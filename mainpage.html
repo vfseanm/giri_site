@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang = "en">
+<head>
+        <link href="stylesheets/bootstrap.css" rel="stylesheet">
+
+        <script src="http://code.jquery.com/jquery-latest.js">     </script>
+        <script src="stylesheets/bootstrap.js"></script>
+        <style type="text/css">
+            body {background-image:url('images/fabric.png');}
+        </style>
+</head>
+<body>
+
+
+        <div class = "container">
+                <div class = "toprow">
+                </div>
+                <div class = "masthead">
+                        <ul class = "nav nav-pills pull-right">
+                            <li>
+                                <a class="btn btn-link" href="mainpage.html">Main</a>
+                            </li>
+                           
+     
+                           <!--  <li><a class="btn btn-link" href = "table.php#" id = "account">Account</a></li> -->
+                      
+                              <li class="dropdown">
+                                <a class="dropdown-toggle"
+                                   data-toggle="dropdown"
+                                   href="#">
+                                    Account
+                                    <b class="caret"></b>
+                                  </a>
+                                <ul class="dropdown-menu">
+                                    <li><a class="btn btn-link" href = "table.php" id = "account">Items</a></li>
+                                    <li><a class="btn btn-link" href = "homepage.html">Log Out</a></li>
+                                  <!-- links -->
+                                </ul>
+                              </li>
+                 
+                                                                     
+                        </ul>
+                </div>
+                <div class = "row"> </div>
+                <hr>
+                <div class = "span3 offset4">
+                        <h1> <img src="images/logo.png" class="img-rounded"> </h1>
+                </div>
+                <div class = "span4"></div>
+                <div class = "row"></div>
+                <!-- <div class="input-append">
+  					<input class="span9" id="appendedInputButton" type="text">
+  					<button class="btn" type="button">Stick It!</button>
+				</div> -->
+                <div class = "skinnytoprow"></div>
+                	<form class = "form">
+                		<div class = "span7 offset1">
+                           	<input id = "link" type="text" class = "input-block-level" placeholder="Enter URL here!"/>
+                        </div>
+                        <div class = "span.5"></div>
+                		<!-- <button class = "btn btn-primary" type = "submit" data-toggle="collapse" data-target="#info">Stick It!</button>
+                		<div id="info" class="collapse in"> … </div> -->
+                		<button type="button" id = "stickit" class="btn btn-primary"  data-target="#info">Stick It!</button>
+
+                	
+                	</form>
+
+                    <div id="alert" class="alert alert-error hide" data-alert="alert" style="top:0">
+                    <p><strong>Error!</strong> Please enter a valid URL</p>
+                    </div>
+
+
+                    <div id="info" class="collapse">
+                    <div class="accordion-inner" style = "line-height: 40px">
+                        <div class = "span 4">
+                    <img src="images/noimage.jpeg" class="img-rounded">
+                    </div>
+                        <div class = "span .5"> </div>
+                        <table class = "table-condensed">
+                            <tr>
+                                <td> <small> Company Name </small> </td>
+                                <td> <input type="text" id = "storeName" class = "span4" placeholder="Company name"/> </td>
+                            </tr>
+                            <tr>
+                                <td> <small> Product Name </small></td>
+                                <td> <input type="text" id = "itemName" class = "span4" placeholder="Product Name"/> </td>
+                            </tr>
+                            <tr>
+                                <td> <small> Item Price ($) </small> </td>
+                                <td> <input type="number" id = "itemPrice" class = "span2" placeholder="$"/> </td>
+                            </tr>
+                            <tr>
+                                <td> <small> Desired Price ($) </small> </td>
+                                <td> <input type="number" id = "desiredPrice" class = "span2" placeholder="$"/> </td>
+                            <tr>
+                                <td> <small> </small> </td>
+                                <td>  <button type="button" id = "trackit" class="btn btn-primary">Track It!</button>  
+                                        <small> &nbsp <small>
+                                        <button type="button" id = "stickagain" class="btn btn-success">Stick again!</button>
+                                        <a class="wepay-widget-button wepay-green" id="wepay_widget_anchor_5120796913754" href="https://www.wepay.com/stores/919062/item/346078">Buy Now</a><script type="text/javascript">var WePay = WePay || {};WePay.load_widgets = WePay.load_widgets || function() { };WePay.widgets = WePay.widgets || [];WePay.widgets.push( {object_id: 346078,widget_type: "store_item_buy_now",anchor_id: "wepay_widget_anchor_5120796913754",widget_options: {store_id: 919062,show_item_price: false,show_item_images: true,button_text_sold_out: "Sold Out",show_item_custom_options: true,button_text: "Buy Now"}});if (!WePay.script) {WePay.script = document.createElement('script');WePay.script.type = 'text/javascript';WePay.script.async = true;WePay.script.src = 'https://static.wepay.com/min/js/widgets.v2.js';var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(WePay.script, s);} else if (WePay.load_widgets) {WePay.load_widgets();}</script>
+
+                                </td>
+                        </table>
+                      
+                       
+                        </div>
+
+      				</div>
+                  <div id = "bottom">
+                   <hr>
+
+                   <div class = "container">
+                     <div class="span2 offset1" style = "display:inline; -moz-border-radius: 19px;
+                            -webkit-border-radius: 19px;
+                            border-radius: 19px;
+                            /*IE 7 AND 8 DO NOT SUPPORT BORDER RADIUS*/
+                            -moz-box-shadow: 0px 0px 10px #777;
+                            -webkit-box-shadow: 0px 0px 10px #777;
+                            box-shadow: 0px 0px 10px #777;
+                            /*IE 7 AND 8 DO NOT SUPPORT BLUR PROPERTY OF SHADOWS*/
+                            opacity: 0.9;
+                            -ms-filter: progid: DXImageTransform.Microsoft.Alpha(Opacity = 90);
+                            /*-ms-filter must come before filter*/
+                            filter: alpha(opacity = 90); background-color:#FFF; padding-top: 20px; padding-right: 20px; padding-left: 20px; padding-bottom: 20px; height:200px; width:170px"><h3 style = "text-align: center">1. Find an item</h3>
+                            <div style = "margin-left: auto; margin-right: auto; text-align: center">
+                          
+                            <p>Look for items you want to buy online</p>
+                                <div style = "padding-top: 5px">
+                                 <img width = "140px" height = "30px" src = "images/nike_shoes.jpg"  />
+                                </div>
+                            </div>
+                    </div>
+
+                    <div class="span2" style = "display:inline; -moz-border-radius: 19px;
+                            -webkit-border-radius: 19px;
+                            border-radius: 19px;
+                            /*IE 7 AND 8 DO NOT SUPPORT BORDER RADIUS*/
+                            -moz-box-shadow: 0px 0px 10px #777;
+                            -webkit-box-shadow: 0px 0px 10px #777;
+                            box-shadow: 0px 0px 10px #777;
+                            /*IE 7 AND 8 DO NOT SUPPORT BLUR PROPERTY OF SHADOWS*/
+                            opacity: 0.9;
+                            -ms-filter: progid: DXImageTransform.Microsoft.Alpha(Opacity = 90);
+                            /*-ms-filter must come before filter*/
+                            filter: alpha(opacity = 90); background-color:#FFF; padding-top: 20px; padding-right: 20px; padding-left: 20px; padding-bottom: 20px; height:200px; width:170px"><h3 style = "text-align: center">2. Track it</h3>
+                            <div style = "margin-left: auto; margin-right: auto; text-align: center">
+                            <p>Paste the URL of the item into our search bar</p>
+                             <div style = "padding-top: 10px">
+                                     <img width = "100px" height = "20px" src = "images/shopping_cart.png"  />
+                                </div>
+                           
+                            </div>
+                    </div>
+
+                    <div class="span2" style = "display:inline; -moz-border-radius: 19px;
+                            -webkit-border-radius: 19px;
+                            border-radius: 19px;
+                            /*IE 7 AND 8 DO NOT SUPPORT BORDER RADIUS*/
+                            -moz-box-shadow: 0px 0px 10px #777;
+                            -webkit-box-shadow: 0px 0px 10px #777;
+                            box-shadow: 0px 0px 10px #777;
+                            /*IE 7 AND 8 DO NOT SUPPORT BLUR PROPERTY OF SHADOWS*/
+                            opacity: 0.9;
+                            -ms-filter: progid: DXImageTransform.Microsoft.Alpha(Opacity = 90);
+                            /*-ms-filter must come before filter*/
+                            filter: alpha(opacity = 90); background-color:#FFF; padding-top: 20px; padding-right: 20px; padding-left: 20px; padding-bottom: 20px; height:200px; width:170px"><h3 style = "text-align: center">3. Wait</h3>
+                            <div style = "margin-left: auto; margin-right: auto; text-align: center">
+                            <p>We'll send you an email when the price drops!</p>
+                            <div style = "padding-top: 10px">
+                                    <img width = "70px" height = "20px" src = "images/dollar.jpg"  />
+                            </div>
+                           
+                            </div>
+                    </div>
+
+                </div>
+                <div>
+                    &nbsp
+                </div>
+                 <div>
+                    &nbsp
+                </div>
+
+
+
+                    </div>
+      			</div>
+               
+        </div>
+
+
+    <div class="navbar navbar-fixed-bottom">
+
+      <a>  &copy; Dan Deng</a>
+    </div>
+
+</body>
+    <script type="text/javascript">
+        (function(){
+            $('#stickit').click(parseURL)
+            $('#stickagain').click(close) 
+             $('#account').click(showItems)
+        })();
+
+            function showItems() {
+                $.ajax({
+                   url: 'table.html',
+                   success: function (response) {//response is value returned from php (for your example it's "bye bye"
+                     //alert(response);
+                   }
+                });
+            }
+            function parseURL() {
+                url = $('#link')[0].value;
+                if (url === "") {  
+                    $('#alert').fadeIn();
+                }
+                else {
+                    $('#alert').fadeOut();
+                    $('#info').collapse('show');
+                     var path = url.split('/');
+                    $('#storeName')[0].value = path[2];
+                    $('#itemName')[0].value = path[3];
+                }                  
+            }
+
+            function close() {
+                $("#info").collapse('hide');   
+                $('#alert').fadeOut();                     
+            }
+
+
+            $(function() {  
+                   $("#trackit").click(function() {  
+                    // validate and process form here  
+                    var storeName = $("input#storeName").val(); 
+                    var itemName = $("input#itemName").val();  
+                    var itemPrice = $("input#itemPrice").val(); 
+                    var desiredPrice = $("input#desiredPrice").val(); 
+                    var link = $("input#link").val();
+                    if (storeName == "") {           
+                        $('#alert').fadeIn();
+                        $('#alert').html("<p>You must input a store name</p>");
+                    }     
+                    else if (itemName == "") {           
+                        $('#alert').fadeIn();
+                        $('#alert').html("<p>You must input a item name</p>");
+                    } 
+                    else if (parseInt($("#itemPrice").val()) == 0) {
+                        $('#alert').fadeIn();
+                        $('#alert').html("<p>Then why are you using this?</p>");
+                    } 
+                    else if (parseInt($("#desiredPrice").val()) == 0) {
+                        $('#alert').fadeIn();
+                        $('#alert').html("<p>That's unlikely to happen...</p>");
+                    } 
+                    else {
+                        $.post('input.php', {storeName: storeName, itemName: itemName, itemPrice: itemPrice, desiredPrice: desiredPrice, link: link},
+                        function(data){
+                            $("#alert").attr('class', 'alert alert-success');
+                            $('#alert').fadeIn();
+                            $('#alert').html("Item added! Check 'Items' in Account") 
+                        });
+                    }
+                    return false;
+                    });
+                });
+
+
+    </script>
+</html>
