@@ -26,7 +26,7 @@ $result = mysqli_query($con, "UPDATE home SET description='$description', image=
 
 mysqli_close($con);
 
-header( 'Location: http://127.0.0.1/projects/GIRI/index.php' );
+header( 'Location: http://127.0.0.1/projects/GIRI/giri_site/index.php' );
 }
 
 ?>

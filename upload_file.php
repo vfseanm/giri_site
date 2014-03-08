@@ -13,7 +13,7 @@ if ((($file["type"] == "image/gif")
 || ($file["type"] == "image/pjpeg")
 || ($file["type"] == "image/x-png")
 || ($file["type"] == "image/png"))
-&& ($file["size"] < 200000)
+&& ($file["size"] < 1000000)
 && in_array($extension, $allowedExts))
   {
   if ($file["error"] > 0)

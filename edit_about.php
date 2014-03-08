@@ -19,6 +19,7 @@ if (mysqli_connect_errno())
   echo "Failed to connect to MySQL: " . mysqli_connect_error();
   }
 if ($file_path == 'invalid'){
+	echo 'invalid';
 $result = mysqli_query($con, "UPDATE about SET headline='$headline', content='$content' WHERE id=1");
 }
 else{
@@ -27,7 +28,7 @@ $result = mysqli_query($con, "UPDATE about SET headline='$headline', content='$c
 
 mysqli_close($con);
 
-header( 'Location: http://127.0.0.1/projects/GIRI/about.php' );
+//header( 'Location: http://127.0.0.1/projects/GIRI/giri_site/about.php' );
 }
 
 ?>

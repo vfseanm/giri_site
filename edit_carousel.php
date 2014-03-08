@@ -23,16 +23,15 @@ for($i = 0; $i<$length; $i++){
 	$image = $_FILES['carouselfile'.($i+1)];
 	$file_path = upload_file($image);
 	if ($file_path != 'invalid'){
+		echo 'new image';
 		$car[0] = $file_path;
 	}
 	echo $car[0];
 
 	$caption = $_POST["caption". ($i+1)];
-	echo $caption;
-	$caption = str_replace("\r", "", $caption);
-	echo $caption;
-	$car[1] = addslashes($caption);
-
+	$cap = addslashes($caption);
+	$cap = str_replace(array("\n", "\r"), '', $cap);
+	$car[1] = $cap;
 
 	$carousel[$i] = $car;
 
@@ -51,7 +50,7 @@ $result = mysqli_query($con, "UPDATE home SET carousel='$carousel' WHERE id=1");
 
 mysqli_close($con);
 
-//header( 'Location: http://127.0.0.1/projects/GIRI/index.php' );
+header( 'Location: http://127.0.0.1/projects/GIRI/giri_site/index.php' );
 }
 
 ?>

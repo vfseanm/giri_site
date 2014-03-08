@@ -148,7 +148,7 @@ mysqli_close($con);
           foreach($carousel as $car){
             ?>
             <div class="item <?php if ($count==0) echo 'active' ?>">
-                <div class="fill" style="background-image:url('<?php echo $car[0]; ?>');"></div>
+                <div class="fill" style="background-image:url('upload/<?php echo $car[0]; ?>');"></div>
                 <div class="carousel-caption">
                     <?php echo $car[1]; ?>
                     
