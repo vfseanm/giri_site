@@ -1,4 +1,4 @@
-<?php
+ <?php
 include('globals.php');
 
 $con=mysqli_connect("localhost", "admin", "password", "giri");

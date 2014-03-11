@@ -37,10 +37,8 @@ if ((($file["type"] == "image/gif")
       
     }
   }
-else
-  {
-  echo "invalid";
-  return 'invalid';
+  else {
+    return 'invalid';
   }
   return $file_path;
   }

@@ -29,7 +29,7 @@ $result = mysqli_query($con, "UPDATE post SET title='$title', content='$content'
 
 mysqli_close($con);
 
-header( 'Location: http://127.0.0.1/projects/GIRI/post.php?ID='. $postid );
+header( 'Location: http://127.0.0.1:8888/GIRI/post.php?ID='. $postid );
 }
 
 ?>

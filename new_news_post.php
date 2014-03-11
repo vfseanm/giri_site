@@ -26,7 +26,7 @@ $result = mysqli_query($con, "INSERT INTO post (time_created, title, content, im
 
 mysqli_close($con);
 
-header( 'Location: http://127.0.0.1/projects/GIRI/blog_home.php');
+header( 'Location: http://127.0.0.1:8888/GIRI/blog_home.php');
 }
 
 ?>
