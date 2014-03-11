@@ -39,7 +39,6 @@ mysqli_close($con);
     <?php 
     include('header_links.php');
     ?>
-    <link href="css/datepicker.css" rel="stylesheet">
 </head>
 
 <body>
@@ -81,12 +80,12 @@ mysqli_close($con);
 
             <div class="col-md-5">
                 <a href="blog-post.html">
-                    <img src="http://placehold.it/600x300" class="img-responsive">
+                    <img src="upload/<?php echo $event[3]?>" class="img-responsive">
                 </a>
             </div>
             <div class="col-md-7">
                 <h3>
-                    <a href="blog-post.html" class = "eventname"><?php echo $event[0]?></a>
+                    <a href="event.php?ID=<?php echo $event[4] ?>" class = "eventname"><?php echo $event[0]?></a>
                 </h3>
                 <p class = "eventdate"><b><?php echo $event[1] ?></b></p>
                 </p>
@@ -130,7 +129,7 @@ mysqli_close($con);
             <div class="form-group">
                 <label for="file" class="col-sm-2 control-label">Upload Image</label>
                 <div class="col-sm-10">
-                    <input type="file" name="image" id="image">
+                    <input type="file" name="file" id="image">
                 </div>
             </div>
 

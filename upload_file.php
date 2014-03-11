@@ -33,7 +33,7 @@ if ((($file["type"] == "image/gif")
 
     // actually upload the file
     move_uploaded_file($file["tmp_name"], "upload/" . $file_path);
-    echo "Stored in: " . "upload/" . $file_path;
+    //echo "Stored in: " . "upload/" . $file_path;
       
     }
   }
