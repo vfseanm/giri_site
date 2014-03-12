@@ -8,7 +8,7 @@
                     <span class="icon-bar"></span>
                 </button>
                 <!-- You'll want to use a responsive image option so this logo looks good on devices - I recommend using something like retina.js (do a quick Google search for it and you'll find it) -->
-                <a class="navbar-brand" href="index.php"><img src="upload/logo.png" style="width:30px">Global Inequality Research Initiative
+                <a class="navbar-brand" href="/GIRI/index.php"><img src="/GIRI/upload/logo.png" style="width:30px">Global Inequality Research Initiative
     
             </a>
             </div>
@@ -16,11 +16,11 @@
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse navbar-ex1-collapse">
                 <ul class="nav navbar-nav navbar-right">
-                    <li><a href="about.php">About</a>
+                    <li><a href="/GIRI/about.php">About</a>
                     </li>
-                    <li><a href="people.php">People</a>
+                    <li><a href="/GIRI/people.php">People</a>
                     </li>
-                    <li><a href="blog_home.php">News</a>
+                    <li><a href="/GIRI/blog_home.php">News</a>
                     </li>
                     <li class="dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown">Research<b class="caret"></b></a>
@@ -38,7 +38,7 @@
                         </ul>
                     </li>
                     <li class="dropdown">
-                        <a href="events_home.php" >Events</a>
+                        <a href="/GIRI/events/events_home.php">Events</a>
                     </li>
                 </ul>
             </div>

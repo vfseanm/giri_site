@@ -33,9 +33,9 @@ mysqli_close($con);
         </div>
         <div class="col-lg-4 col-md-4">
           <strong>Quick Links</strong><br>
-          <a href="people.php">People</a><br>
-          <a href="about.php">About GIRI</a><br>
-          <a href="blog_home.php">News</a>
+          <a href="/GIRI/people.php">People</a><br>
+          <a href="/GIRI/about.php">About GIRI</a><br>
+          <a href="/GIRI/blog_home.php">News</a>
         </div>
         <div class="col-lg-4 col-md-4">
           <p><strong>Other Stuff</strong></p>
@@ -47,7 +47,7 @@ mysqli_close($con);
 		</button>
 		<?php }
 		else {?>
-		<a href="logout.php" class="btn btn-primary btn-sm">
+		<a href="/GIRI/logout.php" class="btn btn-primary btn-sm">
  			 Logout
 		</a>
     <button class="btn btn-primary btn-sm" data-toggle="modal" data-target="#footerModal">
@@ -128,7 +128,7 @@ mysqli_close($con);
       </div>
       <div class="modal-body">
 
-        <form class="form-horizontal" role="form" action="authenticate.php" method="POST">
+        <form class="form-horizontal" role="form" action="/GIRI/authenticate.php" method="POST">
   <div class="form-group">
     <label for="username" class="col-sm-2 control-label">Username</label>
     <div class="col-sm-10">
