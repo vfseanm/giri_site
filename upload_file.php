@@ -32,15 +32,12 @@ if ((($file["type"] == "image/gif")
     $file_path = time() . $file["name"];
 
     // actually upload the file
-    move_uploaded_file($file["tmp_name"], "upload/" . $file_path);
-    echo "Stored in: " . "upload/" . $file_path;
-      
+    move_uploaded_file($file["tmp_name"], $_SERVER['DOCUMENT_ROOT'] . "/GIRI/upload/" . $file_path);
+    //echo("stored in " . $_SERVER['DOCUMENT_ROOT'] . "/GIRI/upload/" . $file_path);
     }
   }
-else
-  {
-  echo "invalid";
-  return 'invalid';
+  else {
+    return 'invalid';
   }
   return $file_path;
   }

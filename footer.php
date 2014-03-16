@@ -66,6 +66,7 @@ mysqli_close($con);
           <p><i class="fa fa-phone"></i> <?php echo $phone ?></p>
         </div>
         <div class="col-lg-4 col-md-4">
+
           <p class="footer_heading">Quick Links<?php if (loggedin()){ ?>
               <a href="#" data-toggle="modal" data-target="#footerLinksModal">
              <i class="fa fa-cogs"></i>
@@ -75,6 +76,7 @@ mysqli_close($con);
           <?php foreach($links as $link){ ?>
           <a href="<?php echo $link[1] ?>"><?php echo $link[0] ?></a><br>
           <?php } ?>
+
         </div>
         <div class="col-lg-4 col-md-4">
           <p class="footer_heading">Other Stuff</p>
@@ -86,7 +88,7 @@ mysqli_close($con);
 		</button>
 		<?php }
 		else {?>
-		<a href="logout.php" class="btn btn-primary btn-sm">
+		<a href="/GIRI/logout.php" class="btn btn-primary btn-sm">
  			 Logout
 		</a>
 	<?php } ?>
@@ -247,7 +249,7 @@ mysqli_close($con);
       </div>
       <div class="modal-body">
 
-        <form class="form-horizontal" role="form" action="authenticate.php" method="POST">
+        <form class="form-horizontal" role="form" action="/GIRI/authenticate.php" method="POST">
   <div class="form-group">
     <label for="username" class="col-sm-2 control-label">Username</label>
     <div class="col-sm-10">
