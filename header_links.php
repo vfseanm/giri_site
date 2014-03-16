@@ -13,4 +13,22 @@ padding-top:15px;
 padding-bottom:16px;
 }
 
+.carousel-caption > h1 {
+	font-weight:400;
+}
+.carousel-caption > h2 {
+	font-weight:400;
+}
+.footer_heading{
+	font-size:20px;
+	}
+    .navbar-brand{
+    line-height: 80px;
+    height: 80px;
+    padding-top: 0;
+}
+.navbar-right {
+    margin-top:25px;
+}
+
     </style>

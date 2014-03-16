@@ -7,31 +7,33 @@ session_start();
 
 if ($_SERVER["REQUEST_METHOD"] == "POST")
 {
-	$length = $_POST['length'];
-	$old_length = $_POST['old_length'];
 
-for($i = 0; $i<$length; $i++){
+for($i = 0; $i<6; $i++){
 	echo $i;
 	$car = array();
-	if($i<$old_length){
-		$car[0] = $_POST['old_image'.($i+1)];
+
+	if(isset($_POST['active'. ($i+1)])){
+		$car[0] = "1";
 	}
 	else{
-		$car[0] = '';
+		$car[0] = "0";
 	}
 
 	$image = $_FILES['carouselfile'.($i+1)];
 	$file_path = upload_file($image);
 	if ($file_path != 'invalid'){
 		echo 'new image';
-		$car[0] = $file_path;
+		$car[1] = $file_path;
 	}
-	echo $car[0];
+	else{
+		$car[1] = $_POST['old_image'.($i+1)];
+	}
+	echo $car[1];
 
 	$caption = $_POST["caption". ($i+1)];
 	$cap = addslashes($caption);
 	$cap = str_replace(array("\n", "\r"), '', $cap);
-	$car[1] = $cap;
+	$car[2] = $cap;
 
 	$carousel[$i] = $car;
 

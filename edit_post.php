@@ -5,7 +5,7 @@ $postid =$_GET["ID"];
 include('upload_file.php');
 
 session_start();
-$file_path = upload_file();
+$file_path = upload_file($_FILES["file"]);
 
 if ($_SERVER["REQUEST_METHOD"] == "POST")
 {
@@ -29,7 +29,7 @@ $result = mysqli_query($con, "UPDATE post SET title='$title', content='$content'
 
 mysqli_close($con);
 
-header( 'Location: http://127.0.0.1/projects/GIRI/post.php?ID='. $postid );
+//header( 'Location: http://127.0.0.1/projects/GIRI/giri_site/post.php?ID='. $postid );
 }
 
 ?>

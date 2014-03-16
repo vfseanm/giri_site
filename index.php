@@ -8,7 +8,7 @@ if (mysqli_connect_errno())
   echo "Failed to connect to MySQL: " . mysqli_connect_error();
   }
 
-$result = mysqli_query($con, "SELECT * FROM post ORDER BY time_created DESC LIMIT 4");
+$result = mysqli_query($con, "SELECT * FROM post ORDER BY time_created DESC LIMIT 3");
 
 $posts = array();
 
@@ -108,25 +108,6 @@ mysqli_close($con);
     include("navbar.php");
     ?>
 
-    <?php
-            check_for_error();
-        if (loggedin()){
-            ?>
-            <div class="container">
-              <div class="row">
-            <div class="col-lg-12">
-            <button class="btn btn-primary btn-sm" data-toggle="modal" data-target="#bodyModal" style="margin:10px">
-             Edit page body
-        </button>
-        <button class="btn btn-primary btn-sm" data-toggle="modal" data-target="#carouselModal" style="margin:10px">
-             Edit Carousel
-        </button>
-    </div>
-  </div>
-</div>
-        <?php
-        }
-        ?>
 
     <div id="myCarousel" class="carousel slide">
         <!-- Indicators -->
@@ -134,10 +115,12 @@ mysqli_close($con);
           <?php
           $count = 0;
           foreach($carousel as $car){
+            if(strcmp($car[0],"1")==0){
             ?>
             <li data-target="#myCarousel" data-slide-to="<?php echo $count; ?>" <?php if ($count==0) echo 'class="active"'?>></li>
             <?php 
             $count +=1;
+          }
           } ?>
         </ol>
 
@@ -146,17 +129,18 @@ mysqli_close($con);
           <?php
           $count = 0;
           foreach($carousel as $car){
+            if(strcmp($car[0],"1")==0){
             ?>
             <div class="item <?php if ($count==0) echo 'active' ?>">
-                <div class="fill" style="background-image:url('upload/<?php echo $car[0]; ?>');"></div>
+                <div class="fill" style="background-image:url('upload/<?php echo $car[1]; ?>');"></div>
                 <div class="carousel-caption">
-                    <?php echo $car[1]; ?>
+                    <?php echo $car[2]; ?>
                     
                 </div>
             </div>
             <?php 
             $count +=1;
-          } ?>
+          } } ?>
 
         </div>
 
@@ -169,42 +153,56 @@ mysqli_close($con);
         </a>
     </div>
 
+    <?php
+            check_for_error();
+        if (loggedin()){
+            ?>
+            <div class="container">
+              <div class="row">
+            <div class="col-lg-12">
+        <button class="btn btn-primary btn-sm" data-toggle="modal" data-target="#carouselModal">
+             Edit Carousel
+        </button>
+    </div>
+  </div>
+</div>
+        <?php
+        }
+        ?>
 
-    <div class="section" style="padding-bottom:25px">
+
+        <div class="section" style="padding-bottom:25px;">
 
         <div class="container">
 
             <div class="row">
                 <div class="col-lg-8 col-md-8">
-                    <p>
-                    <img src="upload/<?php echo $logo_image ?>" style="width:70%">
-                </p>
-                    <p><?php echo $description; ?><p>
-                    <a class="btn btn-md btn-success" href="about.php" role="button">Learn More <i class="fa fa-angle-double-right"></i></a>
-                    </p>
+                    <h2 style="color:#622160;" >About GIRI
+                      <?php if(loggedin()){ ?>
+                                  <a href="#" data-toggle="modal" data-target="#bodyModal">
+             <i class="fa fa-cogs"></i>
+        </a>
+        <?php } ?>
+                    </h2>
+                    <p><?php echo $description; ?></p>
+                    <a class="btn btn-md btn-success" href="about.php" role="button" style="margin-top:20px">Learn More <i class="fa fa-angle-double-right"></i></a>
+                    
                 </div>
                 <div class="col-lg-4 col-md-4">
-                    <div class="panel panel-default">
-  <div class="panel-heading">News</div>
-  <div class="panel-body">
+  <h3 style="color:#622160; margin-top:21px" class="page-header"><i class="fa fa-comments-o"></i> News</h3>
     <?php
     foreach($posts as $post){
       ?>
                     <a href="post.php?ID=<?php echo $post[4] ?>"><?php echo $post[0] ?></a>
                     <p>
-                      <?php echo substr($post[5], 0, 45); ?>...</p>
+                      <?php echo substr($post[5], 0, 85); ?></p>
                     <?php
                   }
                   ?>
-  </div>
+
 </div>
-                </div>
-            </div>
-            <!-- /.row -->
-
-        </div>
-        <!-- /.container -->
-
+</div>
+</div>
     </div>
     <!-- /.section -->
 
@@ -222,25 +220,12 @@ mysqli_close($con);
     <div class="modal-content">
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-        <h4 class="modal-title" id="myModalLabel">Edit Home Page Body</h4>
+        <h4 class="modal-title" id="myModalLabel">Edit Body</h4>
       </div>
       <div class="modal-body">
 
 
 <form class="form-horizontal" role="form" action="edit_index.php" method="POST" enctype="multipart/form-data">
-
-             <div class="form-group">
-                <label for="curfile" class="col-sm-2 control-label">Current Logo Image</label>
-                <div class="col-sm-10" id="curfile">
-                    <?php echo $logo_image ?>
-                </div>
-            </div>
-            <div class="form-group">
-                <label for="file" class="col-sm-2 control-label">Change Logo Image</label>
-                <div class="col-sm-10">
-                    <input type="file" name="file" id="file">
-                </div>
-            </div>
 
   <div class="form-group">
     <label for="description" class="col-sm-2 control-label">Description</label>
@@ -269,7 +254,6 @@ mysqli_close($con);
   <div class="modal-dialog modal-lg">
     <div class="modal-content">
       <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
         <h4 class="modal-title" id="myModalLabel">Edit Image Carousel</h4>
       </div>
       <div class="modal-body">
@@ -281,9 +265,9 @@ mysqli_close($con);
       $count = 1;
       foreach($carousel as $car){
       ?>
-  <div class="panel panel-default">
-    <div class="panel-heading">
-      <h4 class="panel-title">
+  <div class="panel panel-default" id="car<?php echo $count; ?>">
+    <div class="panel-heading" style="height:35px">
+      <h4 class="panel-title" style="float:left">
         <a data-toggle="collapse" data-parent="#accordion" href="#collapse<?php echo $count; ?>">
           Panel <?php echo $count; ?>
         </a>
@@ -291,11 +275,17 @@ mysqli_close($con);
     </div>
     <div id="collapse<?php echo $count; ?>" class="panel-collapse collapse <?php if ($count==1) echo 'in' ?>">
       <div class="panel-body">
+        <div class="form-group">
+                <label for="active<?php echo $count; ?>" class="col-sm-2 control-label">Active</label>
+                <div class="col-sm-10" id="active<?php echo $count; ?>" >
+                  <input type="checkbox" name="active<?php echo $count; ?>" <?php if (strcmp($car[0], "1")==0) echo 'checked' ?> >
+                </div>
+          </div>
       
           <div class="form-group">
                 <label for="carouself<?php echo $count; ?>" class="col-sm-2 control-label">Current Image</label>
                 <div class="col-sm-10" id="carouself<?php echo $count; ?>">
-                    <?php echo $car[0] ?>
+                    <?php echo $car[1] ?>
                 </div>
             </div>
             <div class="form-group">
@@ -307,10 +297,10 @@ mysqli_close($con);
             <div class="form-group">
     <label for="caption<?php echo $count; ?>" class="col-sm-2 control-label">Caption</label>
     <div class="col-sm-10">
-      <textarea id ="caption<?php echo $count; ?>" class="form-control" name="caption<?php echo $count; ?>" style="width:600px; height:50px"><?php echo $car[1] ?></textarea>
+      <textarea id ="caption<?php echo $count; ?>" class="form-control" name="caption<?php echo $count; ?>" style="width:600px; height:50px"><?php echo $car[2] ?></textarea>
     </div>
   </div>
-  <input type="hidden" value='<?php echo $car[0] ?>' name="old_image<?php echo $count; ?>">
+  <input type="hidden" value='<?php echo $car[1] ?>' name="old_image<?php echo $count; ?>">
        </div>
     </div>
   </div>
@@ -320,10 +310,7 @@ mysqli_close($con);
 }
 ?>
 
-
 </div>
-<input type="hidden" value='<?php echo sizeof($carousel) ?>' name="length">
-<input type="hidden" value='<?php echo sizeof($carousel) ?>' name="old_length">
 
  <div class="form-group">
     <div class="col-sm-10">

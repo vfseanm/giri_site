@@ -8,7 +8,7 @@
                     <span class="icon-bar"></span>
                 </button>
                 <!-- You'll want to use a responsive image option so this logo looks good on devices - I recommend using something like retina.js (do a quick Google search for it and you'll find it) -->
-                <a class="navbar-brand" href="index.php"><img src="upload/logo.png" style="width:30px">Global Inequality Research Initiative
+                <a class="navbar-brand" href="index.php"><img src="upload/duke_logo.png" style="width:120px"><img src="upload/LOGO_WHITE.png" style="width:340px">
     
             </a>
             </div>
