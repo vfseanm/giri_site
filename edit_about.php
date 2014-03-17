@@ -12,7 +12,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST")
 	$headline = $_POST["headline"];
 	$content = $_POST["content"];
 
-$con=mysqli_connect("localhost", "admin", "password", "giri");
+$con=mysqli_connect("localhost", "giri_user", "47nufkXUQIVTnGlg", "giri");
 // Check connection
 if (mysqli_connect_errno())
   {
@@ -28,7 +28,8 @@ $result = mysqli_query($con, "UPDATE about SET headline='$headline', content='$c
 
 mysqli_close($con);
 
-//header( 'Location: http://127.0.0.1/projects/GIRI/giri_site/about.php' );
+$current_link = $_SERVER["HTTP_REFERER"];
+header( 'Location: ' . $current_link );
 }
 
 ?>

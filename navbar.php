@@ -18,11 +18,11 @@
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse navbar-ex1-collapse">
                 <ul class="nav navbar-nav navbar-right">
-                    <li><a href="/GIRI/about.php">About</a>
+                    <li><a href="/about.php">About</a>
                     </li>
-                    <li><a href="/GIRI/people.php">People</a>
+                    <li><a href="/people.php">People</a>
                     </li>
-                    <li><a href="/GIRI/blog_home.php">News</a>
+                    <li><a href="/blog_home.php">News</a>
                     </li>
                     <li class="dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown">Research<b class="caret"></b></a>
@@ -40,7 +40,7 @@
                         </ul>
                     </li>
                     <li class="dropdown">
-                        <a href="/GIRI/events/events_home.php">Events</a>
+                        <a href="/events/events_home.php">Events</a>
                     </li>
                 </ul>
             </div>

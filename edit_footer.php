@@ -9,7 +9,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST")
 	$address_three = $_POST["address_three"];
 	$phone = $_POST["phone"];
 
-$con=mysqli_connect("localhost", "admin", "password", "giri");
+$con=mysqli_connect("localhost", "giri_user", "47nufkXUQIVTnGlg", "giri");
 // Check connection
 if (mysqli_connect_errno())
   {
@@ -21,7 +21,8 @@ $result = mysqli_query($con, "UPDATE footer SET address_one='$address_one', addr
 
 mysqli_close($con);
 
-header( 'Location: http://127.0.0.1/projects/GIRI/about.php' );
+$current_link = $_SERVER["HTTP_REFERER"];
+header( 'Location: ' . $current_link );
 }
 
 ?>

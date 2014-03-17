@@ -1,6 +1,6 @@
 <?php
 
-$con=mysqli_connect("localhost", "admin", "password", "giri");
+$con=mysqli_connect("localhost", "giri_user", "47nufkXUQIVTnGlg", "giri");
 // Check connection
 if (mysqli_connect_errno())
   {
@@ -88,7 +88,7 @@ mysqli_close($con);
 		</button>
 		<?php }
 		else {?>
-		<a href="/GIRI/logout.php" class="btn btn-primary btn-sm">
+		<a href="/logout.php" class="btn btn-primary btn-sm">
  			 Logout
 		</a>
 	<?php } ?>
@@ -163,7 +163,7 @@ mysqli_close($con);
       </div>
       <div class="modal-body">
 
-        <form class="form-horizontal" role="form" action="edit_footer_links.php" method="POST" enctype="multipart/form-data">
+    <form class="form-horizontal" role="form" action="edit_footer_links.php" method="POST" enctype="multipart/form-data">
 
   <div class="form-group">
     <label for="address_one" class="col-lg-2 control-label">Link 1</label>
@@ -249,7 +249,7 @@ mysqli_close($con);
       </div>
       <div class="modal-body">
 
-        <form class="form-horizontal" role="form" action="/GIRI/authenticate.php" method="POST">
+        <form class="form-horizontal" role="form" action="/authenticate.php" method="POST">
   <div class="form-group">
     <label for="username" class="col-sm-2 control-label">Username</label>
     <div class="col-sm-10">
