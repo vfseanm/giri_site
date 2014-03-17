@@ -30,6 +30,6 @@ padding-bottom:16px;
 .navbar-right {
     margin-top:25px;
 }
+</style>
 
-    </style>
 

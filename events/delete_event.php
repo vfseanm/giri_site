@@ -1,7 +1,7 @@
 <?php
 $id =$_GET["ID"];
 session_start();
-$con=mysqli_connect("localhost","admin","password","giri");
+$con=mysqli_connect("localhost","giri_user","47nufkXUQIVTnGlg","giri");
 // Check connection
 if (mysqli_connect_errno())
   {
@@ -11,5 +11,5 @@ if (mysqli_connect_errno())
 mysqli_query($con,"DELETE FROM events WHERE id='$id'");
 
 mysqli_close($con);
-header('Location: http://127.0.0.1:8888/GIRI/events/events_home.php');
+header('Location: /events/events_home.php');
 ?>

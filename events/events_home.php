@@ -1,7 +1,7 @@
 <?php
 include('../globals.php');
 
-$con=mysqli_connect("localhost", "admin", "password", "giri");
+$con=mysqli_connect("localhost", "giri_user", "47nufkXUQIVTnGlg", "giri");
 // Check connection
 if (mysqli_connect_errno())
   {
@@ -39,7 +39,9 @@ mysqli_close($con);
     <?php 
     include('../header_links.php');
     ?>
-    <link href="/GIRI/css/datepicker.css" rel="stylesheet">
+
+    <link href="/css/datepicker.css" rel="stylesheet">
+
 </head>
 
 <body>
@@ -81,7 +83,7 @@ mysqli_close($con);
 
             <div class="col-md-5">
                 <a href="blog-post.html">
-                    <img src="/GIRI/upload/<?php echo $event[3]?>" class="img-responsive">
+                    <img src="/upload/<?php echo $event[3]?>" class="img-responsive">
                 </a>
             </div>
             <div class="col-md-7">
@@ -176,10 +178,10 @@ mysqli_close($con);
     ?>
 
     <!-- JavaScript -->
-    <script src="/GIRI/js/jquery-1.10.2.js"></script>
-    <script src="/GIRI/js/bootstrap.min.js"></script>
-    <script src="/GIRI/js/bootstrap-datepicker.js"></script>
-    <script src="/GIRI/js/modern-business.js"></script>
+    <script src="../js/jquery-1.10.2.js"></script>
+    <script src="../js/bootstrap.min.js"></script>
+    <script src="../js/bootstrap-datepicker.js"></script>
+    <script src="../js/modern-business.js"></script>
     <script>
     $(function(){
         rearrangeDate();
@@ -203,8 +205,6 @@ mysqli_close($con);
         }
     });
     </script>
-
-
 </body>
 
 </html>

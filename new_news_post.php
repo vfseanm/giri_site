@@ -10,7 +10,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST")
 	$title = $_POST["title"];
 	$content = $_POST["content"];
 
+<<<<<<< Updated upstream
 $con=mysqli_connect("localhost", "giri_user", "47nufkXUQIVTnGlg", "giri");
+=======
+$con=mysqli_connect("localhost", "admin", "password", "giri");
+>>>>>>> Stashed changes
 // Check connection
 if (mysqli_connect_errno())
   {
@@ -25,8 +29,13 @@ $result = mysqli_query($con, "INSERT INTO post (time_created, title, content, im
 }
 
 mysqli_close($con);
+<<<<<<< Updated upstream
 $current_link = $_SERVER["HTTP_REFERER"];
 header( 'Location: ' . $current_link );
+=======
+
+header( 'Location: http://127.0.0.1:8888/GIRI/blog_home.php');
+>>>>>>> Stashed changes
 }
 
 ?>

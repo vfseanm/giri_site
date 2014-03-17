@@ -11,7 +11,11 @@ if (empty($username))
 else if (empty($password))
     {$_SESSION['error'] = 'error';}
 else{
+<<<<<<< Updated upstream
 $con=mysqli_connect("localhost", "giri_user", "47nufkXUQIVTnGlg", "giri");
+=======
+$con=mysqli_connect("localhost", "admin", "password", "giri");
+>>>>>>> Stashed changes
 // Check connection
 if (mysqli_connect_errno())
   {

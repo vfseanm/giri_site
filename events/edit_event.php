@@ -14,8 +14,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST")
 	$image = $_FILES["file"];
 	$file_path = upload_file($image);
 
+$con=mysqli_connect("localhost", "giri_user", "47nufkXUQIVTnGlg", "giri");
 
-$con=mysqli_connect("localhost", "admin", "password", "giri");
 // Check connection
 if (mysqli_connect_errno())
   {
@@ -30,7 +30,7 @@ $result = mysqli_query($con, "UPDATE events SET name='$name', eventdate='$date',
 
 mysqli_close($con);
 
-header( 'Location: http://127.0.0.1:8888/GIRI/events/event.php?ID='. $postid );
+header( 'Location: /events/event.php?ID='. $postid );
 }
 
 ?>

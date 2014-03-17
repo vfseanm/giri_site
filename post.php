@@ -3,7 +3,11 @@ include('globals.php');
 
 $postid =$_GET["ID"];
 
+<<<<<<< Updated upstream
 $con=mysqli_connect("localhost", "giri_user", "47nufkXUQIVTnGlg", "giri");
+=======
+$con=mysqli_connect("localhost", "admin", "password", "giri");
+>>>>>>> Stashed changes
 // Check connection
 if (mysqli_connect_errno())
   {
@@ -87,7 +91,12 @@ include('navbar.php');
                 <p><i class="fa fa-clock-o"></i> Posted on <?php echo date('F d, Y', $timestamp) ?>
                 </p>
                 <hr>
+<<<<<<< Updated upstream
                 <img src="<?php echo 'upload/' . $image ?>" class="img-responsive" style="padding-bottom:8px">
+=======
+                <img src="<?php echo 'upload/' . $image ?>" class="img-responsive">
+                <hr>
+>>>>>>> Stashed changes
                 
                 <?php echo $content ?>
 

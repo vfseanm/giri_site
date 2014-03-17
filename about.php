@@ -2,6 +2,7 @@
 include('globals.php');
 
 $con=mysqli_connect("localhost", "giri_user", "47nufkXUQIVTnGlg", "giri");
+
 // Check connection
 if (mysqli_connect_errno())
   {

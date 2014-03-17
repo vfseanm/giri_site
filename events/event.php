@@ -3,7 +3,11 @@ include('../globals.php');
 
 $id =$_GET["ID"];
 
+<<<<<<< Updated upstream
 $con=mysqli_connect("localhost", "admin", "password", "giri");
+=======
+$con=mysqli_connect("localhost", "giri_user", "47nufkXUQIVTnGlg", "giri");
+>>>>>>> Stashed changes
 // Check connection
 if (mysqli_connect_errno())
   {
@@ -38,7 +42,11 @@ mysqli_close($con);
     <?php 
     include('../header_links.php');
     ?>
+<<<<<<< Updated upstream
     <link href="/GIRI/css/datepicker.css" rel="stylesheet">
+=======
+    <link href="/css/datepicker.css" rel="stylesheet">
+>>>>>>> Stashed changes
 
 </head>
 
@@ -84,7 +92,11 @@ include('../navbar.php');
 
                 <p class = "date"><i class="fa fa-clock-o"></i> Date: <?php echo $date?> </p>
                 <hr>
+<<<<<<< Updated upstream
                 <img src="<?php echo '/GIRI/upload/' . $image ?>" class="img-responsive">
+=======
+                <img src="<?php echo '/upload/' . $image ?>" class="img-responsive">
+>>>>>>> Stashed changes
                 <hr>
                 
                 <?php echo $description ?>
@@ -217,9 +229,15 @@ include('../navbar.php');
 include("../wysiwyg.php");
 ?>
     <!-- JavaScript -->
+<<<<<<< Updated upstream
 <script src="/GIRI/js/jquery-1.10.2.js"></script>
 <script src="/GIRI/js/bootstrap.min.js"></script>
 <script src="/GIRI/js/bootstrap-datepicker.js"></script>
+=======
+<script src="/js/jquery-1.10.2.js"></script>
+<script src="/js/bootstrap.min.js"></script>
+<script src="/js/bootstrap-datepicker.js"></script>
+>>>>>>> Stashed changes
 <script>
     $(function(){    
         rearrangeDate();

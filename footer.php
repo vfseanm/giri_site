@@ -84,14 +84,14 @@ mysqli_close($con);
 
         <?php if (!loggedin()){ ?>
         <button class="btn btn-primary btn-sm" data-toggle="modal" data-target="#myModal">
- 			 Manage Site
-		</button>
-		<?php }
-		else {?>
-		<a href="/logout.php" class="btn btn-primary btn-sm">
- 			 Logout
-		</a>
-	<?php } ?>
+       Manage Site
+    </button>
+    <?php }
+    else {?>
+    <a href="/logout.php" class="btn btn-primary btn-sm">
+       Logout
+    </a>
+  <?php } ?>
 </div>
 </div>
       </div>
@@ -109,7 +109,7 @@ mysqli_close($con);
       </div>
       <div class="modal-body">
 
-        <form class="form-horizontal" role="form" action="edit_footer.php" method="POST" enctype="multipart/form-data">
+        <form class="form-horizontal" role="form" action="/edit_footer.php" method="POST" enctype="multipart/form-data">
 
   <div class="form-group">
     <label for="address_one" class="col-sm-2 control-label">Address Line 1</label>
@@ -163,7 +163,7 @@ mysqli_close($con);
       </div>
       <div class="modal-body">
 
-    <form class="form-horizontal" role="form" action="edit_footer_links.php" method="POST" enctype="multipart/form-data">
+    <form class="form-horizontal" role="form" action="/edit_footer_links.php" method="POST" enctype="multipart/form-data">
 
   <div class="form-group">
     <label for="address_one" class="col-lg-2 control-label">Link 1</label>
