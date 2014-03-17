@@ -1,5 +1,5 @@
 <?php
-	session_start();
+session_start();
 
 function loggedin(){
 	if (empty($_SESSION['admin'])){
