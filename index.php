@@ -162,10 +162,11 @@ mysqli_close($con);
         if (loggedin()){
             ?>
               <div class="row">
-            <div class="col-lg-12">
-        <button class="btn btn-primary btn-sm" data-toggle="modal" data-target="#carouselModal">
-             Edit Image Carousel
-        </button>
+            <div class="col-lg-12"><p>
+        <a href="#" data-toggle="modal" data-target="#carouselModal">
+             <i class="fa fa-pencil"></i> Edit Image Carousel
+        </a>
+      </p>
     </div>
   </div>
         <?php

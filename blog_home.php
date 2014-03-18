@@ -53,24 +53,24 @@ mysqli_close($con);
 
     <div class="container">
 
-        <div class="row">
-
             <?php
             check_for_error();
-        if (loggedin()){
             ?>
 
-            <div class="col-lg-12">
-                <button class="btn btn-primary btn-sm" data-toggle="modal" data-target="#newPostModal">
-                New News Post
-                </button>
-            </div>
-        <?php
-        }
-        ?>
+
+        <div class="row">
 
             <div class="col-lg-12">
                 <h1 class="page-header">GIRI News
+        <?php
+        if (loggedin()){
+            ?>
+                <a href="#" data-toggle="modal" data-target="#newPostModal" style="font-size:18px">
+                <i class="fa fa-plus"></i> New News Post
+                </a>
+        <?php
+        }
+        ?>
                 </h1>
             </div>
 
