@@ -50,7 +50,7 @@ mysqli_close($con);
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Modern Business - Start Bootstrap Template</title>
+    <title>Global Inequality Research Initiative | Duke University</title>
 
     <?php 
 
@@ -153,34 +153,31 @@ mysqli_close($con);
         </a>
     </div>
 
-    <?php
+        <div class="section" style="padding-bottom:25px; padding-top:25px">
+
+        <div class="container">
+
+              <?php
             check_for_error();
         if (loggedin()){
             ?>
-            <div class="container">
               <div class="row">
             <div class="col-lg-12">
         <button class="btn btn-primary btn-sm" data-toggle="modal" data-target="#carouselModal">
-             Edit Carousel
+             Edit Image Carousel
         </button>
     </div>
   </div>
-</div>
         <?php
         }
         ?>
-
-
-        <div class="section" style="padding-bottom:25px;">
-
-        <div class="container">
 
             <div class="row">
                 <div class="col-lg-8 col-md-8">
                     <h2 style="color:#622160;" >About GIRI
                       <?php if(loggedin()){ ?>
                                   <a href="#" data-toggle="modal" data-target="#bodyModal">
-             <i class="fa fa-cogs"></i>
+             <i class="fa fa-pencil"></i>
         </a>
         <?php } ?>
                     </h2>

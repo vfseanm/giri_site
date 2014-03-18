@@ -30,7 +30,7 @@ mysqli_close($con);
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>About GIRI </title>
+    <title>About GIRI</title>
 
     <?php 
     include('header_links.php');
@@ -49,19 +49,15 @@ mysqli_close($con);
 
             <?php
             check_for_error();
-        if (loggedin()){
             ?>
-            <div class="col-lg-12">
-            <button class="btn btn-primary btn-sm" data-toggle="modal" data-target="#aboutModal">
-             Edit this Page
-        </button>
-    </div>
-        <?php
-        }
-        ?>
-
+        
             <div class="col-lg-12">
                 <h1 class="page-header">About GIRI
+                  <?php if (loggedin()){ ?>
+              <a href="#" data-toggle="modal" data-target="#aboutModal">
+             <i class="fa fa-pencil"></i>
+        </a>
+        <?php } ?>
                 </h1>
             </div>
 
@@ -84,9 +80,6 @@ mysqli_close($con);
 
     <br />
     <br />
-    <br />
-    <br />
-      <br />
     <br />
 
         <?php
