@@ -14,6 +14,17 @@ tinymce.init({
 });
 
 tinymce.init({
+    mode: "addsummary",
+    plugins: [
+        "advlist autolink lists link charmap preview",
+        "searchreplace visualblocks"
+    ],
+    menubar: false,
+    height: 200,
+    toolbar: "insertfile undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link",
+});
+
+tinymce.init({
     mode: "textareas",
     plugins: [
         "advlist autolink lists link charmap preview",

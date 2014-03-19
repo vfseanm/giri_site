@@ -26,11 +26,11 @@
                     <li class="dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown">Research<b class="caret"></b></a>
                         <ul class="dropdown-menu">
-                            <li><a href="portfolio-1-col.html">Wealth</a>
+                            <li><a href="">Wealth</a>
                             </li>
                             <li><a href="portfolio-2-col.html">Employment</a>
                             </li>
-                            <li><a href="portfolio-3-col.html">Education</a>
+                            <li><a href="/research/education.php">Education</a>
                             </li>
                             <li><a href="portfolio-4-col.html">Political</a>
                             </li>

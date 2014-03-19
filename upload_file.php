@@ -5,14 +5,15 @@
 // 135642356dog_picture.jpg
 function upload_file($file){
 
-$allowedExts = array("gif", "jpeg", "jpg", "png");
+$allowedExts = array("gif", "jpeg", "jpg", "png", "pdf");
 $extension = end(explode(".", $file["name"]));
 if ((($file["type"] == "image/gif")
 || ($file["type"] == "image/jpeg")
 || ($file["type"] == "image/jpg")
 || ($file["type"] == "image/pjpeg")
 || ($file["type"] == "image/x-png")
-|| ($file["type"] == "image/png"))
+|| ($file["type"] == "image/png")
+|| ($file["type"] == "application/pdf")) 
 && ($file["size"] < 1000000)
 && in_array($extension, $allowedExts))
   {
