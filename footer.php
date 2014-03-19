@@ -54,7 +54,7 @@ mysqli_close($con);
           <div class="col-lg-4 col-md-4">
             <p class="footer_heading" >Contact <?php if (loggedin()){ ?>
               <a href="#" data-toggle="modal" data-target="#footerModal">
-             <i class="fa fa-cogs"></i>
+             <i class="fa fa-pencil"></i>
         </a>
         <?php } ?>
             </p>
@@ -67,9 +67,9 @@ mysqli_close($con);
         </div>
         <div class="col-lg-4 col-md-4">
 
-          <p class="footer_heading">Quick Links<?php if (loggedin()){ ?>
+          <p class="footer_heading">Links<?php if (loggedin()){ ?>
               <a href="#" data-toggle="modal" data-target="#footerLinksModal">
-             <i class="fa fa-cogs"></i>
+             <i class="fa fa-pencil"></i>
         </a>
         <?php } ?>
           </p>
@@ -79,8 +79,10 @@ mysqli_close($con);
 
         </div>
         <div class="col-lg-4 col-md-4">
-          <p class="footer_heading">Other Stuff</p>
-          <p><i class="fa fa-facebook-square"></i> Maybe a Facebook Button</p>
+          <p class="footer_heading">Share</p>
+          <h1 style="margin-top:0px; margin-bottom:20px"><a href="https://www.facebook.com/GlobalInequalityInitiative" style="color:#3B5998"><i class="fa fa-facebook-square"></i></a>
+            <a href="https://twitter.com/GIRIatDuke " style="color:##55acee"><i class="fa fa-twitter-square"></i></a>
+          </h1>
 
         <?php if (!loggedin()){ ?>
         <button class="btn btn-primary btn-sm" data-toggle="modal" data-target="#myModal">
