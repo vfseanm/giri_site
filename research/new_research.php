@@ -31,8 +31,8 @@ else{
 
 mysqli_close($con);
 
-$redirect = "/research/education.php";
-header('Location: ' . $redirect);
+$current_link = $_SERVER["HTTP_REFERER"];
+header( 'Location: ' . $current_link );
 }
 
 ?>

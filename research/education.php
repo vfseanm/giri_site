@@ -58,16 +58,16 @@ mysqli_close($con);
             <div class="col-lg-12">
                 <h1 class="page-header">Research
                     <small>Education</small>
+                     <?php
+                      if (loggedin()){
+                          ?>
+                              <a href="#" data-toggle="modal" data-target="#addResearchModal" style="font-size:18px">
+                              <i class="fa fa-plus"></i> New Article
+                              </a>
+                      <?php
+                      }
+                      ?>
                 </h1>
-                <?php
-                if (loggedin()) {
-                ?>
-                    <button style = "margin-bottom:10px;" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#addResearchModal">
-                        Add Article
-                    </button>
-                <?php
-                 }
-                ?>
                 <ol class="breadcrumb">
                     <li><a href="/index.php">GIRI</a>
                     </li>
@@ -95,6 +95,9 @@ mysqli_close($con);
                                   <a href="#" data-toggle="modal" data-target="#editResearchModal">
                                        <i class="fa fa-pencil main" style = "color:#428bca;" id ="<?php echo $article[6]?>"></i>
                                   </a>
+                                   <a href="delete_research.php?ID=<?php echo $article[6]?>" class = "delete">
+                                       <i class="fa fa-times-circle-o" style = "color:#f04124; float: right"></i>
+                                   </a>
                                   <?php } ?>
                                 </a>
                                 <p style="margin-top:5px">
@@ -284,5 +287,3 @@ mysqli_close($con);
 </body>
 
 </html>
-
-

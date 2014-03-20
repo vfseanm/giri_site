@@ -74,4 +74,14 @@ $(function(){
       docInput.replaceWith( docInput = docInput.clone( true ) );
     });
 
+    $('.delete').click(function(event) {
+        var x = confirm("Are you sure you want to delete this article?");
+        if (x==true) { // do nothing  
+        }
+        else
+        { 
+            return false; //stop the delete
+        }
+    });
+
   });
