@@ -68,8 +68,12 @@ include('navbar.php');
             check_for_error();
         if (loggedin()){
             ?>
-                <a href="#" data-toggle="modal" data-target="#postModal">
-                <i class="fa fa-pencil"></i></a>
+                <a href="#" data-toggle="modal" data-target="#postModal" style="font-size:24px">
+                <i class="fa fa-pencil"></i>edit</a>
+                <form id="delete_form" class="form-horizontal" role="form" action="delete_post.php?ID=<?php echo $postid ?>" method="POST" enctype="multipart/form-data" style="display:inline">
+                <a href="#" onclick="document.getElementById('delete_form').submit()" id = "delete" class="red" style="font-size:24px">
+                <i class="fa fa-times"></i>delete</a>
+            </form>
         <?php
         }
         ?>
@@ -214,6 +218,20 @@ include('navbar.php');
 
 
     <!-- JavaScript -->
+
+    <script type="text/javascript">
+
+$('#delete').click(function() {
+            var x = confirm("Are you sure you want to delete this article?");
+            if (x==true) { // do nothing  
+            }
+            else
+            { 
+                return false; //stop the delete
+            }
+        });
+
+    </script>
 
 <?php 
 include("wysiwyg.php");
