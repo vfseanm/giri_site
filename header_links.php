@@ -30,6 +30,12 @@ padding-bottom:16px;
 .navbar-right {
     margin-top:25px;
 }
+.red{
+    color: #F30C0C;
+}
+.red:hover{
+    color:#A21818;
+}
 </style>
 
 
