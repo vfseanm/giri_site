@@ -10,7 +10,7 @@ if (mysqli_connect_errno())
 
 $result = mysqli_query($con, "SELECT * FROM events ORDER BY eventdate DESC LIMIT 5");
 
-$posts = array();
+$events = array();
 
 while($row = mysqli_fetch_array($result))
   {
@@ -54,24 +54,18 @@ mysqli_close($con);
 
         <div class="row">
 
-            <div class="col-lg-3">
-                <h1 class="">GIRI Events </h1>
-            </div>
-
-            <div class="col-lg-3">
-                <?php
-                if (loggedin()) {
-                ?>
-                    <button style = "margin-top:27px;margin-right:50px" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#eventModal">
-                        Add Event
-                    </button>
-                <?php
-                 }
-                ?>
-            </div>
-
             <div class="col-lg-12">
-                <hr style="padding-bottom:2px">
+                <h1 class="page-header">GIRI Events
+                 <?php
+                if (loggedin()){
+                    ?>
+                        <a href="#" data-toggle="modal" data-target="#eventModal" style="font-size:18px">
+                        <i class="fa fa-plus"></i> New Event
+                        </a>
+                <?php
+                }
+                ?>
+                 </h1>
             </div>
         </div>
 
@@ -178,33 +172,11 @@ mysqli_close($con);
     ?>
 
     <!-- JavaScript -->
-    <script src="../js/jquery-1.10.2.js"></script>
-    <script src="../js/bootstrap.min.js"></script>
-    <script src="../js/bootstrap-datepicker.js"></script>
-    <script src="../js/modern-business.js"></script>
-    <script>
-    $(function(){
-        rearrangeDate();
-        var today = new Date();
-        var dd = today.getDate();
-        var mm = today.getMonth()+1;
-        var yyyy = today.getFullYear();
-        if(dd<10) { dd='0'+dd }
-        if(mm<10) { mm='0'+mm } 
-        today = yyyy+'-'+mm+'-'+dd;
-        $('#date').val(today);
-        $('#date').datepicker({ dateFormat: "yyyy-mm-dd" });
-
-        function rearrangeDate() {
-            var dates = $('.eventdate b');
-            dates.contents().each(function(i,v) {
-                var date = v.textContent.split('-');
-                var newDate = date[1]+'-'+date[2]+'-'+date[0];
-                dates.eq(i).text(newDate);
-            });
-        }
-    });
-    </script>
+    <script src="/js/jquery-1.10.2.js"></script>
+    <script src="/js/bootstrap.min.js"></script>
+    <script src="/js/bootstrap-datepicker.js"></script>
+    <script src="/js/modern-business.js"></script>
+    <script src="/js/events.js"> </script>
 </body>
 
 </html>

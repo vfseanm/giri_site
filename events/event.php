@@ -56,11 +56,6 @@ include('../navbar.php');
             check_for_error();
         if (loggedin()){
             ?>
-            <div class="col-lg-1">
-                <button class="btn btn-primary btn-sm" data-toggle="modal" data-target="#editEventModal">
-                Edit Event
-                </button>
-            </div>
             <div class="col-lg-2">
                  <form class="form-horizontal" role="form" action="delete_event.php?ID=<?php echo $id ?>" method="POST" enctype="multipart/form-data">
                     <button type = "submit" class="btn btn-danger btn-sm" id = "delete">
@@ -74,6 +69,10 @@ include('../navbar.php');
 
             <div class="col-lg-12">
                 <h1 class="page-header"><?php echo $name ?>
+                <?php if (loggedin()){ ?>
+                        <a href="#" data-toggle="modal" data-target="#editEventModal">
+                        <i class="fa fa-pencil"></i></a>
+                <?php } ?>
                 </h1>
             </div>
 

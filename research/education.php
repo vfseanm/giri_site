@@ -8,19 +8,21 @@ if (mysqli_connect_errno())
   echo "Failed to connect to MySQL: " . mysqli_connect_error();
   }
 
-$result = mysqli_query($con, "SELECT * FROM events ORDER BY eventdate DESC LIMIT 5");
+$result = mysqli_query($con, "SELECT * FROM research WHERE type='education' ORDER BY publishdate DESC LIMIT 15");
 
-$posts = array();
+$articles = array();
 
 while($row = mysqli_fetch_array($result))
   {
-    $event = array();
-    $event[0] = $row['name'];
-    $event[1] = $row['eventdate'];
-    $event[2] = $row['description'];
-    $event[3] = $row['image'];
-    $event[4] = $row['id'];
-    $events[] = $event;
+    $article = array();
+    $article[0] = $row['title'];
+    $article[1] = $row['publishdate'];
+    $article[2] = $row['location'];
+    $article[3] = $row['authors'];
+    $article[4] = $row['summary'];
+    $article[5] = $row['document'];
+    $article[6] = $row['id'];
+    $articles[] = $article;
 }
 mysqli_close($con);
 ?>
@@ -81,33 +83,39 @@ mysqli_close($con);
             <div class="col-lg-12">
 
                 <div class="panel-group" id="accordion">
-
+                <?php 
+                 foreach($articles as $article){
+                ?>    
                     <div class="panel panel-default">
                         <div class="panel-heading">
                             <h4 class="panel-title">
-                                <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#collapseOne">
-                                  <strong> The viability of Ruby on Rails in the PHP dominated environment </strong>
+                                <a class="accordion-toggle" data-parent="#accordion" href="#collapseOne">
+                                  <strong id = "title_<?php echo $article[6]?>"> <?php echo $article[0] ?> </strong>
                                   <?php if (loggedin()){ ?>
                                   <a href="#" data-toggle="modal" data-target="#editResearchModal">
-                                       <i class="fa fa-cogs" style = "color:#428bca;"></i>
+                                       <i class="fa fa-pencil main" style = "color:#428bca;" id ="<?php echo $article[6]?>"></i>
                                   </a>
                                   <?php } ?>
                                 </a>
                                 <p style="margin-top:5px">
-                                <small> 2/24/2014 | Durham, NC | Sean Miller, Dan Deng </small>
+                                <small> <date id="date_<?php echo $article[6]?>"><?php echo $article[1] ?></date> | <location id="location_<?php echo $article[6]?>"><?php echo $article[2] ?> </location> | <author id="authors_<?php echo $article[6]?>"><?php echo $article[3] ?> </author> </small>
                                 </p>
                             </h4>
                         </div>
                         <div id="collapseOne" class="panel-collapse collapse in">
                             <div class="panel-body">
-                                Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+                                <summary id="summary_<?php echo $article[6]?>"><?php echo $article[4] ?> </summary>
                             </div>
-                            <a class="btn btn-success" href="" style="margin-left:15px;margin-bottom:10px"> View Report <i class="fa fa-angle-right"></i></a>
+                            <?php if (!empty($article[5])){ ?>
+                            <a class="btn btn-success" href="/upload/<?php echo $article[5]?>" target="_blank" style="margin-left:15px;margin-bottom:10px" id="document_<?php echo $article[6]?>"> View Report
+                             <i class="fa fa-angle-right"></i></a>
+                             <?php } ?>
                         </div>
                     </div>
-        
+                     <?php 
+                         }
+                      ?>    
                 </div>
-
             </div>
 
         </div>
@@ -125,17 +133,17 @@ mysqli_close($con);
   <div class="modal-dialog modal-lg">
     <div class="modal-content">
       <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+        <button id = "closeEditModal" type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
         <h4 class="modal-title" id="myModalLabel">Edit article</h4>
       </div>
       <div class="modal-body">
 
-        <form class="form-horizontal" role="form" action="edit_research.php?ID=<?php echo $id ?>" method="POST" enctype="multipart/form-data">
+        <form class="form-horizontal" role="form" id = "editform" action="edit_research.php?ID=<?php echo $article[6]?>" method="POST" enctype="multipart/form-data">
 
             <div class="form-group">
                 <label for="curfile" class="col-sm-2 control-label">Current document</label>
                 <div class="col-sm-10" id="curfile">
-                    <?php echo $image ?>
+
                 </div>
             </div>
             <div class="form-group">
@@ -148,35 +156,35 @@ mysqli_close($con);
               <div class="form-group">
                 <label for="headline" class="col-sm-2 control-label">Title</label>
                 <div class="col-sm-10">
-                  <input type="text" class="form-control" id="title" name="title" value="<?php echo $title ?>">
+                  <input type="text" class="form-control" id="title" name="title" value="">
                 </div>
               </div>
 
             <div class="form-group">
-              <label for="headline" class="col-sm-2 control-label">Date</label>
+              <label for="headline" class="col-sm-2 control-label">Publish date</label>
               <div class="col-sm-10">
-                <input type="text" class="span2" value="<?php echo $date ?>" id="dp" name="date" data-date-format="yyyy-mm-dd">
+                <input type="text" class="span2" value="" id="dp" name="date" data-date-format="yyyy-mm-dd">
               </div>
             </div>
 
             <div class="form-group">
                 <label for="headline" class="col-sm-2 control-label">Location</label>
                 <div class="col-sm-10">
-                  <input type="text" class="form-control" id="location" name="location" value="<?php echo $location ?>">
+                  <input type="text" class="form-control" id="location" name="location" value="">
                 </div>
               </div>
 
             <div class="form-group">
                 <label for="headline" class="col-sm-2 control-label">Authors</label>
                 <div class="col-sm-10">
-                  <input type="text" class="form-control" id="authors" name="authors" value="<?php echo $authors ?>">
+                  <input type="text" class="form-control" id="authors" name="authors" value="">
                 </div>
               </div>
 
               <div class="form-group">
                 <label for="content" class="col-sm-2 control-label">Summary</label>
                 <div class="col-sm-10">
-                  <textarea id ="editsummary" class="form-control" name="summary" value = "" style="width:600px"><?php echo $summary ?></textarea>
+                  <textarea id ="editsummary" class="form-control" name="summary" value = "" style="width:600px"></textarea>
                 </div>
               </div>
 
@@ -209,42 +217,42 @@ mysqli_close($con);
             <div class="form-group">
                 <label for="file" class="col-sm-2 control-label">Upload document</label>
                 <div class="col-sm-10">
-                    <input type="file" name="file" id="document">
+                    <input type="file" name="file">
                 </div>
             </div>
 
               <div class="form-group">
                 <label for="headline" class="col-sm-2 control-label">Title</label>
                 <div class="col-sm-10">
-                  <input type="text" class="form-control" name="title" value="<?php echo $title ?>">
+                  <input type="text" class="form-control" name="title" value="">
                 </div>
               </div>
 
             <div class="form-group">
-              <label for="headline" class="col-sm-2 control-label">Date</label>
+              <label for="headline" class="col-sm-2 control-label">Publish date</label>
               <div class="col-sm-10">
-                <input type="text" class="span2" value="<?php echo $date ?>" id="dp2" name="date" data-date-format="yyyy-mm-dd">
+                <input type="text" class="span2" value="" id="dp2" name="date" data-date-format="yyyy-mm-dd">
               </div>
             </div>
 
             <div class="form-group">
                 <label for="headline" class="col-sm-2 control-label">Location</label>
                 <div class="col-sm-10">
-                  <input type="text" class="form-control" name="location" value="<?php echo $location ?>">
+                  <input type="text" class="form-control" name="location" value="">
                 </div>
               </div>
 
             <div class="form-group">
                 <label for="headline" class="col-sm-2 control-label">Authors</label>
                 <div class="col-sm-10">
-                  <input type="text" class="form-control" name="authors" value="<?php echo $authors ?>">
+                  <input type="text" class="form-control" name="authors" value="">
                 </div>
               </div>
 
               <div class="form-group">
                 <label for="content" class="col-sm-2 control-label">Summary</label>
                 <div class="col-sm-10">
-                  <textarea id ="addsummary" class="form-control" name="summary" value = "" style="width:600px"><?php echo $summary ?></textarea>
+                  <textarea id ="addsummary" class="form-control" name="summary" value = "" style="width:600px"></textarea>
                 </div>
               </div>
 
@@ -271,30 +279,7 @@ mysqli_close($con);
     <script src="/js/bootstrap.min.js"></script>
     <script src="/js/modern-business.js"></script>
     <script src="/js/bootstrap-datepicker.js"></script>
-    <script>
-    $(function(){
-        rearrangeDate();
-        var today = new Date();
-        var dd = today.getDate();
-        var mm = today.getMonth()+1;
-        var yyyy = today.getFullYear();
-        if(dd<10) { dd='0'+dd }
-        if(mm<10) { mm='0'+mm } 
-        today = yyyy+'-'+mm+'-'+dd;
-        $('#date').val(today);
-        $('#dp').datepicker({ dateFormat: "yyyy-mm-dd" });
-        $('#dp2').datepicker({ dateFormat: "yyyy-mm-dd" });
-
-        function rearrangeDate() {
-            var dates = $('.eventdate b');
-            dates.contents().each(function(i,v) {
-                var date = v.textContent.split('-');
-                var newDate = date[1]+'-'+date[2]+'-'+date[0];
-                dates.eq(i).text(newDate);
-            });
-        }
-    });
-    </script>
+    <script src="/js/research.js"> </script>
 
 </body>
 
