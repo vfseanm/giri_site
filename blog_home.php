@@ -9,7 +9,7 @@ if (mysqli_connect_errno())
   echo "Failed to connect to MySQL: " . mysqli_connect_error();
   }
 
-$result = mysqli_query($con, "SELECT * FROM post ORDER BY time_created DESC LIMIT 4");
+$result = mysqli_query($con, "SELECT * FROM post ORDER BY time_created DESC LIMIT 8");
 
 $posts = array();
 
@@ -79,6 +79,7 @@ mysqli_close($con);
         <div class="row">
 
             <div class="col-lg-8">
+                <div id="contents">
 
                 <?php 
                 foreach($posts as $post){
@@ -112,14 +113,13 @@ mysqli_close($con);
             }
             ?>
 
-                <ul class="pager">
-                    <li class="previous"><a href="#">&larr; Older</a>
-                    </li>
-                    <li class="next"><a href="#">Newer &rarr;</a>
-                    </li>
-                </ul>
-
             </div>
+
+                <div class="loading" id="loading">
+                    Loading More
+                </div>
+        </div>
+
 
             <div class="col-lg-4">
                 
@@ -214,15 +214,48 @@ mysqli_close($con);
 
 
 
-
-
-
     <!-- JavaScript -->
     <script src="js/jquery-1.10.2.js"></script>
     <script src="js/bootstrap.js"></script>
     <script src="js/modern-business.js"></script>
 
 <script src="//tinymce.cachefly.net/4.0/tinymce.min.js"></script>
+
+
+<script type="text/javascript" src="js/scrollpagination.js"></script>
+<script type="text/javascript">
+var page = 0;
+$(function(){
+    $('#contents').scrollPagination(
+        {
+        'contentPage': 'blog_home_content.php', // the url you are fetching the results
+        'contentData': {'page': function() {return page}}, // these are the variables you can pass to the request, for example: children().size() to know which page you are
+        'scrollTarget': $(window), // who gonna scroll? in this example, the full window
+        'heightOffset': 10, // it gonna request when scroll is 10 pixels before the page ends
+        'beforeLoad': function(){ // before load function, you can display a preloader div
+            page ++;
+            $('#loading').fadeIn(); 
+        },
+        'afterLoad': function(elementsLoaded){ // after loading content, you can use this function to animate your new elements
+             $('#loading').fadeOut();
+             var i = 0;
+             //page ++;
+             $(elementsLoaded).fadeInWithDelay();
+        }
+    });
+    
+    // code for fade in element by element
+    $.fn.fadeInWithDelay = function(){
+        var delay = 0;
+        return this.each(function(){
+            $(this).delay(delay).animate({opacity:1}, 200);
+            delay += 100;
+        });
+    };
+           
+});
+</script>
+
 
 <?php 
 include("wysiwyg.php");
