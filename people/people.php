@@ -121,7 +121,7 @@ include('../globals.php');
                                <img class="img-responsive" src="http://placehold.it/750x450">
                          </div>
                             <div class="col-md-9">
-                            <h3> <b> Sean Miller </b>  <img src="google.png" align="middle" style="max-width:15%; margin-left:500px" > </h3>
+                            <h3> <b> Sean Miller </b> <small>Web Developer</small> <img src="google.png" align="middle" style="max-width:15%; margin-left:370px" > </h3>
 <!--                             <i class="fa fa-gear pull-left fa-4x"></i> -->
                             <p> Sean is a senior at Duke University majoring Computer Science. After graduation, Sean plans to work for
                             Google in Mountain View, CA as a software engineer. Sean has previously interned at Google in 2012 and 2013. Sean
@@ -135,7 +135,7 @@ include('../globals.php');
                                <img class="img-responsive" src="http://placehold.it/750x450">
                          </div>
                             <div class="col-md-9">
-                            <h3> <b> Dan Deng </b> <img src="linkedin.png" align="middle" style="max-width:15%; margin-left:520px" > </h3>
+                            <h3> <b> Dan Deng </b>  <small>Web Developer</small> <img src="linkedin.png" align="middle" style="max-width:15%; margin-left:400px" > </h3>
 <!--                             <i class="fa fa-gear pull-left fa-4x"></i> -->
                             <p>Dan is a senior at Duke University majoring in Computer Science. After graduation, Dan plans to join LinkedIn in
                             Mountain View, CA as a software engineer. Dan previously interned at VMware as a web developer. Dan is a big fan of

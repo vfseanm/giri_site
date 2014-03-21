@@ -51,27 +51,18 @@ include('../navbar.php');
 
     <div class="container">
         <div class="row">
-
             <?php
             check_for_error();
-        if (loggedin()){
             ?>
-            <div class="col-lg-2">
-                 <form class="form-horizontal" role="form" action="delete_event.php?ID=<?php echo $id ?>" method="POST" enctype="multipart/form-data">
-                    <button type = "submit" class="btn btn-danger btn-sm" id = "delete">
-                    Delete Event
-                    </button>
-                </form>
-            </div>
-        <?php
-        }
-        ?>
-
             <div class="col-lg-12">
                 <h1 class="page-header"><?php echo $name ?>
                 <?php if (loggedin()){ ?>
-                        <a href="#" data-toggle="modal" data-target="#editEventModal">
-                        <i class="fa fa-pencil"></i></a>
+                        <a href="#" data-toggle="modal" data-target="#editEventModal" style="font-size:24px;padding-left:20px">
+                            <i class="fa fa-pencil"></i>edit
+                        </a>
+                        <a href="delete_event.php?ID=<?php echo $id ?>" id = "delete" class="red" style="font-size:24px;padding-left:20px">
+                            <i class="fa fa-times"></i>delete
+                        </a>
                 <?php } ?>
                 </h1>
             </div>
