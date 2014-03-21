@@ -9,7 +9,7 @@
                 </button>
                 <!-- You'll want to use a responsive image option so this logo looks good on devices - I recommend using something like retina.js (do a quick Google search for it and you'll find it) -->
 
-                <a class="navbar-brand" href="/index.php"><img src="/upload/combined.png" style="width:460px">
+                <a class="navbar-brand" href="/index.php"><img src="/upload/combined.png" style="width:460px; display:inline" class="img-responsive">
 
             </a>
             </div>

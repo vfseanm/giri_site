@@ -84,26 +84,36 @@ mysqli_close($con);
                 <?php 
                 foreach($posts as $post){
                     ?>    
-                    <div class="row">
-                    <div class="col-lg-4"> 
+                    <div class="row" style="margin-bottom:15px">
+                    
+                    
+                <div class="col-lg-4"> 
+                <a href="post.php?ID=<?php echo $post[4] ?>">
                     <?php 
                 if ($post[2] != ""){
                 ?>
-                <a href="post.php?ID=<?php echo $post[4] ?>">
                     <img src="upload/<?php echo $post[2] ?>" class="img-responsive">
+                    <?php } 
+                    else{
+                        ?>
+                        <img src="upload/globe.png" class="img-responsive">
+                        <?php } ?>
+
                 </a>
-                <?php } ?>
-                <br >
-                <a class="btn btn-success" href="post.php?ID=<?php echo $post[4] ?>">Read More <i class="fa fa-angle-right"></i></a>
-                
             </div>
+                
             <div class="col-lg-8">
-                <h2 style="margin-top:0px"><a href="post.php?ID=<?php echo $post[4] ?>"><?php echo $post[0] ?></a>
-                </h2>
+                <h3 style="margin-top:0px"><a href="post.php?ID=<?php echo $post[4] ?>"><?php echo $post[0] ?></a>
+                </h3>
                 <p>Categories: <a href="#">Fake Category</a>
                 </p>
                 <p><?php echo $post[5] ?>
                 </p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-12"> 
+                <a class="btn btn-success" href="post.php?ID=<?php echo $post[4] ?>">Read More <i class="fa fa-angle-right"></i></a>
                 </div>
             </div>
                 <hr>
@@ -190,6 +200,12 @@ mysqli_close($con);
     <label for="title" class="col-sm-2 control-label">Title</label>
     <div class="col-sm-10">
       <input type="text" class="form-control" id="title" name="title" value="Title">
+    </div>
+  </div>
+  <div class="form-group">
+    <label for="teaser" class="col-sm-2 control-label">Teaser</label>
+    <div class="col-sm-10">
+      <input type="text" class="form-control" id="teaser" name="teaser" value="Teaser">
     </div>
   </div>
   <div class="form-group">

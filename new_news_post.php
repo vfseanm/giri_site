@@ -9,6 +9,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST")
 {
 	$title = $_POST["title"];
 	$content = $_POST["content"];
+	$teaser = $_POST["teaser"];
 
 $con=mysqli_connect("localhost", "giri_user", "47nufkXUQIVTnGlg", "giri");
 
@@ -19,10 +20,10 @@ if (mysqli_connect_errno())
   }
   $timestamp = time();
 if ($file_path == 'invalid'){
-$result = mysqli_query($con, "INSERT INTO post (time_created, title, content) VALUES ('$timestamp', '$title', '$content')");
+$result = mysqli_query($con, "INSERT INTO post (time_created, title, teaser, content) VALUES ('$timestamp', '$title', '$teaser', '$content')");
 }
 else{
-$result = mysqli_query($con, "INSERT INTO post (time_created, title, content, image) VALUES ('$timestamp', '$title', '$content', '$file_path') ");
+$result = mysqli_query($con, "INSERT INTO post (time_created, title, teaser, content, image) VALUES ('$timestamp', '$title', '$teaser', '$content', '$file_path') ");
 }
 
 mysqli_close($con);

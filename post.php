@@ -89,7 +89,11 @@ include('navbar.php');
                 <p><i class="fa fa-clock-o"></i> Posted on <?php echo date('F d, Y', $timestamp) ?>
                 </p>
                 <hr>
+                <?php 
+                if ($image != ""){
+                ?>
                 <img src="<?php echo 'upload/' . $image ?>" class="img-responsive" style="padding-bottom:8px">
+                <?php } ?>
                 
                 <?php echo $content ?>
 
