@@ -20,6 +20,7 @@ while($row = mysqli_fetch_array($result))
     $image = $row['image'];
     $timestamp = $row['time_created'];
     $teaser = $row['teaser'];
+    $embed_code = $row['embed_code'];
 }
 mysqli_close($con);
 ?>
@@ -89,11 +90,17 @@ include('navbar.php');
                 <p><i class="fa fa-clock-o"></i> Posted on <?php echo date('F d, Y', $timestamp) ?>
                 </p>
                 <hr>
+                <div style="text-align:center">
+                <?php 
+                if ($embed_code != ""){
+                    echo $embed_code;
+                 } ?>
                 <?php 
                 if ($image != ""){
                 ?>
                 <img src="<?php echo 'upload/' . $image ?>" class="img-responsive" style="padding-bottom:8px">
                 <?php } ?>
+            </div>
                 
                 <?php echo $content ?>
 
@@ -193,9 +200,15 @@ include('navbar.php');
     </div>
   </div>
     <div class="form-group">
-    <label for="teaser" class="col-sm-2 control-label">Teaser</label>
+    <label for="teaser" class="col-sm-2 control-label">Teaser (optional)</label>
     <div class="col-sm-10">
       <input type="text" class="form-control" id="teaser" name="teaser" value="<?php echo $teaser ?>">
+    </div>
+  </div>
+      <div class="form-group">
+    <label for="video" class="col-sm-2 control-label">Embed Video (optional)</label>
+    <div class="col-sm-10">
+      <input type="text" class="form-control" id="video" name="video" value='<?php echo $embed_code ?>'>
     </div>
   </div>
   <div class="form-group">

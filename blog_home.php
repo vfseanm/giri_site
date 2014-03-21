@@ -203,9 +203,15 @@ mysqli_close($con);
     </div>
   </div>
   <div class="form-group">
-    <label for="teaser" class="col-sm-2 control-label">Teaser</label>
+    <label for="teaser" class="col-sm-2 control-label">Teaser (optional)</label>
     <div class="col-sm-10">
       <input type="text" class="form-control" id="teaser" name="teaser" value="Teaser">
+    </div>
+  </div>
+    <div class="form-group">
+    <label for="video" class="col-sm-2 control-label">Embed Video (optional)</label>
+    <div class="col-sm-10">
+      <input type="text" class="form-control" id="video" name="video">
     </div>
   </div>
   <div class="form-group">
