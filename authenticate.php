@@ -12,6 +12,7 @@ else if (empty($password))
     {$_SESSION['error'] = 'error';}
 else{
 
+
 $con=mysqli_connect("localhost", "giri_user", "47nufkXUQIVTnGlg", "giri");
 // Check connection
 if (mysqli_connect_errno())
@@ -19,11 +20,19 @@ if (mysqli_connect_errno())
   echo "Failed to connect to MySQL: " . mysqli_connect_error();
   }
 
-$result = mysqli_query($con, "SELECT * FROM admin_account WHERE username='$username' AND password='$password'");
+$result = mysqli_query($con, "SELECT * FROM admin_account WHERE username='$username'");
+
 $count = 0;
 while($row = mysqli_fetch_array($result))
   {
   	$count ++;
+    if(crypt($password, $row['password'])==$row['password']){
+      break;
+    }
+    else{
+      $count = 0;
+      break;
+    }
 }
 if ($count>0){
   $_SESSION['admin'] = 'True';
@@ -31,7 +40,6 @@ if ($count>0){
 else{
 	$_SESSION['error'] = 'error';
 }
-
 mysqli_close($con);
 }
 header( 'Location: ' . $current_link );

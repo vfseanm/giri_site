@@ -36,6 +36,11 @@ padding-bottom:16px;
 .red:hover{
     color:#A21818;
 }
+.alert-danger{
+    background-color:#f2dede;
+    border-color:#ebccd1;
+    color:#a94442;
+}
 </style>
 
 
