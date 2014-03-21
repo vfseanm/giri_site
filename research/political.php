@@ -96,7 +96,7 @@ mysqli_close($con);
                                        <i class="fa fa-pencil main" style = "color:#428bca;" id ="<?php echo $article[6]?>"></i>
                                   </a>
                                    <a href="delete_research.php?ID=<?php echo $article[6]?>" class = "delete">
-                                       <i class="fa fa-times-circle-o" style = "color:#f04124; float: right"></i>
+                                       <i class="fa fa-times" style = "color:#f04124; float: right"></i>
                                    </a>
                                   <?php } ?>
                                 </a>

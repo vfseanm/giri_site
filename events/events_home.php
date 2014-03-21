@@ -41,6 +41,13 @@ mysqli_close($con);
     ?>
 
     <link href="/css/datepicker.css" rel="stylesheet">
+    <style>
+    .img-responsive {
+      display: block;
+      max-width: 100%;
+      max-height: 40%;
+    }
+    </style>
 
 </head>
 
@@ -75,12 +82,12 @@ mysqli_close($con);
 
         <div class="row">
 
-            <div class="col-md-5">
+            <div class="col-md-4">
                 <a href="blog-post.html">
                     <img src="/upload/<?php echo $event[3]?>" class="img-responsive">
                 </a>
             </div>
-            <div class="col-md-7">
+            <div class="col-md-8">
                 <h3>
                     <a href="event.php?ID=<?php echo $event[4] ?>" class = "eventname"><?php echo $event[0]?></a>
                 </h3>

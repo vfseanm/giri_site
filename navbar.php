@@ -19,7 +19,7 @@
                 <ul class="nav navbar-nav navbar-right">
                     <li><a href="/about.php">About</a>
                     </li>
-                    <li><a href="/people.php">People</a>
+                    <li><a href="/people/people.php">People</a>
                     </li>
                     <li><a href="/blog_home.php">News</a>
                     </li>
