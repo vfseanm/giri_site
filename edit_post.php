@@ -12,6 +12,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST")
 	$title = $_POST["title"];
 	$content = $_POST["content"];
   $teaser = $_POST["teaser"];
+  $video = $_POST["video"];
 
 $con=mysqli_connect("localhost", "giri_user", "47nufkXUQIVTnGlg", "giri");
 
@@ -21,10 +22,10 @@ if (mysqli_connect_errno())
   echo "Failed to connect to MySQL: " . mysqli_connect_error();
   }
 if ($file_path == 'invalid'){
-$result = mysqli_query($con, "UPDATE post SET title='$title', content='$content', teaser='$teaser' WHERE id=$postid");
+$result = mysqli_query($con, "UPDATE post SET title='$title', content='$content', teaser='$teaser', embed_code='$video' WHERE id=$postid");
 }
 else{
-$result = mysqli_query($con, "UPDATE post SET title='$title', content='$content', teaser='$teaser', image='$file_path' WHERE id=$postid");
+$result = mysqli_query($con, "UPDATE post SET title='$title', content='$content', teaser='$teaser', image='$file_path', embed_code='$video' WHERE id=$postid");
 }
 
 mysqli_close($con);

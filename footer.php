@@ -93,6 +93,9 @@ mysqli_close($con);
     <a href="/logout.php" class="btn btn-primary btn-sm">
        Logout
     </a>
+    <a href="" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#newAdminModal">
+       Add Administrator
+    </a>
   <?php } ?>
 </div>
 </div>
@@ -276,3 +279,72 @@ mysqli_close($con);
     </div>
   </div>
 </div>
+
+
+<!-- New Admin Modal -->
+
+<!-- Modal -->
+<div class="modal fade" id="newAdminModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+        <h4 class="modal-title" id="myModalLabel">Add Site Administrator</h4>
+      </div>
+      <div class="modal-body">
+
+  <form class="form-horizontal" role="form" action="/new_admin.php" method="POST" onsubmit="return validateForm()">
+  <div class="form-group">
+    <label for="na_username" class="col-sm-4 control-label">New Admin's Username</label>
+    <div class="col-sm-8">
+      <input type="text" class="form-control" id="na_username" placeholder="Username" name="na_username">
+    </div>
+  </div>
+  <div class="form-group">
+    <label for="password" class="col-sm-4 control-label">New Admin's Password</label>
+    <div class="col-sm-8">
+      <input type="password" class="form-control" id="na_password" placeholder="Password" name="na_password">
+    </div>
+  </div>
+
+  <div class="form-group">
+    <label for="password" class="col-sm-4 control-label">Type Password Again</label>
+    <div class="col-sm-8">
+      <input type="password" class="form-control" id="na_password_repeat" placeholder="Password" name="na_password_repeat">
+    </div>
+  </div>
+
+  <div class="form-group">
+    <div class="col-sm-offset-4 col-sm-8">
+      <button type="submit" class="btn btn-primary">Submit</button>
+    </div>
+  </div>
+</form>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- End New Admin Modal -->
+
+<script type = "text/javascript">
+
+function validateForm()
+{
+var username = document.getElementById("na_username").value;
+var pw = document.getElementById("na_password").value;
+var repeat_password = document.getElementById("na_password_repeat").value;
+
+if (username==null || username=="" || pw==null || pw=="" || repeat_password==null || repeat_password=="")
+  {
+  alert("All fields must be filled in.");
+  return false;
+  }
+  else if(pw != repeat_password){
+  alert("The two passwords do not match.");
+  return false;
+  }
+}
+
+</script>

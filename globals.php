@@ -16,7 +16,11 @@ function check_for_error(){
             return;
             }
     else if ($_SESSION['error'] == 'error'){
-    	echo '<p>The username and password you entered do not match the records in our database';
+    	echo '<div class="alert alert-danger fade in"><p>The username and password you entered do not match any records in our database.</p></div>';
+    	$_SESSION['error'] = '';
+    }
+    else if ($_SESSION['error'] == 'exists'){
+    	echo '<div class="alert alert-danger fade in"><p>The username that you have entered already exists.</p></div>';
     	$_SESSION['error'] = '';
     }
 }

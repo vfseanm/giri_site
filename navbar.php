@@ -8,14 +8,13 @@
                     <span class="icon-bar"></span>
                 </button>
                 <!-- You'll want to use a responsive image option so this logo looks good on devices - I recommend using something like retina.js (do a quick Google search for it and you'll find it) -->
-
-                <a class="navbar-brand" href="/index.php"><img src="/upload/combined.png" style="width:460px">
-
-            </a>
+             
             </div>
 
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse navbar-ex1-collapse">
+                <a class="navbar-brand" href="/index.php"><img src="/upload/combined.png" style="width:460px; display:inline" class="img-responsive"></a>
+   
                 <ul class="nav navbar-nav navbar-right">
                     <li><a href="/about.php">About</a>
                     </li>
