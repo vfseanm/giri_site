@@ -8,7 +8,7 @@ if (mysqli_connect_errno())
   echo "Failed to connect to MySQL: " . mysqli_connect_error();
   }
 
-$result = mysqli_query($con, "SELECT * FROM events ORDER BY eventdate DESC LIMIT 5");
+$result = mysqli_query($con, "SELECT * FROM events ORDER BY startdate DESC LIMIT 5");
 
 $events = array();
 
@@ -16,10 +16,11 @@ while($row = mysqli_fetch_array($result))
   {
     $event = array();
     $event[0] = $row['name'];
-    $event[1] = $row['eventdate'];
+    $event[1] = $row['startdate'];
     $event[2] = $row['description'];
     $event[3] = $row['image'];
     $event[4] = $row['id'];
+    $event[5] = $row['enddate'];
     $events[] = $event;
 }
 mysqli_close($con);
@@ -42,7 +43,7 @@ mysqli_close($con);
 
     <link href="/css/datepicker.css" rel="stylesheet">
     <style>
-    .img-responsive {
+    .img-responsive.main {
       display: block;
       max-width: 100%;
       max-height: 40%;
@@ -83,15 +84,15 @@ mysqli_close($con);
         <div class="row">
 
             <div class="col-md-4">
-                <a href="blog-post.html">
-                    <img src="/upload/<?php echo $event[3]?>" class="img-responsive">
+                <a href="/events/event.php?ID=<?php echo $event[4]?>">
+                    <img src="/upload/<?php echo $event[3]?>" class="img-responsive main">
                 </a>
             </div>
             <div class="col-md-8">
                 <h3>
                     <a href="event.php?ID=<?php echo $event[4] ?>" class = "eventname"><?php echo $event[0]?></a>
                 </h3>
-                <p class = "eventdate"><b><?php echo $event[1] ?></b></p>
+                <p class = "startdate">From: <b><?php echo $event[1] ?></b> to <b><?php echo $event[5] ?></b> </p>
                 </p>
                 <p><?php echo $event[2] ?></p>
                 <a class="btn btn-success" href="event.php?ID=<?php echo $event[4] ?>">Read More <i class="fa fa-angle-right"></i></a>
@@ -142,16 +143,20 @@ mysqli_close($con);
             </div>
 
               <div class="form-group">
-                <label for="headline" class="col-sm-2 control-label">Event Name</label>
+                <label for="headline" class="col-sm-2 control-label">*Event Name</label>
                 <div class="col-sm-10">
                   <input type="text" class="form-control" id="name" name="name">
                 </div>
               </div>
 
             <div class="form-group">
-              <label for="headline" class="col-sm-2 control-label">Event Date</label>
-              <div class="col-sm-10">
-                <input id = "date" type="text" class="span2" value="" id="dp" name="date" data-date-format="yyyy-mm-dd">
+              <label for="headline" class="col-sm-2 control-label">*Start Date</label>
+              <div class="col-sm-3">
+                <input id = "startdate" type="text" class="span2" value="" name="startdate" data-date-format="yyyy-mm-dd">
+              </div>
+               <label for="headline" class="col-sm-2 control-label">End Date</label>
+              <div class="col-sm-3">
+                <input id = "enddate" type="text" class="span2" value="" name="enddate" data-date-format="yyyy-mm-dd">
               </div>
             </div>
 

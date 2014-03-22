@@ -7,11 +7,13 @@ $(function(){
     if(dd<10) { dd='0'+dd }
     if(mm<10) { mm='0'+mm } 
     today = yyyy+'-'+mm+'-'+dd;
-    $('#date').val(today);
-    $('#date').datepicker({ dateFormat: "yyyy-mm-dd" });
+    $('#startdate').val(today);
+    $('#enddate').val(today);
+    $('#startdate').datepicker({ dateFormat: "yyyy-mm-dd" });
+    $('#enddate').datepicker({ dateFormat: "yyyy-mm-dd" });
 
     function rearrangeDate() {
-        var dates = $('.eventdate b');
+        var dates = $('.startdate b');
         dates.contents().each(function(i,v) {
             var date = v.textContent.split('-');
             var newDate = date[1]+'-'+date[2]+'-'+date[0];

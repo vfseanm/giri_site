@@ -15,7 +15,8 @@ $result = mysqli_query($con, "SELECT * FROM events WHERE id='$id'");
 while($row = mysqli_fetch_array($result))
   {
     $name = $row['name'];
-    $date = $row['eventdate'];
+    $startdate = $row['startdate'];
+    $enddate = $row['enddate'];
     $image = $row['image'];
     $description = $row['description'];
     $image = $row['image'];
@@ -73,7 +74,10 @@ include('../navbar.php');
 
             <div class="col-lg-8">
 
-                <p class = "date"><i class="fa fa-clock-o"></i> Date: <?php echo $date?> </p>
+                <p class=""><i class="fa fa-clock-o"></i>
+                    Start date: <startdate class = "date" style="margin-right:20px"> <?php echo $startdate?> </startdate> 
+                    End date: <enddate class = "date"> <?php echo $enddate?> </enddate>  
+                </p>
                 <hr>
                 <img src="<?php echo '/upload/' . $image ?>" class="img-responsive">
                 <hr>
@@ -167,16 +171,20 @@ include('../navbar.php');
             </div>
 
               <div class="form-group">
-                <label for="headline" class="col-sm-2 control-label">Event Name</label>
+                <label for="headline" class="col-sm-2 control-label">*Event Name</label>
                 <div class="col-sm-10">
                   <input type="text" class="form-control" id="name" name="name" value="<?php echo $name ?>">
                 </div>
               </div>
 
             <div class="form-group">
-              <label for="headline" class="col-sm-2 control-label">Event Date</label>
-              <div class="col-sm-10">
-                <input type="text" class="span2" value="<?php echo $date ?>" id="dp" name="date" data-date-format="yyyy-mm-dd">
+              <label for="headline" class="col-sm-2 control-label">*Start Date</label>
+              <div class="col-sm-3">
+                <input type="text" class="span2" value="<?php echo $startdate ?>" id="dp" name="startdate" data-date-format="yyyy-mm-dd">
+              </div>
+              <label for="headline" class="col-sm-2 control-label">End Date</label>
+              <div class="col-sm-3">
+                <input id = "dp2" type="text" class="span2" value="<?php echo $enddate ?>" name="enddate" data-date-format="yyyy-mm-dd">
               </div>
             </div>
 
@@ -212,30 +220,7 @@ include("../wysiwyg.php");
 <script src="/js/jquery-1.10.2.js"></script>
 <script src="/js/bootstrap.min.js"></script>
 <script src="/js/bootstrap-datepicker.js"></script>
-<script>
-    $(function(){    
-        rearrangeDate();
-        function rearrangeDate() {
-            var date = $('.date');
-            var old = date.text().substring(6).replace(/ /g,'').split('-');
-            var newDate = old[1]+'-'+old[2]+'-'+old[0];
-            date.eq(0).html("Date: <strong>" + newDate + "</strong>");
-            $('#dp').datepicker({ dateFormat: "yyyy-mm-dd" });
-            //$('#dp').val(newDate);
-        }
-        $('#delete').click(function() {
-            var x = confirm("Are you sure you want to delete this event?");
-            if (x==true) { // do nothing  
-            }
-            else
-            { 
-                return false; //stop the delete
-            }
-        });
-    });
-</script>
-
- 
+<script src="/js/event.js"> </script>
 
 </body>
 
