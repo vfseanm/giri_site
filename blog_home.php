@@ -126,7 +126,6 @@ mysqli_close($con);
                 <div class="loading" id="loading">
                     Loading More
                 </div>
-                 <div class="loading" id="nomoreresults">No more Articles.</div>
         </div>
 
 
@@ -233,7 +232,6 @@ mysqli_close($con);
 var page = -1;
 var children = $('#contents').children().size();
 $(function(){
-    $('#nomoreresults').fadeOut();
     $('#contents').scrollPagination(
         {
         'contentPage': 'blog_home_content.php', // the url you are fetching the results
@@ -250,7 +248,6 @@ $(function(){
              var i = 0;
              $(elementsLoaded).fadeInWithDelay();
              if ($('#contents').children().size() == children){ // no more results
-                 $('#nomoreresults').fadeIn();
                  $('#contents').stopScrollPagination();
                  console.log("stopping pagination!");
             }
