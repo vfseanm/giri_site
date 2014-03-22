@@ -9,7 +9,7 @@ if (mysqli_connect_errno())
   echo "Failed to connect to MySQL: " . mysqli_connect_error();
   }
 
-$result = mysqli_query($con, "SELECT * FROM post ORDER BY time_created DESC LIMIT 8");
+$result = mysqli_query($con, "SELECT * FROM post ORDER BY time_created DESC LIMIT 4");
 
 $posts = array();
 
@@ -105,8 +105,6 @@ mysqli_close($con);
             <div class="col-lg-8">
                 <h3 style="margin-top:0px"><a href="post.php?ID=<?php echo $post[4] ?>"><?php echo $post[0] ?></a>
                 </h3>
-                <p>Categories: <a href="#">Fake Category</a>
-                </p>
                 <p><?php echo $post[5] ?>
                 </p>
                 </div>
@@ -128,6 +126,7 @@ mysqli_close($con);
                 <div class="loading" id="loading">
                     Loading More
                 </div>
+                 <div class="loading" id="nomoreresults">No more Articles.</div>
         </div>
 
 
@@ -135,30 +134,15 @@ mysqli_close($con);
                 
                 <!-- /well -->
                 <div class="well">
-                    <h4>Popular Blog Categories</h4>
+                    <h4>Upcoming Events</h4>
                     <div class="row">
                         <div class="col-lg-6">
                             <ul class="list-unstyled">
-                                <li><a href="#dinosaurs">Dinosaurs</a>
+                                <li><a href="#dinosaurs">Great Conference</a>
                                 </li>
-                                <li><a href="#spaceships">Spaceships</a>
+                                <li><a href="#spaceships">Sweet Conference</a>
                                 </li>
-                                <li><a href="#fried-foods">Fried Foods</a>
-                                </li>
-                                <li><a href="#wild-animals">Wild Animals</a>
-                                </li>
-                            </ul>
-                        </div>
-                        <div class="col-lg-6">
-                            <ul class="list-unstyled">
-                                <li><a href="#alien-abductions">Alien Abductions</a>
-                                </li>
-                                <li><a href="#business-casual">Business Casual</a>
-                                </li>
-                                <li><a href="#robots">Robots</a>
-                                </li>
-                                <li><a href="#fireworks">Fireworks</a>
-                                </li>
+                                <li><a href="#fried-foods">Awesome Conference</a>
                             </ul>
                         </div>
                     </div>
@@ -246,8 +230,10 @@ mysqli_close($con);
 
 <script type="text/javascript" src="js/scrollpagination.js"></script>
 <script type="text/javascript">
-var page = 0;
+var page = -1;
+var children = $('#contents').children().size();
 $(function(){
+    $('#nomoreresults').fadeOut();
     $('#contents').scrollPagination(
         {
         'contentPage': 'blog_home_content.php', // the url you are fetching the results
@@ -256,13 +242,21 @@ $(function(){
         'heightOffset': 10, // it gonna request when scroll is 10 pixels before the page ends
         'beforeLoad': function(){ // before load function, you can display a preloader div
             page ++;
+            console.log(page);
             $('#loading').fadeIn(); 
         },
         'afterLoad': function(elementsLoaded){ // after loading content, you can use this function to animate your new elements
              $('#loading').fadeOut();
              var i = 0;
-             //page ++;
              $(elementsLoaded).fadeInWithDelay();
+             if ($('#contents').children().size() == children){ // no more results
+                 $('#nomoreresults').fadeIn();
+                 $('#contents').stopScrollPagination();
+                 console.log("stopping pagination!");
+            }
+            else{
+                children = $('#contents').children().size();
+            }
         }
     });
     
