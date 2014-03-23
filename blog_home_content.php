@@ -2,7 +2,7 @@
 include('globals.php');
 
 $page =$_POST["page"];
-$page = ($page*4)+8;
+$page = ($page*4)+4;
 
 
 $con=mysqli_connect("localhost", "giri_user", "47nufkXUQIVTnGlg", "giri");
@@ -13,7 +13,7 @@ if (mysqli_connect_errno())
   echo "Failed to connect to MySQL: " . mysqli_connect_error();
   }
 
-$result = mysqli_query($con, "select * from post ORDER BY time_created LIMIT 4 OFFSET $page");
+$result = mysqli_query($con, "select * from post ORDER BY time_created DESC LIMIT 4 OFFSET $page");
 
 $posts = array();
 
@@ -37,23 +37,26 @@ mysqli_close($con);
                     ?>    
                     <div class="row">
                     <div class="col-lg-4"> 
+
+                <a href="post.php?ID=<?php echo $post[4] ?>">
                     <?php 
                 if ($post[2] != ""){
                 ?>
-                <a href="post.php?ID=<?php echo $post[4] ?>">
                     <img src="upload/<?php echo $post[2] ?>" class="img-responsive">
+                    <?php } 
+                    else{
+                        ?>
+                        <img src="upload/globe.png" class="img-responsive">
+                        <?php } ?>
                 </a>
-                <?php } ?>
+
                 <br >
                 <a class="btn btn-success" href="post.php?ID=<?php echo $post[4] ?>">Read More <i class="fa fa-angle-right"></i></a>
                 
             </div>
             <div class="col-lg-8">
                 <h2 style="margin-top:0px"><a href="post.php?ID=<?php echo $post[4] ?>"><?php echo $post[0] ?></a>
-                </h2>
-                <p>Categories: <a href="#">Fake Category</a>
-                </p>
-                <p><?php echo $post[5] ?>
+                </h2>                <p><?php echo $post[5] ?>
                 </p>
                 </div>
             </div>

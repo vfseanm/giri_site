@@ -283,6 +283,10 @@ mysqli_close($con);
     include("../wysiwyg.php");
     ?>
 
+    <?php 
+    include("../wysiwyg.php");
+    ?>
+
 </body>
 
 </html>
