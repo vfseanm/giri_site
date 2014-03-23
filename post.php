@@ -90,7 +90,7 @@ include('navbar.php');
                 <p><i class="fa fa-clock-o"></i> Posted on <?php echo date('F d, Y', $timestamp) ?>
                 </p>
                 <hr>
-                <div style="text-align:center">
+                <div style="text-align:center; padding-bottom:15px">
                 <?php 
                 if ($embed_code != ""){
                     echo $embed_code;
@@ -98,7 +98,7 @@ include('navbar.php');
                 <?php 
                 if ($image != ""){
                 ?>
-                <img src="<?php echo 'upload/' . $image ?>" class="img-responsive" style="padding-bottom:8px">
+                <img src="<?php echo 'upload/' . $image ?>" class="img-responsive">
                 <?php } ?>
             </div>
                 

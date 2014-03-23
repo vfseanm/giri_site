@@ -272,10 +272,6 @@ mysqli_close($con);
 </div>
 <!-- **********************End ADD Modal************************** -->
 
-    <!-- JavaScript -->
-    <?php 
-    include("../wysiwyg.php");
-    ?>
 
     <!-- JavaScript -->
     <script src="/js/jquery-1.10.2.js"></script>
@@ -283,6 +279,10 @@ mysqli_close($con);
     <script src="/js/modern-business.js"></script>
     <script src="/js/bootstrap-datepicker.js"></script>
     <script src="/js/research.js"> </script>
+
+    <?php 
+    include("../wysiwyg.php");
+    ?>
 
 </body>
 
