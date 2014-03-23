@@ -3,9 +3,11 @@
 <script type="text/javascript">
 tinymce.init({
     mode: "exact",
+    paste_remove_spans: true,
+    paste_remove_styles : true,
     elements:"caption1,caption2,caption3,caption4,caption5,caption6,caption7,caption8,caption9",
     plugins: [
-        "advlist autolink lists link charmap preview",
+        "advlist autolink lists link charmap preview paste",
         "searchreplace visualblocks"
     ],
     menubar: false,
@@ -15,8 +17,10 @@ tinymce.init({
 
 tinymce.init({
     mode: "addsummary",
+    paste_remove_spans: true,
+    paste_remove_styles : true,
     plugins: [
-        "advlist autolink lists link charmap preview",
+        "advlist autolink lists link charmap preview paste",
         "searchreplace visualblocks"
     ],
     menubar: false,
@@ -26,8 +30,10 @@ tinymce.init({
 
 tinymce.init({
     mode: "textareas",
+    paste_remove_spans: true,
+    paste_remove_styles : true,
     plugins: [
-        "advlist autolink lists link charmap preview",
+        "advlist autolink lists link charmap preview paste",
         "searchreplace visualblocks"
     ],
     menubar: false,
