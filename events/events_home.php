@@ -8,7 +8,7 @@ if (mysqli_connect_errno())
   echo "Failed to connect to MySQL: " . mysqli_connect_error();
   }
 
-$result = mysqli_query($con, "SELECT * FROM events ORDER BY startdate DESC LIMIT 5");
+$result = mysqli_query($con, "SELECT * FROM events WHERE startdate > DATE_SUB(CURDATE(),INTERVAL 5 DAY) ORDER BY startdate");
 
 $events = array();
 
@@ -163,7 +163,7 @@ mysqli_close($con);
               <div class="form-group">
                 <label for="content" class="col-sm-2 control-label">Description</label>
                 <div class="col-sm-10">
-                  <textarea id ="description" class="form-control" name="description" style="width:600px"></textarea>
+                  <textarea class="form-control" name="description" style="width:600px"></textarea>
                 </div>
               </div>
 
