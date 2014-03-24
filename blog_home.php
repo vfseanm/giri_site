@@ -9,7 +9,7 @@ if (mysqli_connect_errno())
   echo "Failed to connect to MySQL: " . mysqli_connect_error();
   }
 
-$result = mysqli_query($con, "SELECT * FROM post ORDER BY time_created DESC LIMIT 4");
+$result = mysqli_query($con, "SELECT * FROM post ORDER BY time_created DESC LIMIT 8");
 
 $posts = array();
 
@@ -59,7 +59,7 @@ mysqli_close($con);
                 <h1 class="page-header">GIRI News</h1>
             <?php 
                 check_for_error();
-                ?>
+            ?>
         <?php
         if (loggedin()){
             ?>
