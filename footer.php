@@ -50,7 +50,7 @@ mysqli_close($con);
 ?>
 
 <div id="footer" style="background-color: #f5f5f5; height:auto">
-      <div class="container" style="padding-top:15px">
+      <div class="container" style="padding-top:15px; padding-bottom:15px">
         <div class="row">
           <div class="col-lg-4 col-md-4">
             <p class="footer_heading" >Contact <?php if (loggedin()){ ?>
@@ -75,9 +75,10 @@ mysqli_close($con);
         </a>
         <?php } ?>
           </p>
-          <?php foreach($links as $link){ ?>
+          <?php foreach($links as $link){ 
+            if (strcmp($link[1], "") !=0){ ?>
           <a href="<?php echo $link[1] ?>"><?php echo $link[0] ?></a><br>
-          <?php } ?>
+          <?php } } ?>
 
         </div>
         <div class="col-lg-4 col-md-4">
