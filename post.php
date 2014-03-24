@@ -109,7 +109,7 @@ include('navbar.php');
                 <img src="<?php echo 'upload/' . $image ?>" class="img-responsive">
                 <?php } ?>
                 <?php if (loggedin() && strcmp($image, "")!=0){ ?>
-                    <a style="padding-left:15px" class="red" href="post_delete_image.php?ID=<?php echo $postid ?>"><i class="fa fa-times"></i>Delete Image</a>
+                    <a class="red" href="post_delete_image.php?ID=<?php echo $postid ?>"><i class="fa fa-times"></i>Delete Image</a>
                   <?php } ?>
             </div>
                 
