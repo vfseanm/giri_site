@@ -14,7 +14,9 @@ $result = mysqli_query($con, "SELECT * FROM about WHERE id=1");
 while($row = mysqli_fetch_array($result))
   {
     $headline = $row['headline'];
+    $headline = stripslashes($headline);
     $content = $row['content'];
+    $content = stripslashes($content);
     $image = $row['image'];
 }
 mysqli_close($con);

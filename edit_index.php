@@ -8,7 +8,7 @@ session_start();
 
 if ($_SERVER["REQUEST_METHOD"] == "POST")
 {
-	$description = $_POST["description"];
+	$description = addslashes($_POST["description"]);
 
 $con=mysqli_connect("localhost", "giri_user", "47nufkXUQIVTnGlg", "giri");
 

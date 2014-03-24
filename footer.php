@@ -11,9 +11,9 @@ $result = mysqli_query($con, "SELECT * FROM footer WHERE id=1");
 
 while($row = mysqli_fetch_array($result))
   {
-    $address_one = $row['address_one'];
-    $address_two = $row['address_two'];
-    $address_three = $row['address_three'];
+    $address_one = stripslashes($row['address_one']);
+    $address_two = stripslashes($row['address_two']);
+    $address_three = stripslashes($row['address_three']);
     $phone = $row['phone'];
 }
 
@@ -26,8 +26,8 @@ $count = 0;
 while($row = mysqli_fetch_array($result))
   {
     $link = array();
-    $link[1] = $row['anchor'];
-    $link[0] = $row['link'];
+    $link[1] = stripslashes($row['anchor']);
+    $link[0] = stripslashes($row['link']);
 
     $links[] = $link;
 

@@ -10,7 +10,9 @@ $file_path = upload_file($_FILES["file"]);
 if ($_SERVER["REQUEST_METHOD"] == "POST")
 {
 	$headline = $_POST["headline"];
+	$headline = addslashes($headline);
 	$content = $_POST["content"];
+	$content = addslashes($content);
 
 $con=mysqli_connect("localhost", "giri_user", "47nufkXUQIVTnGlg", "giri");
 

@@ -16,11 +16,15 @@ $result = mysqli_query($con, "SELECT * FROM post WHERE id='$postid'");
 while($row = mysqli_fetch_array($result))
   {
     $title = $row['title'];
+    $title = stripslashes($title);
     $content = $row['content'];
+    $content = stripslashes($content);
     $image = $row['image'];
     $timestamp = $row['time_created'];
     $teaser = $row['teaser'];
+    $teaser = stripslashes($teaser);
     $embed_code = $row['embed_code'];
+    $embed_code = stripslashes($embed_code);
 }
 mysqli_close($con);
 ?>
