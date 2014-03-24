@@ -37,8 +37,12 @@ mysqli_close($con);
         <div class="row">
 
             <div class="col-md-4">
-                <a href="/events/event.php?ID=<?php echo $event[4]?>">
-                    <img src="/upload/<?php echo $event[3]?>" class="img-responsive main">
+                <a href="/events/event.php?ID=<?php echo $event[4]?>">        
+                    <?php if ($event[3] != "") { ?>
+                        <img src="/upload/<?php echo $event[3]?>" class="img-responsive main">
+                    <?php } else { ?>
+                        <img src="/events/default_event.png" class="img-responsive main">
+                    <?php } ?>
                 </a>
             </div>
             <div class="col-md-8">
