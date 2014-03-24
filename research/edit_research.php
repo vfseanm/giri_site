@@ -8,11 +8,11 @@ session_start();
 
 if ($_SERVER["REQUEST_METHOD"] == "POST")
 {
-	$title = $_POST["title"];
+	$title = addslashes($_POST["title"]);
 	$date = $_POST["date"];
-	$location = $_POST["location"];
-	$authors = $_POST["authors"];
-	$summary = $_POST["summary"];
+	$location = addslashes($_POST["location"]);
+	$authors = addslashes($_POST["authors"]);
+	$summary = addslashes($_POST["summary"]);
 	$doc = $_FILES["file"];
 	$file_path = upload_file($doc);
 

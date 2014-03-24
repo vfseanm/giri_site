@@ -15,11 +15,11 @@ $articles = array();
 while($row = mysqli_fetch_array($result))
   {
     $article = array();
-    $article[0] = $row['title'];
+    $article[0] = stripslashes($row['title']);
     $article[1] = $row['publishdate'];
-    $article[2] = $row['location'];
-    $article[3] = $row['authors'];
-    $article[4] = $row['summary'];
+    $article[2] = stripslashes($row['location']);
+    $article[3] = stripslashes($row['authors']);
+    $article[4] = stripslashes($row['summary']);
     $article[5] = $row['document'];
     $article[6] = $row['id'];
     $articles[] = $article;

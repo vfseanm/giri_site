@@ -14,12 +14,12 @@ $result = mysqli_query($con, "SELECT * FROM events WHERE id='$id'");
 
 while($row = mysqli_fetch_array($result))
   {
-    $name = $row['name'];
+    $name = stripslashes($row['name']);
     $startdate = $row['startdate'];
     $enddate = $row['enddate'];
     $image = $row['image'];
-    $teaser = $row["teaser"];
-    $description = $row['description'];
+    $teaser = stripslashes($row["teaser"]);
+    $description = stripslashes($row['description']);
     $image = $row['image'];
     $id = $row['id'];
 }
@@ -131,7 +131,7 @@ include('../navbar.php');
       </div>
       <div class="modal-body">
 
-        <form class="form-horizontal" role="form" action="edit_event.php?ID=<?php echo $id ?>" method="POST" enctype="multipart/form-data">
+        <form class="form-horizontal" role="form" action="edit_event.php?ID=<?php echo $id ?>" method="POST" enctype="multipart/form-data" onsubmit="return validatePostForm()">
 
             <div class="form-group">
                 <label for="curfile" class="col-sm-2 control-label">Current Image</label>
@@ -178,6 +178,9 @@ include('../navbar.php');
                 </div>
               </div>
 
+              <div id = "postValidation">
+              </div>
+
               <div class="form-group">
                 <div class="col-sm-offset-2 col-sm-10">
                   <button type="submit" class="btn btn-primary">Save</button>
@@ -201,6 +204,16 @@ include('../navbar.php');
 <script src="/js/bootstrap.min.js"></script>
 <script src="/js/bootstrap-datepicker.js"></script>
 <script src="/js/event.js"> </script>
+<script type="text/javascript">
+    function validatePostForm() {
+    var title = document.getElementById("name").value;
+    if (title==null || title=="")
+      {
+      $('#postValidation').html("<div class='alert alert-danger'><p>You must name the event.</p></div>").hide().fadeIn('slow');
+      return false;
+      }
+    }
+</script>
 
 <?php 
 include("../wysiwyg.php");

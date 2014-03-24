@@ -15,13 +15,13 @@ $events = array();
 while($row = mysqli_fetch_array($result))
   {
     $event = array();
-    $event[0] = $row['name'];
+    $event[0] = stripslashes($row['name']);
     $event[1] = $row['startdate'];
-    $event[2] = $row['description'];
+    $event[2] = stripslashes($row['description']);
     $event[3] = $row['image'];
     $event[4] = $row['id'];
     $event[5] = $row['enddate'];
-    $event[6] = $row['teaser'];
+    $event[6] = stripslashes($row['teaser']);
     $events[] = $event;
 }
 mysqli_close($con);
@@ -135,7 +135,7 @@ mysqli_close($con);
       </div>
       <div class="modal-body">
 
-        <form class="form-horizontal" role="form" action="new_event.php" method="POST" enctype="multipart/form-data">
+        <form class="form-horizontal" role="form" action="new_event.php" method="POST" enctype="multipart/form-data" onsubmit="return validatePostForm()">
             <div class="form-group">
                 <label for="file" class="col-sm-2 control-label">Upload Image</label>
                 <div class="col-sm-10">
@@ -175,6 +175,9 @@ mysqli_close($con);
                 </div>
               </div>
 
+              <div id = "postValidation">
+              </div>
+
               <div class="form-group">
                 <div class="col-sm-offset-2 col-sm-10">
                   <button type="submit" class="btn btn-primary">Save</button>
@@ -202,6 +205,15 @@ mysqli_close($con);
 <script type="text/javascript" src="/js/scrollpagination.js"></script>
 
     <script type="text/javascript">
+    function validatePostForm() {
+    var title = document.getElementById("name").value;
+    if (title==null || title=="")
+      {
+      $('#postValidation').html("<div class='alert alert-danger'><p>You must name the event.</p></div>").hide().fadeIn('slow');
+      return false;
+      }
+    }
+
 var page = -1;
 var children = $('#contents').children().size();
 console.log(children);

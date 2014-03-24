@@ -15,7 +15,7 @@ $faculties = array();
 while($row = mysqli_fetch_array($result_faculty))
   {
     $faculty = array();
-    $faculty[0] = $row['name']; $faculty[1] = $row['position']; $faculty[2] = $row['description'];
+    $faculty[0] = stripslashes($row['name']); $faculty[1] = stripslashes($row['position']); $faculty[2] = stripslashes($row['description']);
     $faculty[3] = $row['picture']; $faculty[4] = $row['link1name']; $faculty[5] = $row['link1'];
     $faculty[6] = $row['link2name']; $faculty[7] = $row['link2']; $faculty[8] = $row['link3name'];
     $faculty[9] = $row['link3']; $faculty[10] = $row['role']; $faculty[11] = $row['id'];
@@ -26,7 +26,7 @@ $staffs = array();
 while($row = mysqli_fetch_array($result_staff))
   {
     $staff= array();
-    $staff[0] = $row['name']; $staff[1] = $row['position']; $staff[2] = $row['description'];
+    $staff[0] = stripslashes($row['name']); stripslashes($staff[1] = $row['position']); $staff[2] = stripslashes($row['description']);
     $staff[3] = $row['picture']; $staff[4] = $row['link1name']; $staff[5] = $row['link1'];
     $staff[6] = $row['link2name']; $staff[7] = $row['link2']; $staff[8] = $row['link3name'];
     $staff[9] = $row['link3']; $staff[10] = $row['role']; $staff[11] = $row['id'];
@@ -37,7 +37,7 @@ $fellows = array();
 while($row = mysqli_fetch_array($result_fellows))
   {
     $fellow= array();
-    $fellow[0] = $row['name']; $fellow[1] = $row['position']; $fellow[2] = $row['description'];
+    $fellow[0] = stripslashes($row['name']); $fellow[1] = stripslashes($row['position']); $fellow[2] = stripslashes($row['description']);
     $fellow[3] = $row['picture']; $fellow[4] = $row['link1name']; $fellow[5] = $row['link1'];
     $fellow[6] = $row['link2name']; $fellow[7] = $row['link2']; $fellow[8] = $row['link3name'];
     $fellow[9] = $row['link3']; $fellow[10] = $row['role']; $fellow[11] = $row['id'];
@@ -104,8 +104,8 @@ mysqli_close($con);
                     </li>
                     <li><a href="#service-three" data-toggle="tab">Fellows</a>
                     </li>
-                    <li><a href="#service-four" data-toggle="tab">Team</a>
-                    </li>
+<!--                     <li><a href="#service-four" data-toggle="tab">Team</a>
+                    </li> -->
                 </ul>
                 <div id="myTabContent" class="tab-content">
                     <div class="tab-pane fade in active" id="service-one">
@@ -120,7 +120,7 @@ mysqli_close($con);
                               <img id = "picture_<?php echo $faculty[11]?>" class="img-responsive main" src="no-picture.png">
                           <?php } ?>
                           <?php if (loggedin() && strcmp($faculty[3], "")!=0){ ?>
-                            <a style="padding-left:15px" class="red" href="delete_person_picture.php?ID=<?php echo $faculty[11] ?>"><i class="fa fa-times"></i>Delete Image</a>
+                            <a class="red" href="delete_person_picture.php?ID=<?php echo $faculty[11] ?>"><i class="fa fa-times"></i>Delete Image</a>
                           <?php } ?>
                          </div>
                             <div class="col-md-9">
@@ -162,7 +162,7 @@ mysqli_close($con);
                               <img class="img-responsive main" id="picture_<?php echo $staff[11]?>" src="no-picture.png">
                           <?php } ?>
                           <?php if (loggedin() && strcmp($staff[3], "")!=0){ ?>
-                            <a style="padding-left:15px" class="red" href="delete_person_picture.php?ID=<?php echo $staff[11] ?>"><i class="fa fa-times"></i>Delete Image</a>
+                            <a class="red" href="delete_person_picture.php?ID=<?php echo $staff[11] ?>"><i class="fa fa-times"></i>Delete Image</a>
                           <?php } ?>
                          </div>
                             <div class="col-md-9">
@@ -201,7 +201,7 @@ mysqli_close($con);
                               <img class="img-responsive main" src="no-picture.png">
                           <?php } ?>
                           <?php if (loggedin() && strcmp($fellow[3], "")!=0){ ?>
-                            <a style="padding-left:15px" class="red" href="delete_person_picture.php?ID=<?php echo $fellow[11] ?>"><i class="fa fa-times"></i>Delete Image</a>
+                            <a class="red" href="delete_person_picture.php?ID=<?php echo $fellow[11] ?>"><i class="fa fa-times"></i>Delete Image</a>
                           <?php } ?>  
                          </div>
                             <div class="col-md-9">
@@ -228,14 +228,13 @@ mysqli_close($con);
                       }
                     ?>
                     </div>
-                    <div class="tab-pane fade" id="service-four">
+  <!--                   <div class="tab-pane fade" id="service-four">
                         <div class="row">
                          <div class="col-md-3">
                                <img class="img-responsive" src="sean.png">
                          </div>
                             <div class="col-md-9">
                             <h3> <b> Sean Miller </b> <small>Web Developer</small> <img src="google.png" align="middle" style="max-width:15%; margin-left:370px" > </h3>
-<!--                             <i class="fa fa-gear pull-left fa-4x"></i> -->
                             <p> Sean is a senior at Duke University majoring Computer Science. After graduation, Sean plans to work for
                             Google in Mountain View, CA as a software engineer. Sean has previously interned at Google in 2012 and 2013. Sean
                             has extensive full-stack web development experience in PHP, as well as experience with Django and Ruby on Rails.</p>
@@ -249,7 +248,7 @@ mysqli_close($con);
                          </div>
                             <div class="col-md-9">
                             <h3> <b> Dan Deng </b>  <small>Web Developer</small> <img src="linkedin.png" align="middle" style="max-width:15%; margin-left:400px" > </h3>
-<!--                             <i class="fa fa-gear pull-left fa-4x"></i> -->
+
                             <p>Dan is a senior at Duke University majoring in Computer Science. After graduation, Dan plans to join LinkedIn in
                             Mountain View, CA as a software engineer. Dan previously interned at VMware as a web developer. Dan is a big fan of
                             Ruby on Rails, but has also done PHP and iOS development.</p>
@@ -257,7 +256,7 @@ mysqli_close($con);
                         </div>
                     </div>
                     <hr>
-                    </div>
+                    </div> -->
                     
                 </div>
             </div>

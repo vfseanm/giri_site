@@ -7,10 +7,13 @@ session_start();
 if ($_SERVER["REQUEST_METHOD"] == "POST")
 {
 	$name = $_POST["name"];
+	$name = addslashes($name);
 	$startdate = $_POST["startdate"];
 	$enddate = $_POST["enddate"];
 	$teaser = $_POST["teaser"];
+	$teaser = addslashes($teaser);
 	$description = $_POST["description"];
+	$description = addslashes($description);
 	$image = $_FILES["file"];
 	$file_path = upload_file($image);
 

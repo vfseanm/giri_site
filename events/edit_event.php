@@ -8,11 +8,11 @@ session_start();
 
 if ($_SERVER["REQUEST_METHOD"] == "POST")
 {
-	$name = $_POST["name"];
+	$name = addslashes($_POST["name"]);
 	$startdate = $_POST["startdate"];
 	$enddate = $_POST["enddate"];
-	$teaser = $_POST["teaser"];
-	$description = $_POST["description"];
+	$teaser = addslashes($_POST["teaser"]);
+	$description = addslashes($_POST["description"]);
 	$image = $_FILES["file"];
 	$file_path = upload_file($image);
 

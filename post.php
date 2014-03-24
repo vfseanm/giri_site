@@ -198,7 +198,7 @@ include('navbar.php');
     </div>
   </div>
 
-      <div id = "postValidation">
+  <div id = "postValidation">
   </div>
 
   <div class="form-group">

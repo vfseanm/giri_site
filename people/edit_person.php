@@ -8,9 +8,9 @@ session_start();
 
 if ($_SERVER["REQUEST_METHOD"] == "POST")
 {
-	$name = $_POST["name"];
-	$position = $_POST["position"];
-	$description = $_POST["description"];
+	$name = addslashes($_POST["name"]);
+	$position = addslashes($_POST["position"]);
+	$description = addslashes($_POST["description"]);
 	$role = $_POST["role"];
 	$link1 =  $_POST["link1"];
 	$link2 =  $_POST["link2"];
