@@ -83,6 +83,7 @@ mysqli_close($con);
             <div class="col-lg-12">
 
                 <div class="panel-group" id="accordion">
+                  <div id="contents">
                 <?php 
                  foreach($articles as $article){
                 ?>    
@@ -118,6 +119,10 @@ mysqli_close($con);
                      <?php 
                          }
                       ?>    
+                      </div>
+                      <div class="loading" id="loading">
+                    Loading More
+                </div> 
                 </div>
             </div>
 
@@ -283,7 +288,7 @@ mysqli_close($con);
     <?php 
     include("../wysiwyg.php");
     ?>
-
+<script type="text/javascript" src="/js/scrollpagination.js"></script>
     <script type="text/javascript">
 var page = -1;
 var children = $('#contents').children().size();
