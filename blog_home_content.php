@@ -2,7 +2,7 @@
 include('globals.php');
 
 $page =$_POST["page"];
-$page = ($page*4)+4;
+$page = ($page*5)+8;
 
 
 $con=mysqli_connect("localhost", "giri_user", "47nufkXUQIVTnGlg", "giri");
@@ -13,7 +13,7 @@ if (mysqli_connect_errno())
   echo "Failed to connect to MySQL: " . mysqli_connect_error();
   }
 
-$result = mysqli_query($con, "select * from post ORDER BY time_created DESC LIMIT 4 OFFSET $page");
+$result = mysqli_query($con, "select * from post ORDER BY time_created DESC LIMIT 5 OFFSET $page");
 
 $posts = array();
 

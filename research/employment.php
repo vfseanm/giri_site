@@ -8,7 +8,7 @@ if (mysqli_connect_errno())
   echo "Failed to connect to MySQL: " . mysqli_connect_error();
   }
 
-$result = mysqli_query($con, "SELECT * FROM research WHERE type='employment' ORDER BY publishdate DESC LIMIT 15");
+$result = mysqli_query($con, "SELECT * FROM research WHERE type='employment' ORDER BY publishdate DESC LIMIT 10");
 
 $articles = array();
 
@@ -86,6 +86,7 @@ mysqli_close($con);
             <div class="col-lg-12">
 
                 <div class="panel-group" id="accordion">
+                  <div id="contents">
                 <?php 
                  foreach($articles as $article){
                 ?>    
@@ -120,7 +121,11 @@ mysqli_close($con);
                     </div>
                      <?php 
                          }
-                      ?>    
+                      ?>   
+                      </div>
+                      <div class="loading" id="loading">
+                    Loading More
+                </div>  
                 </div>
             </div>
 
@@ -285,6 +290,47 @@ mysqli_close($con);
     <?php 
     include("../wysiwyg.php");
     ?>
+<script type="text/javascript" src="/js/scrollpagination.js"></script>
+    <script type="text/javascript">
+var page = -1;
+var children = $('#contents').children().size();
+$(function(){
+    $('#contents').scrollPagination(
+        {
+        'contentPage': 'research_content.php', // the url you are fetching the results
+        'contentData': {'page': function() {return page}, 'type': 'employment'}, // these are the variables you can pass to the request, for example: children().size() to know which page you are
+        'scrollTarget': $(window), // who gonna scroll? in this example, the full window
+        'heightOffset': 10, // it gonna request when scroll is 10 pixels before the page ends
+        'beforeLoad': function(){ // before load function, you can display a preloader div
+            page ++;
+            console.log(page);
+            $('#loading').fadeIn(); 
+        },
+        'afterLoad': function(elementsLoaded){ // after loading content, you can use this function to animate your new elements
+             $('#loading').fadeOut();
+             var i = 0;
+             $(elementsLoaded).fadeInWithDelay();
+             if ($('#contents').children().size() == children){ // no more results
+                 $('#contents').stopScrollPagination();
+                 console.log("stopping pagination!");
+            }
+            else{
+                children = $('#contents').children().size();
+            }
+        }
+    });
+    
+    // code for fade in element by element
+    $.fn.fadeInWithDelay = function(){
+        var delay = 0;
+        return this.each(function(){
+            $(this).delay(delay).animate({opacity:1}, 200);
+            delay += 100;
+        });
+    };
+           
+});
+</script>
 
 </body>
 

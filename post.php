@@ -69,8 +69,10 @@ include('navbar.php');
 
             <div class="col-lg-12">
                 <h1 class="page-header"><?php echo $title ?>
+            <?php 
+                check_for_error();
+                ?>
                     <?php
-            check_for_error();
         if (loggedin()){
             ?>
                 <a href="#" data-toggle="modal" data-target="#postModal" style="font-size:24px;padding-left:20px">
