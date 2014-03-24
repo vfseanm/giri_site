@@ -9,6 +9,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST")
 	$name = $_POST["name"];
 	$startdate = $_POST["startdate"];
 	$enddate = $_POST["enddate"];
+	$teaser = $_POST["teaser"];
 	$description = $_POST["description"];
 	$image = $_FILES["file"];
 	$file_path = upload_file($image);
@@ -21,10 +22,10 @@ if (mysqli_connect_errno())
   echo "Failed to connect to MySQL: " . mysqli_connect_error();
   }
 if ($file_path == 'invalid'){
-	$result = mysqli_query($con, "INSERT INTO events (name, startdate, enddate, description) VALUES ('$name', '$startdate', '$enddate', '$description')");
+	$result = mysqli_query($con, "INSERT INTO events (name, startdate, enddate, teaser, description) VALUES ('$name', '$startdate', '$enddate', '$teaser', '$description')");
 }
 else{
-	$result = mysqli_query($con, "INSERT INTO events (name, startdate, enddate, image, description) VALUES ('$name', '$startdate', '$enddate', '$file_path', '$description')");
+	$result = mysqli_query($con, "INSERT INTO events (name, startdate, enddate, image, teaser, description) VALUES ('$name', '$startdate', '$enddate', '$file_path', '$teaser', '$description')");
 }
 
 mysqli_close($con);

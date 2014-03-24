@@ -161,6 +161,9 @@ mysqli_close($con);
                           <?php } else { ?>
                               <img class="img-responsive main" id="picture_<?php echo $staff[11]?>" src="no-picture.png">
                           <?php } ?>
+                          <?php if (loggedin() && strcmp($staff[3], "")!=0){ ?>
+                            <a style="padding-left:15px" class="red" href="delete_person_picture.php?ID=<?php echo $staff[11] ?>"><i class="fa fa-times"></i>Delete Image</a>
+                          <?php } ?>
                          </div>
                             <div class="col-md-9">
                             <h3> <b id = "name_<?php echo $staff[11]?>"> <?php echo $staff[0]?> </b>
@@ -197,10 +200,13 @@ mysqli_close($con);
                           <?php } else { ?>
                               <img class="img-responsive main" src="no-picture.png">
                           <?php } ?>
+                          <?php if (loggedin() && strcmp($fellow[3], "")!=0){ ?>
+                            <a style="padding-left:15px" class="red" href="delete_person_picture.php?ID=<?php echo $fellow[11] ?>"><i class="fa fa-times"></i>Delete Image</a>
+                          <?php } ?>  
                          </div>
                             <div class="col-md-9">
                             <h3> <b id = "name_<?php echo $fellow[11]?>"> <?php echo $fellow[0]?> </b>
-                            <small id = "position_<?php echo $fellow[11]?>"><?php echo $fellow[1]?> </small> 
+                            <small id = "position_<?php echo $fellow[11]?>"><?php echo $fellow[1]?> </small>
                             <?php if (loggedin()){ ?>
                                 <a href="#" data-toggle="modal" data-target="#editPersonModal">
                                      <i class="fa fa-pencil main" style = "color:#428bca;" id ="<?php echo $fellow[11]?>"></i>
@@ -287,7 +293,7 @@ mysqli_close($con);
               <div class="form-group">
                 <label for="headline" class="col-sm-2 control-label">Position</label>
                 <div class="col-sm-10">
-                  <input type="text" class="form-control" name="position">
+                  <input type="text" class="form-control" name="position" placeholder = "Program Director">
                 </div>
               </div>
 

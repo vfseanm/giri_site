@@ -18,6 +18,7 @@ while($row = mysqli_fetch_array($result))
     $startdate = $row['startdate'];
     $enddate = $row['enddate'];
     $image = $row['image'];
+    $teaser = $row["teaser"];
     $description = $row['description'];
     $image = $row['image'];
     $id = $row['id'];
@@ -162,6 +163,13 @@ include('../navbar.php');
                 <input id = "dp2" type="text" class="span2" value="<?php echo $enddate ?>" name="enddate" data-date-format="yyyy-mm-dd">
               </div>
             </div>
+
+              <div class="form-group">
+                <label for="headline" class="col-sm-2 control-label">Teaser</label>
+                <div class="col-sm-10">
+                  <input type="text" class="form-control" id="teaser" name="teaser" value="<?php echo $teaser ?>">
+                </div>
+              </div>
 
               <div class="form-group">
                 <label for="content" class="col-sm-2 control-label">Description</label>

@@ -21,6 +21,7 @@ while($row = mysqli_fetch_array($result))
     $event[3] = $row['image'];
     $event[4] = $row['id'];
     $event[5] = $row['enddate'];
+    $event[6] = $row['teaser'];
     $events[] = $event;
 }
 mysqli_close($con);
@@ -103,7 +104,7 @@ mysqli_close($con);
                 </h3>
                 <p class = "startdate">From: <b><?php echo $event[1] ?></b> to <b><?php echo $event[5] ?></b> </p>
                 </p>
-                <p><?php echo $event[2] ?></p>
+                <p><?php echo $event[6] ?></p>
                 <a class="btn btn-success" href="event.php?ID=<?php echo $event[4] ?>">Read More <i class="fa fa-angle-right"></i></a>
             </div>
 
@@ -159,6 +160,13 @@ mysqli_close($con);
                 <input id = "enddate" type="text" class="span2" value="" name="enddate" data-date-format="yyyy-mm-dd">
               </div>
             </div>
+
+              <div class="form-group">
+                <label for="headline" class="col-sm-2 control-label">Teaser</label>
+                <div class="col-sm-10">
+                  <input type="text" class="form-control" id="teaser" name="teaser">
+                </div>
+              </div>
 
               <div class="form-group">
                 <label for="content" class="col-sm-2 control-label">Description</label>

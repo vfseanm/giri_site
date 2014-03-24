@@ -11,6 +11,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST")
 	$name = $_POST["name"];
 	$startdate = $_POST["startdate"];
 	$enddate = $_POST["enddate"];
+	$teaser = $_POST["teaser"];
 	$description = $_POST["description"];
 	$image = $_FILES["file"];
 	$file_path = upload_file($image);
@@ -23,10 +24,10 @@ if (mysqli_connect_errno())
   echo "Failed to connect to MySQL: " . mysqli_connect_error();
   }
 if ($file_path == 'invalid'){
-$result = mysqli_query($con, "UPDATE events SET name='$name', startdate='$startdate', enddate='$enddate', description ='$description' WHERE id=$postid");
+$result = mysqli_query($con, "UPDATE events SET name='$name', startdate='$startdate', enddate='$enddate', teaser ='$teaser', description ='$description' WHERE id=$postid");
 }
 else{
-$result = mysqli_query($con, "UPDATE events SET name='$name', startdate='$startdate', enddate='$enddate', description ='$description', image='$file_path' WHERE id=$postid");
+$result = mysqli_query($con, "UPDATE events SET name='$name', startdate='$startdate', enddate='$enddate', teaser ='$teaser', description ='$description', image='$file_path' WHERE id=$postid");
 }
 
 mysqli_close($con);
