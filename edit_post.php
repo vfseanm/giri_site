@@ -10,9 +10,13 @@ $file_path = upload_file($_FILES["file"]);
 if ($_SERVER["REQUEST_METHOD"] == "POST")
 {
 	$title = $_POST["title"];
+	$title = addslashes($title);
 	$content = $_POST["content"];
-  $teaser = $_POST["teaser"];
-  $video = $_POST["video"];
+	$content = addslashes($content);
+  	$teaser = $_POST["teaser"];
+  	$teaser = addslashes($teaser);
+  	$video = $_POST["video"];
+  	$video = addslashes($video);
 
 $con=mysqli_connect("localhost", "giri_user", "47nufkXUQIVTnGlg", "giri");
 

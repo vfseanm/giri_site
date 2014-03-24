@@ -15,12 +15,12 @@ $posts = array();
 while($row = mysqli_fetch_array($result))
   {
     $post = array();
-    $post[0] = $row['title'];
-    $post[1] = $row['content'];
+    $post[0] = stripslashes($row['title']);
+    $post[1] = stripslashes($row['content']);
     $post[2] = $row['image'];
     $post[3] = $row['time_created'];
     $post[4] = $row['id'];
-    $post[5] = $row['teaser'];
+    $post[5] = stripslashes($row['teaser']);
 
     $posts[] = $post;
 }
@@ -32,7 +32,7 @@ $result = mysqli_query($con, "SELECT * FROM home WHERE id=1");
 
 while($row2 = mysqli_fetch_array($result))
   {
-    $description = $row2['description'];
+    $description = stripslashes($row2['description']);
     $logo_image = $row2['logo_image'];
     $carousel_json = $row2['carousel'];
 }
@@ -293,7 +293,7 @@ mysqli_close($con);
                 </div>
             </div>
             <div class="form-group">
-    <label for="caption<?php echo $count; ?>" class="col-sm-2 control-label">Caption</label>
+    <label for=" <?php echo $count; ?>" class="col-sm-2 control-label">Caption</label>
     <div class="col-sm-10">
       <textarea id ="caption<?php echo $count; ?>" class="form-control" name="caption<?php echo $count; ?>" style="width:600px; height:50px"><?php echo $car[2] ?></textarea>
     </div>

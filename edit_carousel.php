@@ -7,7 +7,6 @@ session_start();
 
 if ($_SERVER["REQUEST_METHOD"] == "POST")
 {
-<<<<<<< Updated upstream
 
 for($i = 0; $i<6; $i++){
 	echo $i;
@@ -32,7 +31,8 @@ for($i = 0; $i<6; $i++){
 	echo $car[1];
 
 	$caption = $_POST["caption". ($i+1)];
-	$cap = addslashes($caption);
+	$cap = $caption;
+	echo $cap;
 	$cap = str_replace(array("\n", "\r"), '', $cap);
 	$car[2] = $cap;
 	$carousel[$i] = $car;
@@ -48,6 +48,8 @@ if (mysqli_connect_errno())
   }
 
 $carousel = json_encode($carousel);
+$carousel = addslashes($carousel);
+
 $result = mysqli_query($con, "UPDATE home SET carousel='$carousel' WHERE id=1");
 
 

@@ -16,11 +16,15 @@ $result = mysqli_query($con, "SELECT * FROM post WHERE id='$postid'");
 while($row = mysqli_fetch_array($result))
   {
     $title = $row['title'];
+    $title = stripslashes($title);
     $content = $row['content'];
+    $content = stripslashes($content);
     $image = $row['image'];
     $timestamp = $row['time_created'];
     $teaser = $row['teaser'];
+    $teaser = stripslashes($teaser);
     $embed_code = $row['embed_code'];
+    $embed_code = stripslashes($embed_code);
 }
 mysqli_close($con);
 ?>
@@ -108,36 +112,7 @@ include('navbar.php');
 
             <div class="col-lg-4">
                 
-                <!-- /well -->
-                <div class="well">
-                    <h4>Popular Blog Categories</h4>
-                    <div class="row">
-                        <div class="col-lg-6">
-                            <ul class="list-unstyled">
-                                <li><a href="#dinosaurs">Dinosaurs</a>
-                                </li>
-                                <li><a href="#spaceships">Spaceships</a>
-                                </li>
-                                <li><a href="#fried-foods">Fried Foods</a>
-                                </li>
-                                <li><a href="#wild-animals">Wild Animals</a>
-                                </li>
-                            </ul>
-                        </div>
-                        <div class="col-lg-6">
-                            <ul class="list-unstyled">
-                                <li><a href="#alien-abductions">Alien Abductions</a>
-                                </li>
-                                <li><a href="#business-casual">Business Casual</a>
-                                </li>
-                                <li><a href="#robots">Robots</a>
-                                </li>
-                                <li><a href="#fireworks">Fireworks</a>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
+                
                 <!-- /well -->
                 <div class="well">
                     <h4>Upcoming Events</h4>
@@ -179,11 +154,14 @@ include('navbar.php');
       </div>
       <div class="modal-body">
 
-        <form class="form-horizontal" role="form" action="edit_post.php?ID=<?php echo $postid ?>" method="POST" enctype="multipart/form-data">
+        <form class="form-horizontal" role="form" action="edit_post.php?ID=<?php echo $postid ?>" method="POST" enctype="multipart/form-data" onsubmit="return validatePostForm()">
              <div class="form-group">
                 <label for="curfile" class="col-sm-2 control-label">Current Image</label>
                 <div class="col-sm-10" id="curfile">
-                    <?php echo $image ?>
+                    <?php if (strcmp($image, "")!=0){
+                    echo $image; ?>
+                    <a style="padding-left:15px" class="red" href="/post_delete_image.php?ID=<?php echo $postid ?>"><i class="fa fa-times"></i>Delete Image</a>
+                <?php } ?>
                 </div>
             </div>
             <div class="form-group">
@@ -194,7 +172,7 @@ include('navbar.php');
             </div>
 
   <div class="form-group">
-    <label for="title" class="col-sm-2 control-label">Title</label>
+    <label for="title" class="col-sm-2 control-label">*Title</label>
     <div class="col-sm-10">
       <input type="text" class="form-control" id="title" name="title" value="<?php echo $title ?>">
     </div>
@@ -216,6 +194,9 @@ include('navbar.php');
     <div class="col-sm-10">
       <textarea id ="summernote" class="textarea summernote" rows="8" name="content" style="width:600px"><?php echo $content ?></textarea>
     </div>
+  </div>
+
+      <div id = "postValidation">
   </div>
 
   <div class="form-group">
@@ -248,6 +229,19 @@ $('#delete').click(function() {
             }
         });
 
+
+function validatePostForm()
+{
+var title = document.getElementById("title").value;
+
+if (title==null || title=="")
+  {
+  $('#postValidation').html("<div class='alert alert-danger'><p>You must enter a Title field.</p></div>").hide().fadeIn('slow');
+  return false;
+  }
+ 
+}
+
     </script>
 
 <?php 
@@ -255,7 +249,6 @@ include("wysiwyg.php");
 ?>
 
  
-
 </body>
 
 </html>

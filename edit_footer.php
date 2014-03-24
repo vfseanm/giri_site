@@ -4,9 +4,9 @@ session_start();
 
 if ($_SERVER["REQUEST_METHOD"] == "POST")
 {
-	$address_one = $_POST["address_one"];
-	$address_two = $_POST["address_two"];
-	$address_three = $_POST["address_three"];
+	$address_one = addslashes($_POST["address_one"]);
+	$address_two = addslashes($_POST["address_two"]);
+	$address_three = addslashes($_POST["address_three"]);
 	$phone = $_POST["phone"];
 
 $con=mysqli_connect("localhost", "giri_user", "47nufkXUQIVTnGlg", "giri");

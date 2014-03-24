@@ -20,12 +20,12 @@ $posts = array();
 while($row = mysqli_fetch_array($result))
   {
     $post = array();
-    $post[0] = $row['title'];
-    $post[1] = $row['content'];
+    $post[0] = stripslashes($row['title']);
+    $post[1] = stripslashes($row['content']);
     $post[2] = $row['image'];
     $post[3] = $row['time_created'];
     $post[4] = $row['id'];
-    $post[5] = $row['teaser'];
+    $post[5] = stripslashes($row['teaser']);
 
     $posts[] = $post;
 }
