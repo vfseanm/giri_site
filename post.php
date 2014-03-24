@@ -77,7 +77,7 @@ include('navbar.php');
             ?>
                 <a href="#" data-toggle="modal" data-target="#postModal" style="font-size:24px;padding-left:20px">
                 <i class="fa fa-pencil"></i>edit</a>
-                <form id="delete_form" class="form-horizontal" role="form" action="delete_post.php?ID=<?php echo $postid ?>" method="POST" enctype="multipart/form-data" style="display:inline">
+                <form id="delete_form" class="form-horizontal" role="form" action="delete_post.php?ID=<?php echo $postid ?>" method="POST" enctype="multipart/form-data" style="display:inline" onsubmit="return confirmDelete()">
                 <a href="#" onclick="document.getElementById('delete_form').submit()" id = "delete" class="red" style="font-size:24px;padding-left:20px">
                 <i class="fa fa-times"></i>delete</a>
             </form>
@@ -208,7 +208,8 @@ include('navbar.php');
 
     <script type="text/javascript">
 
-$('#delete').click(function() {
+function confirmDelete(){
+    console.log("deleting");
             var x = confirm("Are you sure you want to delete this article?");
             if (x==true) { // do nothing  
             }
@@ -216,7 +217,7 @@ $('#delete').click(function() {
             { 
                 return false; //stop the delete
             }
-        });
+        }
 
 
 function validatePostForm()
