@@ -154,7 +154,7 @@ include('navbar.php');
       </div>
       <div class="modal-body">
 
-        <form class="form-horizontal" role="form" action="edit_post.php?ID=<?php echo $postid ?>" method="POST" enctype="multipart/form-data">
+        <form class="form-horizontal" role="form" action="edit_post.php?ID=<?php echo $postid ?>" method="POST" enctype="multipart/form-data" onsubmit="return validatePostForm()">
              <div class="form-group">
                 <label for="curfile" class="col-sm-2 control-label">Current Image</label>
                 <div class="col-sm-10" id="curfile">
@@ -172,7 +172,7 @@ include('navbar.php');
             </div>
 
   <div class="form-group">
-    <label for="title" class="col-sm-2 control-label">Title</label>
+    <label for="title" class="col-sm-2 control-label">*Title</label>
     <div class="col-sm-10">
       <input type="text" class="form-control" id="title" name="title" value="<?php echo $title ?>">
     </div>
@@ -194,6 +194,9 @@ include('navbar.php');
     <div class="col-sm-10">
       <textarea id ="summernote" class="textarea summernote" rows="8" name="content" style="width:600px"><?php echo $content ?></textarea>
     </div>
+  </div>
+
+      <div id = "postValidation">
   </div>
 
   <div class="form-group">
@@ -226,6 +229,19 @@ $('#delete').click(function() {
             }
         });
 
+
+function validatePostForm()
+{
+var title = document.getElementById("title").value;
+
+if (title==null || title=="")
+  {
+  $('#postValidation').html("<div class='alert alert-danger'><p>You must enter a Title field.</p></div>").hide().fadeIn('slow');
+  return false;
+  }
+ 
+}
+
     </script>
 
 <?php 
@@ -233,7 +249,6 @@ include("wysiwyg.php");
 ?>
 
  
-
 </body>
 
 </html>

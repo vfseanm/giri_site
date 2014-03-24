@@ -254,7 +254,7 @@ mysqli_close($con);
       </div>
       <div class="modal-body">
 
-        <form class="form-horizontal" role="form" action="/authenticate.php" method="POST">
+  <form class="form-horizontal" role="form" action="/authenticate.php" method="POST" onsubmit="return validateLoginForm()">
   <div class="form-group">
     <label for="username" class="col-sm-2 control-label">Username</label>
     <div class="col-sm-10">
@@ -266,6 +266,9 @@ mysqli_close($con);
     <div class="col-sm-10">
       <input type="password" class="form-control" id="password" placeholder="Password" name="password">
     </div>
+  </div>
+
+      <div id = "validation">
   </div>
 
   <div class="form-group">
@@ -293,7 +296,7 @@ mysqli_close($con);
       </div>
       <div class="modal-body">
 
-  <form class="form-horizontal" role="form" action="/new_admin.php" method="POST" onsubmit="return validateForm()">
+  <form class="form-horizontal" role="form" action="/new_admin.php" method="POST" onsubmit="return validateNAForm()">
   <div class="form-group">
     <label for="na_username" class="col-sm-4 control-label">New Admin's Username</label>
     <div class="col-sm-8">
@@ -314,6 +317,9 @@ mysqli_close($con);
     </div>
   </div>
 
+    <div id = "NAvalidation">
+  </div>
+
   <div class="form-group">
     <div class="col-sm-offset-4 col-sm-8">
       <button type="submit" class="btn btn-primary">Submit</button>
@@ -330,7 +336,20 @@ mysqli_close($con);
 
 <script type = "text/javascript">
 
-function validateForm()
+function validateLoginForm()
+{
+var username = document.getElementById("username").value;
+var pw = document.getElementById("password").value;
+
+if (username==null || username=="" || pw==null || pw=="")
+  {
+  $('#validation').html("<div class='alert alert-danger'><p>All fields must be filled in.</p></div>").hide().fadeIn('slow');
+  return false;
+  }
+ 
+}
+
+function validateNAForm()
 {
 var username = document.getElementById("na_username").value;
 var pw = document.getElementById("na_password").value;
@@ -338,11 +357,11 @@ var repeat_password = document.getElementById("na_password_repeat").value;
 
 if (username==null || username=="" || pw==null || pw=="" || repeat_password==null || repeat_password=="")
   {
-  alert("All fields must be filled in.");
+  $('#NAvalidation').html("<div class='alert alert-danger'><p>All fields must be filled in.</p></div>").hide().fadeIn('slow');
   return false;
   }
   else if(pw != repeat_password){
-  alert("The two passwords do not match.");
+    $('#NAvalidation').html("<div class='alert alert-danger'><p>The two passwords entered do not match.</p></div>").hide().fadeIn('slow');
   return false;
   }
 }
