@@ -128,22 +128,7 @@ mysqli_close($con);
 
 
             <div class="col-lg-4">
-                
-                <!-- /well -->
-                <div class="well">
-                    <h4>Upcoming Events</h4>
-                    <div class="row">
-                        <div class="col-lg-6">
-                            <ul class="list-unstyled">
-                                <li><a href="#dinosaurs">Great Conference</a>
-                                </li>
-                                <li><a href="#spaceships">Sweet Conference</a>
-                                </li>
-                                <li><a href="#fried-foods">Awesome Conference</a>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
+                <?php include("upcoming_events.php"); ?>
             </div>
         </div>
 

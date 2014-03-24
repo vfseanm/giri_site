@@ -96,16 +96,21 @@ include('navbar.php');
                 <p><i class="fa fa-clock-o"></i> Posted on <?php echo date('F d, Y', $timestamp) ?>
                 </p>
                 <hr>
-                <div style="text-align:center; padding-bottom:15px">
+                <div style="padding-bottom:15px">
+                <div style="text-align:center">
                 <?php 
                 if ($embed_code != ""){
                     echo $embed_code;
                  } ?>
+             </div>
                 <?php 
                 if ($image != ""){
                 ?>
                 <img src="<?php echo 'upload/' . $image ?>" class="img-responsive">
                 <?php } ?>
+                <?php if (loggedin() && strcmp($image, "")!=0){ ?>
+                    <a class="red" href="post_delete_image.php?ID=<?php echo $postid ?>"><i class="fa fa-times"></i>Delete Image</a>
+                  <?php } ?>
             </div>
                 
                 <?php echo $content ?>
@@ -113,24 +118,7 @@ include('navbar.php');
             </div>
 
             <div class="col-lg-4">
-                
-                
-                <!-- /well -->
-                <div class="well">
-                    <h4>Upcoming Events</h4>
-                    <div class="row">
-                        <div class="col-lg-6">
-                            <ul class="list-unstyled">
-                                <li><a href="#dinosaurs">Great Conference</a>
-                                </li>
-                                <li><a href="#spaceships">Sweet Conference</a>
-                                </li>
-                                <li><a href="#fried-foods">Awesome Conference</a>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-                <!-- /well -->
+                <?php include("upcoming_events.php"); ?>
             </div>
         </div>
 
@@ -162,7 +150,6 @@ include('navbar.php');
                 <div class="col-sm-10" id="curfile">
                     <?php if (strcmp($image, "")!=0){
                     echo $image; ?>
-                    <a style="padding-left:15px" class="red" href="/post_delete_image.php?ID=<?php echo $postid ?>"><i class="fa fa-times"></i>Delete Image</a>
                     <?php } ?>
                 </div>
             </div>

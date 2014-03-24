@@ -47,8 +47,7 @@ mysqli_close($con);
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="">
-    <meta name="author" content="">
+    <meta name="description" content="The Global Inequality Research Initiative at Duke is an interdisciplinary research initiative that emphasizes a judicious application of mixed methods from the social sciences, both quantitative and qualitative, and treatment or representation and identity from test humanities.">
 
     <title>Global Inequality Research Initiative | Duke University</title>
 

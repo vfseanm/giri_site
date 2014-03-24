@@ -3,7 +3,7 @@
 // to be called upon submission of a form, before a database update.
 // returns the name of the file prepended w timestamp like
 // 135642356dog_picture.jpg
-function upload_file($file){
+function upload_file($file, $old_file="blank"){
 
 $allowedExts = array("gif", "jpeg", "jpg", "png", "pdf");
 $extension = end(explode(".", $file["name"]));
@@ -14,7 +14,7 @@ if ((($file["type"] == "image/gif")
 || ($file["type"] == "image/x-png")
 || ($file["type"] == "image/png")
 || ($file["type"] == "application/pdf")) 
-&& ($file["size"] < 1000000)
+&& ($file["size"] < 5000000)
 && in_array($extension, $allowedExts))
   {
   if ($file["error"] > 0)
@@ -40,6 +40,7 @@ if ((($file["type"] == "image/gif")
   else {
     return 'invalid';
   }
+      unlink($_SERVER['DOCUMENT_ROOT'] . $old_file);
   return $file_path;
   }
 

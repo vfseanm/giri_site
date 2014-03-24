@@ -84,32 +84,15 @@ include('../navbar.php');
                 <img src="<?php echo '/upload/' . $image ?>" class="img-responsive">
                 <?php } ?>
                   <?php if (loggedin() && strcmp($image, "")!=0){ ?>
-                    <a style="padding-left:15px" class="red" href="delete_event_image.php?ID=<?php echo $id ?>"><i class="fa fa-times"></i>Delete Image</a>
+                    <a class="red" href="delete_event_image.php?ID=<?php echo $id ?>"><i class="fa fa-times"></i>Delete Image</a>
                   <?php } ?>
-                <hr>
                 
                 <?php echo $description ?>
 
             </div>
 
             <div class="col-lg-4">
-                
-                <!-- /well -->
-                <div class="well">
-                    <h4>Upcoming Events</h4>
-                    <div class="row">
-                        <div class="col-lg-6">
-                            <ul class="list-unstyled">
-                                <li><a href="#dinosaurs">Great Conference</a>
-                                </li>
-                                <li><a href="#spaceships">Sweet Conference</a>
-                                </li>
-                                <li><a href="#fried-foods">Awesome Conference</a>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-                <!-- /well -->
+               <?php include("../upcoming_events.php"); ?>
             </div>
         </div>
 
