@@ -19,12 +19,13 @@ $events = array();
 while($row = mysqli_fetch_array($result))
   {
     $event = array();
-    $event[0] = $row['name'];
+    $event[0] = stripslashes($row['name']);
     $event[1] = $row['startdate'];
-    $event[2] = $row['description'];
+    $event[2] = stripslashes($row['description']);
     $event[3] = $row['image'];
     $event[4] = $row['id'];
     $event[5] = $row['enddate'];
+    $event[6] = stripslashes($row['teaser']);
     $events[] = $event;
 }
 mysqli_close($con);
@@ -51,7 +52,7 @@ mysqli_close($con);
                 </h3>
                 <p class = "startdate">From: <b><?php echo $event[1] ?></b> to <b><?php echo $event[5] ?></b> </p>
                 </p>
-                <p><?php echo $event[2] ?></p>
+                <p><?php echo $event[6] ?></p>
                 <a class="btn btn-success" href="event.php?ID=<?php echo $event[4] ?>">Read More <i class="fa fa-angle-right"></i></a>
             </div>
 
