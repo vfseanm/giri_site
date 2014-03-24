@@ -15,6 +15,7 @@ while($row = mysqli_fetch_array($result))
     $address_two = stripslashes($row['address_two']);
     $address_three = stripslashes($row['address_three']);
     $phone = $row['phone'];
+    $email = $row['email'];
 }
 
 mysqli_free_result($result);
@@ -64,6 +65,7 @@ mysqli_close($con);
               <?php echo $address_three ?><br>
           </address>
           <p><i class="fa fa-phone"></i> <?php echo $phone ?></p>
+          <i class="fa fa-envelope-o"></i> <?php echo $email ?>
         </div>
         <div class="col-lg-4 col-md-4">
 
@@ -139,6 +141,13 @@ mysqli_close($con);
     <label for="phone" class="col-sm-2 control-label">Phone #</label>
     <div class="col-sm-10">
       <input type="text" class="form-control" id="phone" name="phone" value="<?php echo $phone ?>">
+    </div>
+  </div>
+
+      <div class="form-group">
+    <label for="email" class="col-sm-2 control-label">Email</label>
+    <div class="col-sm-10">
+      <input type="text" class="form-control" id="email" name="email" value="<?php echo $email ?>">
     </div>
   </div>
 
