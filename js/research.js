@@ -59,15 +59,16 @@ $(function(){
         $("#editsummary").eq(0).text(summary);
         tinymce.init({
           mode: "textareas",
+          paste_remove_spans: true,
+          paste_remove_styles : true,
           plugins: [
-              "advlist autolink lists link charmap preview",
+              "advlist autolink lists link charmap preview paste",
               "searchreplace visualblocks"
           ],
           menubar: false,
           height: 200,
           toolbar: "insertfile undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link",
         });
-
     });
     var docInput = $("#document");
     $("#closeEditModal").click(function(event) {

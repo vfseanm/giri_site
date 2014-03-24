@@ -130,7 +130,7 @@ mysqli_close($con);
                                   </a>
                               <?php } ?>
                             </h3>
-                            <p id = "desc_<?php echo $faculty[11]?>"> <?php echo $faculty[2]?> </p>
+                            <desc id = "desc_<?php echo $faculty[11]?>"> <?php echo $faculty[2]?> </desc>
                             <p>
                                <a id = "link1_<?php echo $faculty[11]?>" href="<?php echo $faculty[5]?>"><?php echo $faculty[4]?></a> | 
                                <a id = "link2_<?php echo $faculty[11]?>" href="<?php echo $faculty[7]?>"><?php echo $faculty[6]?></a> | 
@@ -157,7 +157,8 @@ mysqli_close($con);
                           <?php } ?>
                          </div>
                             <div class="col-md-9">
-                            <h3> <b> <?php echo $staff[0]?> </b> <small id = "position_<?php echo $staff[11]?>"><?php echo $staff[1]?> </small> 
+                            <h3> <b id = "name_<?php echo $staff[11]?>"> <?php echo $staff[0]?> </b>
+                            <small id = "position_<?php echo $staff[11]?>"><?php echo $staff[1]?> </small> 
                             <?php if (loggedin()){ ?>
                                 <a href="#" data-toggle="modal" data-target="#editPersonModal">
                                      <i class="fa fa-pencil main" style = "color:#428bca;" id ="<?php echo $staff[11]?>"></i>
@@ -167,8 +168,11 @@ mysqli_close($con);
                                 </a>
                             <?php } ?>
                             </h3>
-                            <p> <?php echo $staff[2]?> </p>
-                            <p><a href="<?php echo $staff[5]?>"><?php echo $staff[4]?></a> | <a href="<?php echo $staff[7]?>"><?php echo $staff[6]?></a> | <a href="<?php echo $staff[9]?>"><?php echo $staff[8]?></a></p>
+                            <desc id = "desc_<?php echo $staff[11]?>"> <?php echo $staff[2]?> </desc>
+                            <p><a id = "link1_<?php echo $staff[11]?>" href="<?php echo $staff[5]?>"><?php echo $staff[4]?></a> | 
+                               <a id = "link2_<?php echo $staff[11]?>" href="<?php echo $staff[7]?>"><?php echo $staff[6]?></a> | 
+                               <a id = "link3_<?php echo $staff[11]?>" href="<?php echo $staff[9]?>"><?php echo $staff[8]?></a>
+                            </p>
                         </div>
                     </div>
                     <hr>
@@ -189,7 +193,8 @@ mysqli_close($con);
                           <?php } ?>
                          </div>
                             <div class="col-md-9">
-                            <h3> <b> <?php echo $fellow[0]?> </b> <small><?php echo $fellow[1]?> </small> 
+                            <h3> <b id = "name_<?php echo $fellow[11]?>"> <?php echo $fellow[0]?> </b>
+                            <small id = "position_<?php echo $fellow[11]?>"><?php echo $fellow[1]?> </small> 
                             <?php if (loggedin()){ ?>
                                 <a href="#" data-toggle="modal" data-target="#editPersonModal">
                                      <i class="fa fa-pencil main" style = "color:#428bca;" id ="<?php echo $fellow[11]?>"></i>
@@ -199,8 +204,11 @@ mysqli_close($con);
                                 </a>                           
                             <?php } ?>
                             </h3>
-                            <p> <?php echo $fellow[2]?> </p>
-                            <p><a href="<?php echo $fellow[5]?>"><?php echo $fellow[4]?></a> | <a href="<?php echo $fellow[7]?>"><?php echo $fellow[6]?></a> | <a href="<?php echo $fellow[9]?>"><?php echo $fellow[8]?></a></p>
+                            <desc id = "desc_<?php echo $fellow[11]?>"> <?php echo $fellow[2]?> </desc>
+                            <p><a id = "link1_<?php echo $fellow[11]?>" href="<?php echo $fellow[5]?>"><?php echo $fellow[4]?></a> | 
+                               <a id = "link2_<?php echo $fellow[11]?>" href="<?php echo $fellow[7]?>"><?php echo $fellow[6]?></a> |
+                               <a id = "link3_<?php echo $fellow[11]?>" href="<?php echo $fellow[9]?>"><?php echo $fellow[8]?></a>
+                            </p>
                         </div>
                     </div>
                     <hr>
@@ -348,7 +356,7 @@ mysqli_close($con);
       </div>
       <div class="modal-body">
 
-        <form class="form-horizontal" role="form" action="" method="POST" enctype="multipart/form-data">
+        <form id = "editform" class="form-horizontal" role="form" action="" method="POST" enctype="multipart/form-data">
             <div class="form-group">
                 <label for="curfile" class="col-sm-2 control-label">Current Picture</label>
                 <div class="col-sm-10" id="cur_picture">
@@ -438,10 +446,6 @@ mysqli_close($con);
 <!-- **********************End Add Modal************************** -->
 </div>
 
-    <?php 
-    include("../wysiwyg.php");
-    ?>
-
     <?php
     include('../footer.php');
     ?>
@@ -451,24 +455,28 @@ mysqli_close($con);
     <script src="/js/bootstrap.js"></script>
     <script src="/js/modern-business.js"></script>
     <script src="/js/people.js"></script>
+
+    <?php 
+    include("../wysiwyg.php");
+    ?>
+
     <script type="text/javascript">
     $(".fa.fa-pencil.main").click(function(event) {
         var id = event.target.id;
         //Form id
         var formUrl = "edit_person.php?ID="+id;
         $("#editform").eq(0).attr('action', formUrl);
-        //pic 
-        // var picSelector = "#picture_"+id;
-        // var selected = $(picSelector);
-        // var pic = selected.eq(0).attr("href");
-        // if (pic != "no-picture.png") {
-        //   pic = pic.split('/');
-        //   //doc = doc[2];
-        //   $("#curfile").eq(0).text(pic);
-        // }
-        // else {
-        //   $("#curfile").eq(0).text("");
-        // }
+        var picSelector = "#picture_"+id;
+        var selected = $(picSelector);
+        var pic = selected.eq(0).attr("src");
+        if (pic != "no-picture.png") {
+          pic = pic.split('/');
+          pic = pic[2];
+          $("#cur_picture").eq(0).text(pic);
+        }
+        else {
+          $("#cur_picture").eq(0).text("");
+        }
         //Title
         var nameSelector = "#name_"+id;
         var name = $(nameSelector).eq(0).text();
@@ -480,6 +488,7 @@ mysqli_close($con);
         $("#position").eq(0).val(pos);
 
         //Role
+        //TODO
       
         //Summary
         var descSelector = "#desc_"+id;
@@ -487,8 +496,10 @@ mysqli_close($con);
         $("#description").eq(0).text(desc);
         tinymce.init({
           mode: "textareas",
+          paste_remove_spans: true,
+          paste_remove_styles : true,
           plugins: [
-              "advlist autolink lists link charmap preview",
+              "advlist autolink lists link charmap preview paste",
               "searchreplace visualblocks"
           ],
           menubar: false,
@@ -497,13 +508,9 @@ mysqli_close($con);
         });
 
         //Link 1
-        // ["#link1,#link2,#link3"].forEach(function(link) {
-        //   processLink(link);
-        // });
-        processLink("#link1");
-        processLink("#link2");
-        processLink("#link3");
-
+        ["#link1", "#link2", "#link3"].forEach(function(link) {
+          processLink(link);
+        });
         function processLink(link) {
           var l1Selector = link+"_"+id;
           var l1name = $(l1Selector).eq(0).text();
@@ -513,7 +520,6 @@ mysqli_close($con);
         }
 
     });
-
 
     </script>
 
