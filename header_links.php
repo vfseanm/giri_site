@@ -31,7 +31,7 @@ padding-bottom:16px;
     padding-top: 0;
 }
 .navbar-right {
-    margin-top:25px;
+    margin-top:28px;
 }
 .red{
     color: #F30C0C;
