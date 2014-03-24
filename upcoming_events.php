@@ -33,7 +33,7 @@ mysqli_free_result($result);
                                     <?php
                                 foreach($events as $event){
                                             ?>
-                                <li><a href="/events/event.php?ID=<?php echo $event[2] ?>"><?php echo $event[0] ?></a> <?php echo $event[1] ?>
+                                <li><a href="/events/event.php?ID=<?php echo $event[2] ?>"><?php echo $event[0] ?></a>
                                 </li>
                                 <?php } ?>
                             </ul>
