@@ -56,7 +56,7 @@ mysqli_close($con);
         <div class="row">
 
             <div class="col-lg-12">
-                <h1 class="page-header">GIRI News</h1>
+                <h1 class="page-header">GIRI News
             <?php 
                 check_for_error();
             ?>
