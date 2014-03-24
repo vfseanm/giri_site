@@ -53,15 +53,13 @@ mysqli_close($con);
 
     <div class="container">
 
-            <?php
-            check_for_error();
-            ?>
-
-
         <div class="row">
 
             <div class="col-lg-12">
-                <h1 class="page-header">GIRI News
+                <h1 class="page-header">GIRI News</h1>
+            <?php 
+                check_for_error();
+                ?>
         <?php
         if (loggedin()){
             ?>

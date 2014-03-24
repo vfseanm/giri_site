@@ -48,13 +48,12 @@ mysqli_close($con);
     <div class="container">
 
         <div class="row">
-
-            <?php
-            check_for_error();
-            ?>
         
             <div class="col-lg-12">
-                <h1 class="page-header">About GIRI
+                <h1 class="page-header">About GIRI</h1>
+                                <?php 
+                check_for_error();
+                ?>
                   <?php if (loggedin()){ ?>
               <a href="#" data-toggle="modal" data-target="#aboutModal">
              <i class="fa fa-pencil"></i>
