@@ -34,7 +34,7 @@ mysqli_close($con);
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Event</title>
+    <title><?php echo $name ?> - GIRI</title>
 
 
     <?php 
