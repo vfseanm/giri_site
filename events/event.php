@@ -52,11 +52,11 @@ include('../navbar.php');
 
     <div class="container">
         <div class="row">
-            <?php
-            check_for_error();
-            ?>
             <div class="col-lg-12">
                 <h1 class="page-header"><?php echo $name ?>
+                <?php
+                check_for_error();
+                ?>
                 <?php if (loggedin()){ ?>
                         <a href="#" data-toggle="modal" data-target="#editEventModal" style="font-size:24px;padding-left:20px">
                             <i class="fa fa-pencil"></i>edit
@@ -79,7 +79,12 @@ include('../navbar.php');
                     End date: <enddate class = "date"> <?php echo $enddate?> </enddate>  
                 </p>
                 <hr>
+                <?php if ($image != "") { ?>
                 <img src="<?php echo '/upload/' . $image ?>" class="img-responsive">
+                <?php } ?>
+                  <?php if (loggedin() && strcmp($image, "")!=0){ ?>
+                    <a style="padding-left:15px" class="red" href="delete_event_image.php?ID=<?php echo $id ?>"><i class="fa fa-times"></i>Delete Image</a>
+                  <?php } ?>
                 <hr>
                 
                 <?php echo $description ?>

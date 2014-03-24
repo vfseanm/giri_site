@@ -57,6 +57,9 @@ mysqli_close($con);
 
             <div class="col-lg-12">
                 <h1 class="page-header">Research
+                <?php
+                check_for_error();
+                ?>
                     <small>Education</small>
                      <?php
                       if (loggedin()){

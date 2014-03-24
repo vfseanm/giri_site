@@ -161,7 +161,7 @@ include('navbar.php');
                     <?php if (strcmp($image, "")!=0){
                     echo $image; ?>
                     <a style="padding-left:15px" class="red" href="/post_delete_image.php?ID=<?php echo $postid ?>"><i class="fa fa-times"></i>Delete Image</a>
-                <?php } ?>
+                    <?php } ?>
                 </div>
             </div>
             <div class="form-group">
