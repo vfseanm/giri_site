@@ -37,7 +37,7 @@ mysqli_close($con);
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Research - Events</title>
+    <title>Education Research - GIRI</title>
 
     <?php 
     include('../header_links.php');

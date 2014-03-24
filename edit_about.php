@@ -32,7 +32,7 @@ $result = mysqli_query($con, "UPDATE about SET headline='$headline', content='$c
 mysqli_close($con);
 
 $current_link = $_SERVER["HTTP_REFERER"];
-header( 'Location: ' . $current_link );
+//header( 'Location: ' . $current_link );
 
 }
 
