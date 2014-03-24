@@ -12,7 +12,7 @@ if (mysqli_connect_errno())
   echo "Failed to connect to MySQL: " . mysqli_connect_error();
   }
 
-$result = mysqli_query($con, "SELECT * FROM events ORDER BY startdate DESC LIMIT 4 OFFSET $page");
+$result = mysqli_query($con, "SELECT * FROM events WHERE startdate > DATE_SUB(CURDATE(),INTERVAL 5 DAY) ORDER BY startdate LIMIT 4 OFFSET $page");
 
 $events = array();
 
