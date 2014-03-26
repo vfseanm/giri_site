@@ -129,7 +129,7 @@ mysqli_close($con);
                               <small id = "position_<?php echo $faculty[11]?>"><?php echo $faculty[1]?> </small>
                               <?php if (loggedin()){ ?>
                                   <a href="#" data-toggle="modal" data-target="#editPersonModal">
-                                       <i class="fa fa-pencil main" style = "color:#428bca;" id ="<?php echo $faculty[11]?>"></i>
+                                       <i class="fa fa-pencil main" style = "color:#428bca;" id ="<?php echo $faculty[11]?>" name = "Faculty"></i>
                                   </a>
                                   <a href="delete_person.php?ID=<?php echo $faculty[11]?>" class = "delete">
                                        <i class="fa fa-times" style = "color:#f04124; float: right"></i>
@@ -170,7 +170,7 @@ mysqli_close($con);
                             <small id = "position_<?php echo $staff[11]?>"><?php echo $staff[1]?> </small> 
                             <?php if (loggedin()){ ?>
                                 <a href="#" data-toggle="modal" data-target="#editPersonModal">
-                                     <i class="fa fa-pencil main" style = "color:#428bca;" id ="<?php echo $staff[11]?>"></i>
+                                     <i class="fa fa-pencil main" style = "color:#428bca;" id ="<?php echo $staff[11]?>" name = "Staff"></i>
                                 </a>
                                 <a href="delete_person.php?ID=<?php echo $staff[11]?>" class = "delete">
                                      <i class="fa fa-times" style = "color:#f04124; float: right"></i>
@@ -209,7 +209,7 @@ mysqli_close($con);
                             <small id = "position_<?php echo $fellow[11]?>"><?php echo $fellow[1]?> </small>
                             <?php if (loggedin()){ ?>
                                 <a href="#" data-toggle="modal" data-target="#editPersonModal">
-                                     <i class="fa fa-pencil main" style = "color:#428bca;" id ="<?php echo $fellow[11]?>"></i>
+                                     <i class="fa fa-pencil main" style = "color:#428bca;" id ="<?php echo $fellow[11]?>" name = "Fellow"></i>
                                 </a>
                                 <a href="delete_person.php?ID=<?php echo $fellow[11]?>" class = "delete">
                                      <i class="fa fa-times" style = "color:#f04124; float: right"></i>

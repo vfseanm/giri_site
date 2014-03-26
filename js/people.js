@@ -1,6 +1,8 @@
 $(function(){
     $(".fa.fa-pencil.main").click(function(event) {
         var id = event.target.id;
+        var role = $(event.target).attr('name');
+        $("#role").val(role);
         //Form id
         var formUrl = "edit_person.php?ID="+id;
         $("#editform").eq(0).attr('action', formUrl);
