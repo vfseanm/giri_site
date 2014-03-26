@@ -228,9 +228,9 @@ if (title==null || title=="")
  
 }
 
-
 var page = -1;
 var children = $('#contents').children().size();
+$('#loading').fadeOut();
 $(function(){
     $('#contents').scrollPagination(
         {

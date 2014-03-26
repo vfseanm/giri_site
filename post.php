@@ -63,7 +63,7 @@ mysqli_close($con);
 include('navbar.php');
 ?>
 
-    <div class="container">
+    <div class="container" style="min-height:100%; margin-bottom:-205px; height:auto">
         <div class="row">
 
 
@@ -120,12 +120,11 @@ include('navbar.php');
                 <?php include("upcoming_events.php"); ?>
             </div>
         </div>
+        <div style="height:205px">
+        </div>
 
     </div>
     
-    <br />
-    <br />
-    <br />
 
         <?php
     include('footer.php');

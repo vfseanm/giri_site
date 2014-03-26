@@ -51,7 +51,7 @@ mysqli_close($con);
 include('../navbar.php');
 ?>
 
-    <div class="container">
+    <div class="container" style="min-height:100%; margin-bottom:-205px; height:auto">
         <div class="row">
             <div class="col-lg-12">
                 <h1 class="page-header"><?php echo $name ?>
@@ -94,6 +94,8 @@ include('../navbar.php');
             <div class="col-lg-4">
                <?php include("../upcoming_events.php"); ?>
             </div>
+        </div>
+        <div style="height:205px">
         </div>
 
     </div>
