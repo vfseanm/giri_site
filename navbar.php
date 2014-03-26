@@ -1,6 +1,8 @@
 <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
         <div class="container">
             <div class="navbar-header">
+                <a class="navbar-brand hidden-xs" href="/index.php"><img src="/upload/combined_small.png" style="display:inline" class="img-responsive"></a>
+                <a class="navbar-brand visible-xs" href="/index.php"><img src="/upload/combined_smaller.png" style="display:inline; width:256px" class="img-responsive"></a>
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
                     <span class="sr-only">Toggle navigation</span>
                     <span class="icon-bar"></span>
@@ -13,8 +15,7 @@
 
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse navbar-ex1-collapse">
-                <a class="navbar-brand" href="/index.php"><img src="/upload/combined.png" style="width:460px; display:inline" class="img-responsive"></a>
-   
+                
                 <ul class="nav navbar-nav navbar-right">
                     <li><a href="/about.php">About</a>
                     </li>
