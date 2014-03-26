@@ -37,7 +37,7 @@ mysqli_close($con);
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Blog or News Post</title>
+    <title><?php echo $title ?> - GIRI</title>
 
     <!-- Bootstrap core CSS -->
 
@@ -63,7 +63,7 @@ mysqli_close($con);
 include('navbar.php');
 ?>
 
-    <div class="container">
+    <div class="container" style="min-height:100%; margin-bottom:-205px; height:auto">
         <div class="row">
 
 
@@ -77,8 +77,7 @@ include('navbar.php');
             ?>
                 <a href="#" data-toggle="modal" data-target="#postModal" style="font-size:24px;padding-left:20px">
                 <i class="fa fa-pencil"></i>edit</a>
-                <form id="delete_form" class="form-horizontal" role="form" action="delete_post.php?ID=<?php echo $postid ?>" method="POST" enctype="multipart/form-data" style="display:inline">
-                <a href="#" onclick="document.getElementById('delete_form').submit()" id = "delete" class="red" style="font-size:24px;padding-left:20px">
+                <a href="delete_post.php?ID=<?php echo $postid ?>" id = "delete" class="red" style="font-size:24px;padding-left:20px">
                 <i class="fa fa-times"></i>delete</a>
             </form>
         <?php
@@ -121,12 +120,11 @@ include('navbar.php');
                 <?php include("upcoming_events.php"); ?>
             </div>
         </div>
+        <div style="height:205px">
+        </div>
 
     </div>
     
-    <br />
-    <br />
-    <br />
 
         <?php
     include('footer.php');
@@ -140,7 +138,7 @@ include('navbar.php');
     <div class="modal-content">
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-        <h4 class="modal-title" id="myModalLabel">Edit Post</h4>
+        <h4 class="modal-title" id="myModalLabel">Edit Article</h4>
       </div>
       <div class="modal-body">
 
@@ -208,15 +206,15 @@ include('navbar.php');
 
     <script type="text/javascript">
 
-$('#delete').click(function() {
-            var x = confirm("Are you sure you want to delete this article?");
-            if (x==true) { // do nothing  
-            }
-            else
-            { 
-                return false; //stop the delete
-            }
-        });
+        $('#delete').click(function() {
+        var x = confirm("Are you sure you want to delete this article?");
+        if (x==true) { // do nothing  
+        }
+        else
+        { 
+            return false; //stop the delete
+        }
+    });
 
 
 function validatePostForm()

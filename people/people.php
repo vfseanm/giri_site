@@ -77,7 +77,7 @@ mysqli_close($con);
 
     <!-- Page Content -->
 
-    <div class="container">
+    <div class="container" style="min-height:100%; margin-bottom:-205px; height:auto">
 
 
         <div class="row">
@@ -455,6 +455,8 @@ mysqli_close($con);
   </div>
 </div>
 <!-- **********************End Add Modal************************** -->
+        <div style="height:205px">
+        </div>
 </div>
 
     <?php

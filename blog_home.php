@@ -64,7 +64,7 @@ mysqli_close($con);
         if (loggedin()){
             ?>
                 <a href="#" data-toggle="modal" data-target="#newPostModal" style="font-size:18px">
-                <i class="fa fa-plus"></i> New News Post
+                <i class="fa fa-plus"></i> New News Article
                 </a>
         <?php
         }
@@ -150,11 +150,11 @@ mysqli_close($con);
     <div class="modal-content">
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-        <h4 class="modal-title" id="myModalLabel">New News Post</h4>
+        <h4 class="modal-title" id="myModalLabel">New News Article</h4>
       </div>
       <div class="modal-body">
 
-        <form class="form-horizontal" role="form" action="new_news_post.php" method="POST" enctype="multipart/form-data">
+        <form class="form-horizontal" role="form" action="new_news_post.php" method="POST" enctype="multipart/form-data" onsubmit="return validatePostForm()">
             <div class="form-group">
                 <label for="file" class="col-sm-2 control-label">Image</label>
                 <div class="col-sm-10">
@@ -163,19 +163,19 @@ mysqli_close($con);
             </div>
 
   <div class="form-group">
-    <label for="title" class="col-sm-2 control-label">Title</label>
+    <label for="title" class="col-sm-2 control-label">*Title</label>
     <div class="col-sm-10">
       <input type="text" class="form-control" id="title" name="title" value="Title">
     </div>
   </div>
   <div class="form-group">
-    <label for="teaser" class="col-sm-2 control-label">Teaser (optional)</label>
+    <label for="teaser" class="col-sm-2 control-label">Teaser</label>
     <div class="col-sm-10">
       <input type="text" class="form-control" id="teaser" name="teaser" value="Teaser">
     </div>
   </div>
     <div class="form-group">
-    <label for="video" class="col-sm-2 control-label">Embed Video (optional)</label>
+    <label for="video" class="col-sm-2 control-label">Embed Video</label>
     <div class="col-sm-10">
       <input type="text" class="form-control" id="video" name="video">
     </div>
@@ -185,6 +185,9 @@ mysqli_close($con);
     <div class="col-sm-10">
       <textarea id ="content" class="form-control" rows="8" name="content" style="width:600px">Content</textarea>
     </div>
+  </div>
+
+    <div id = "postValidation">
   </div>
 
   <div class="form-group">
@@ -212,8 +215,22 @@ mysqli_close($con);
 
 <script type="text/javascript" src="js/scrollpagination.js"></script>
 <script type="text/javascript">
+
+function validatePostForm()
+{
+var title = document.getElementById("title").value;
+
+if (title==null || title=="")
+  {
+  $('#postValidation').html("<div class='alert alert-danger'><p>You must enter a Title field.</p></div>").hide().fadeIn('slow');
+  return false;
+  }
+ 
+}
+
 var page = -1;
 var children = $('#contents').children().size();
+$('#loading').fadeOut();
 $(function(){
     $('#contents').scrollPagination(
         {

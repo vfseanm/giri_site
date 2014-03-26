@@ -216,7 +216,7 @@ mysqli_close($con);
 
 var page = -1;
 var children = $('#contents').children().size();
-console.log(children);
+$('#loading').fadeOut();
 $(function(){
     $('#contents').scrollPagination(
         {

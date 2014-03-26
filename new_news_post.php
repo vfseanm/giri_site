@@ -12,7 +12,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST")
 	$content = $_POST["content"];
 	$content = addslashes($content);
 	$teaser = $_POST["teaser"];
-	$teaser = addslashes($teaser)
+	$teaser = addslashes($teaser);
 	$video = $_POST["video"];
 	$video= addslashes($video);
 

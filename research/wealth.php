@@ -295,6 +295,7 @@ mysqli_close($con);
     <script type="text/javascript">
 var page = -1;
 var children = $('#contents').children().size();
+$('#loading').fadeOut();
 $(function(){
     $('#contents').scrollPagination(
         {
@@ -304,7 +305,6 @@ $(function(){
         'heightOffset': 10, // it gonna request when scroll is 10 pixels before the page ends
         'beforeLoad': function(){ // before load function, you can display a preloader div
             page ++;
-            console.log(page);
             $('#loading').fadeIn(); 
         },
         'afterLoad': function(elementsLoaded){ // after loading content, you can use this function to animate your new elements
@@ -313,7 +313,6 @@ $(function(){
              $(elementsLoaded).fadeInWithDelay();
              if ($('#contents').children().size() == children){ // no more results
                  $('#contents').stopScrollPagination();
-                 console.log("stopping pagination!");
             }
             else{
                 children = $('#contents').children().size();
