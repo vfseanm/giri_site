@@ -35,21 +35,10 @@ mysqli_close($con);
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="">
-    <meta name="author" content="">
-
+   
     <title><?php echo $title ?> - GIRI</title>
 
     <!-- Bootstrap core CSS -->
-
-    
-    <link href="css/bootstrap.css" rel="stylesheet">
-    <script src="js/jquery-1.10.2.js"></script>
-    <script src="js/bootstrap.min.js"></script>
-
-
-    <!-- Add custom CSS here -->
-    <link href="css/modern-business.css" rel="stylesheet">
-    <link href="font-awesome-4.0.3/css/font-awesome.min.css" rel="stylesheet">
 
         <?php 
     include('header_links.php');

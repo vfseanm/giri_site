@@ -1,7 +1,8 @@
 <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
         <div class="container">
+                <div class="col-lg-6 col-md-6">
             <div class="navbar-header">
-                <a class="navbar-brand hidden-xs" href="/index.php"><img src="/upload/combined_small.png" style="display:inline" class="img-responsive"></a>
+                <a class="navbar-brand hidden-xs" href="/index.php"><img src="/upload/combined_small.png" style="display:inline; padding-top:35px" class="img-responsive"></a>
                 <a class="navbar-brand visible-xs" href="/index.php"><img src="/upload/combined_smaller.png" style="display:inline; width:256px" class="img-responsive"></a>
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
                     <span class="sr-only">Toggle navigation</span>
@@ -12,11 +13,20 @@
                 <!-- You'll want to use a responsive image option so this logo looks good on devices - I recommend using something like retina.js (do a quick Google search for it and you'll find it) -->
              
             </div>
+        </div>
 
             <!-- Collect the nav links, forms, and other content for toggling -->
+                <div class="col-lg-6 col-md-6">
             <div class="collapse navbar-collapse navbar-ex1-collapse">
+                <div class="row">
+                <form action="/search.php" style="float:right; padding-top:16px; padding-bottom:1px" method="post">
+                    <input size="25" name="searchInput" style="padding:4px" placeholder="Search Events and News">
+                    <input type="submit" name="submit" value="Search" style="padding:4px;">
+                </form>
+            </div>
+            <div class="row">
                 
-                <ul class="nav navbar-nav navbar-right">
+                <ul class="nav navbar-nav navbar-right" style="margin-top:0px">
                     <li><a href="/about.php">About</a>
                     </li>
                     <li><a href="/people/people.php">People</a>
@@ -43,6 +53,8 @@
                     </li>
                 </ul>
             </div>
+            </div>
+        </div>
             <!-- /.navbar-collapse -->
         </div>
         <!-- /.container -->
