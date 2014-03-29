@@ -36,7 +36,7 @@ while($row = mysqli_fetch_array($result))
   	$item[4] = stripslashes($row['teaser']);
   	$item[5] = "";
   	$item[6] = "";
-  	$searchResults[] = $item;
+  	$searchResults[$row['id']] = $item;
   }
   mysqli_free_result($result);
 
@@ -54,7 +54,7 @@ while($row = mysqli_fetch_array($result))
   	$item[4] = stripslashes($row['teaser']);
   	$item[5] = $row['startdate'];
   	$item[6] = $row['enddate'];
-  	$searchResults[] = $item;
+  	$searchResults[$row['id']] = $item;
   }
   mysqli_free_result($result);
 
@@ -72,7 +72,7 @@ while($row = mysqli_fetch_array($result))
   	$item[4] = stripslashes($row['teaser']);
   	$item[5] = "";
   	$item[6] = "";
-  	$searchResults[] = $item;
+  	$searchResults[$row['id']] = $item;
   }
 
   mysqli_free_result($result);
@@ -91,7 +91,7 @@ while($row = mysqli_fetch_array($result))
   	$item[4] = stripslashes($row['teaser']);
   	$item[5] = $row['startdate'];
   	$item[6] = $row['enddate'];
-  	$searchResults[] = $item;
+  	$searchResults[$row['id']] = $item;
   }
   mysqli_free_result($result);
 
@@ -109,7 +109,7 @@ while($row = mysqli_fetch_array($result))
   	$item[4] = stripslashes($row['teaser']);
   	$item[5] = "";
   	$item[6] = "";
-  	$searchResults[] = $item;
+  	$searchResults[$row['id']] = $item;
   }
 
   mysqli_free_result($result);
@@ -128,12 +128,14 @@ while($row = mysqli_fetch_array($result))
   	$item[4] = stripslashes($row['teaser']);
   	$item[5] = $row['startdate'];
   	$item[6] = $row['enddate'];
-  	$searchResults[] = $item;
+  	$searchResults[$row['id']] = $item;
   }
   mysqli_free_result($result);
 
 
 mysqli_close($con);
+
+$searchResults = array_slice($searchResults, 0, 15);
 
 
 }
