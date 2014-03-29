@@ -281,9 +281,6 @@ mysqli_close($con);
 <!-- **********************End ADD Modal************************** -->
 
     <!-- JavaScript -->
-    <script src="/js/jquery-1.10.2.js"></script>
-    <script src="/js/bootstrap.min.js"></script>
-    <script src="/js/modern-business.js"></script>
     <script src="/js/bootstrap-datepicker.js"></script>
     <script src="/js/research.js"> </script>
     <!-- JavaScript -->
