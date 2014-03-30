@@ -39,8 +39,8 @@ mysqli_close($con);
 <meta charset="utf-8">
 <title>Image Gallery</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<link rel="stylesheet" href="http://netdna.bootstrapcdn.com/bootstrap/3.0.2/css/bootstrap.min.css">
-<link rel="stylesheet" href="http://blueimp.github.io/Gallery/css/blueimp-gallery.min.css">
+<link rel="stylesheet" href="/css/bootstrap.min.css">
+<link rel="stylesheet" href="/events/gallery/css/blueimp-gallery.min.css">
 <link href="/font-awesome-4.0.3/css/font-awesome.min.css" rel="stylesheet">
 <link rel="stylesheet" href="css/bootstrap-image-gallery.css">
 <link rel="stylesheet" href="css/demo.css">
@@ -154,10 +154,10 @@ mysqli_close($con);
         </div>
     </div>
 </div>
-<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+<script src="/js/jquery.min.js"></script>
 <!-- Bootstrap JS is not required, but included for the responsive demo navigation and button states -->
-<script src="http://netdna.bootstrapcdn.com/bootstrap/3.0.2/js/bootstrap.min.js"></script>
-<script src="http://blueimp.github.io/Gallery/js/jquery.blueimp-gallery.min.js"></script>
+<script src="/js/bootstrap.min.js"></script>
+<script src="/events/gallery/js/blueimp-gallery.min.js"></script>
 <script src="js/bootstrap-image-gallery.js"></script>
 <script src="js/demo.js"></script>
 </body> 
