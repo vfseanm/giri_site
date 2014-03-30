@@ -80,26 +80,10 @@ mysqli_close($con);
     </blockquote>
     <form class="form-inline">
         <div class="form-group">
-            <button id="video-gallery-button" type="button" class="btn btn-success btn-lg">
-                <i class="glyphicon glyphicon-film"></i>
-                Launch Video Gallery
-            </button>
-        </div>
-        <div class="form-group">
             <button id="image-gallery-button" type="button" class="btn btn-primary btn-lg" style="background-color: #7b1979;border-color: #622160;">
                 <i class="glyphicon glyphicon-picture"></i>
                 Launch Image Gallery
             </button>
-        </div>
-        <div class="btn-group" data-toggle="buttons">
-          <label class="btn btn-success btn-lg">
-            <i class="glyphicon glyphicon-leaf"></i>
-            <input id="borderless-checkbox" type="checkbox"> Borderless
-          </label>
-          <label class="btn btn-primary btn-lg">
-            <i class="glyphicon glyphicon-fullscreen"></i>
-            <input id="fullscreen-checkbox" type="checkbox"> Fullscreen
-          </label>
         </div>
     </form>
     <br>
