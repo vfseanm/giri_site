@@ -1,6 +1,11 @@
 <?php
 $id =$_GET["ID"];
+
+include('upload_file.php');
 session_start();
+
+upload_file("", $_GET["old_image"]);
+
 $con=mysqli_connect("localhost","giri_user","47nufkXUQIVTnGlg","giri");
 // Check connection
 if (mysqli_connect_errno())
