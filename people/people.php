@@ -52,8 +52,6 @@ mysqli_close($con);
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="">
-    <meta name="author" content="">
 
     <title>People - GIRI</title>
 
@@ -138,9 +136,12 @@ mysqli_close($con);
                             </h3>
                             <desc id = "desc_<?php echo $faculty[11]?>"> <?php echo $faculty[2]?> </desc>
                             <p>
-                               <a id = "link1_<?php echo $faculty[11]?>" href="<?php echo $faculty[5]?>"><?php echo $faculty[4]?></a> | 
-                               <a id = "link2_<?php echo $faculty[11]?>" href="<?php echo $faculty[7]?>"><?php echo $faculty[6]?></a> | 
+                               <a id = "link1_<?php echo $faculty[11]?>" href="<?php echo $faculty[5]?>"><?php echo $faculty[4]?></a>
+                               <?php if(strcmp($faculty[6], "")!=0) { ?> | 
+                               <a id = "link2_<?php echo $faculty[11]?>" href="<?php echo $faculty[7]?>"><?php echo $faculty[6]?></a>
+                               <?php } if(strcmp($faculty[8], "")!=0) { ?> | 
                                <a id = "link3_<?php echo $faculty[11]?>" href="<?php echo $faculty[9]?>"><?php echo $faculty[8]?></a>
+                               <?php } ?>
                             </p>
                         </div>
                     </div>
@@ -178,9 +179,12 @@ mysqli_close($con);
                             <?php } ?>
                             </h3>
                             <desc id = "desc_<?php echo $staff[11]?>"> <?php echo $staff[2]?> </desc>
-                            <p><a id = "link1_<?php echo $staff[11]?>" href="<?php echo $staff[5]?>"><?php echo $staff[4]?></a> | 
-                               <a id = "link2_<?php echo $staff[11]?>" href="<?php echo $staff[7]?>"><?php echo $staff[6]?></a> | 
+                            <p><a id = "link1_<?php echo $staff[11]?>" href="<?php echo $staff[5]?>"><?php echo $staff[4]?></a> 
+                              <?php if(strcmp($staff[6], "")!=0) { ?> | 
+                               <a id = "link2_<?php echo $staff[11]?>" href="<?php echo $staff[7]?>"><?php echo $staff[6]?></a> 
+                               <?php } if(strcmp($staff[8], "")!=0) { ?> | 
                                <a id = "link3_<?php echo $staff[11]?>" href="<?php echo $staff[9]?>"><?php echo $staff[8]?></a>
+                               <?php } ?>
                             </p>
                         </div>
                     </div>
@@ -217,9 +221,12 @@ mysqli_close($con);
                             <?php } ?>
                             </h3>
                             <desc id = "desc_<?php echo $fellow[11]?>"> <?php echo $fellow[2]?> </desc>
-                            <p><a id = "link1_<?php echo $fellow[11]?>" href="<?php echo $fellow[5]?>"><?php echo $fellow[4]?></a> | 
-                               <a id = "link2_<?php echo $fellow[11]?>" href="<?php echo $fellow[7]?>"><?php echo $fellow[6]?></a> |
+                            <p><a id = "link1_<?php echo $fellow[11]?>" href="<?php echo $fellow[5]?>"><?php echo $fellow[4]?></a>
+                            <?php if(strcmp($fellow[6], "")!=0) { ?> |  
+                               <a id = "link2_<?php echo $fellow[11]?>" href="<?php echo $fellow[7]?>"><?php echo $fellow[6]?></a>
+                               <?php } if(strcmp($fellow[8], "")!=0) { ?> | 
                                <a id = "link3_<?php echo $fellow[11]?>" href="<?php echo $fellow[9]?>"><?php echo $fellow[8]?></a>
+                               <?php } ?>
                             </p>
                         </div>
                     </div>
@@ -464,9 +471,7 @@ mysqli_close($con);
     ?>
 
     <!-- JavaScript -->
-    <script src="/js/jquery-1.10.2.js"></script>
-    <script src="/js/bootstrap.js"></script>
-    <script src="/js/modern-business.js"></script>
+
     <script src="/js/people.js"></script>
 
     <?php 

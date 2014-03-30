@@ -35,21 +35,10 @@ mysqli_close($con);
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="">
-    <meta name="author" content="">
-
+   
     <title><?php echo $title ?> - GIRI</title>
 
     <!-- Bootstrap core CSS -->
-
-    
-    <link href="css/bootstrap.css" rel="stylesheet">
-    <script src="js/jquery-1.10.2.js"></script>
-    <script src="js/bootstrap.min.js"></script>
-
-
-    <!-- Add custom CSS here -->
-    <link href="css/modern-business.css" rel="stylesheet">
-    <link href="font-awesome-4.0.3/css/font-awesome.min.css" rel="stylesheet">
 
         <?php 
     include('header_links.php');
@@ -77,7 +66,7 @@ include('navbar.php');
             ?>
                 <a href="#" data-toggle="modal" data-target="#postModal" style="font-size:24px;padding-left:20px">
                 <i class="fa fa-pencil"></i>edit</a>
-                <a href="delete_post.php?ID=<?php echo $postid ?>" id = "delete" class="red" style="font-size:24px;padding-left:20px">
+                <a href="delete_post.php?ID=<?php echo $postid ?>&old_image=<?php echo $image ?>" id = "delete" class="red" style="font-size:24px;padding-left:20px">
                 <i class="fa fa-times"></i>delete</a>
             </form>
         <?php
@@ -108,7 +97,7 @@ include('navbar.php');
                 <img src="<?php echo 'upload/' . $image ?>" class="img-responsive">
                 <?php } ?>
                 <?php if (loggedin() && strcmp($image, "")!=0){ ?>
-                    <a class="red" href="post_delete_image.php?ID=<?php echo $postid ?>"><i class="fa fa-times"></i>Delete Image</a>
+                    <a class="red" href="post_delete_image.php?ID=<?php echo $postid ?>&old_image=<?php echo $image ?>"><i class="fa fa-times"></i>Delete Image</a>
                   <?php } ?>
             </div>
                 
@@ -182,6 +171,8 @@ include('navbar.php');
       <textarea id ="summernote" class="textarea summernote" rows="8" name="content" style="width:600px"><?php echo $content ?></textarea>
     </div>
   </div>
+
+  <input type="hidden" value='<?php echo $image ?>' name="old_image">
 
   <div id = "postValidation">
   </div>

@@ -7,12 +7,11 @@
 <!-- Add custom CSS here -->
 <link href="/css/modern-business.css" rel="stylesheet">
 <link href="/font-awesome-4.0.3/css/font-awesome.min.css" rel="stylesheet">
-<link href="http://fonts.googleapis.com/css?family=Scada" rel='stylesheet' type='text/css'>
 
 <style type="text/css">
     .navbar-default .navbar-nav > li > a {
 font-size: 1.3em;
-padding-top:15px;
+padding-top:16px;
 padding-bottom:16px;
 }
 
@@ -43,6 +42,12 @@ padding-bottom:16px;
     background-color:#f2dede;
     border-color:#ebccd1;
     color:#a94442;
+}
+.page-header{
+  margin-top:21px;
+}
+body{
+  padding-top:0px;
 }
 </style>
 

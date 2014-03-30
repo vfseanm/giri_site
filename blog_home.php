@@ -35,8 +35,6 @@ mysqli_close($con);
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="">
-    <meta name="author" content="">
 
     <title>News - GIRI</title>
 
@@ -203,14 +201,6 @@ mysqli_close($con);
 </div>
 <!-- **********************End Modal************************** -->
 
-
-
-    <!-- JavaScript -->
-    <script src="js/jquery-1.10.2.js"></script>
-    <script src="js/bootstrap.js"></script>
-    <script src="js/modern-business.js"></script>
-
-<script src="//tinymce.cachefly.net/4.0/tinymce.min.js"></script>
 
 
 <script type="text/javascript" src="js/scrollpagination.js"></script>

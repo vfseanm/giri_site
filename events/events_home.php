@@ -8,7 +8,7 @@ if (mysqli_connect_errno())
   echo "Failed to connect to MySQL: " . mysqli_connect_error();
   }
 
-$result = mysqli_query($con, "SELECT * FROM events WHERE startdate > DATE_SUB(CURDATE(),INTERVAL 5 DAY) ORDER BY startdate LIMIT 4");
+$result = mysqli_query($con, "SELECT * FROM events WHERE startdate >= DATE_SUB(CURDATE(),INTERVAL 5 DAY) ORDER BY startdate LIMIT 4");
 
 $events = array();
 
@@ -33,8 +33,6 @@ mysqli_close($con);
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="">
-    <meta name="author" content="">
 
     <title>Events - GIRI</title>
 
@@ -59,12 +57,13 @@ mysqli_close($con);
     include("../navbar.php");
     ?>
 
-    <div class="container">
+    <div class="container" style="min-height:100%; margin-bottom:-205px; height:auto">
 
         <div class="row">
 
             <div class="col-lg-12">
-                <h1 class="page-header">GIRI Events
+                <h1 class="page-header">
+                  Upcoming Events
                 <?php
                 check_for_error();
                 ?>
@@ -76,10 +75,14 @@ mysqli_close($con);
                         </a>
                 <?php
                 }
-                ?>
+                ?><div class="col-md-6" style="float:right; text-align:right">
+              <a href="/events/events_past_home.php" style="font-size:16px;">See Past Events</a>
+            </div>
                  </h1>
             </div>
+
         </div>
+
 
         <div id="contents">
 
@@ -118,6 +121,8 @@ mysqli_close($con);
     </div>
 
     <div class="loading" id="loading">Loading More</div>
+         <div style="height:205px">
+        </div>
   </div>
 
     <?php
@@ -192,10 +197,7 @@ mysqli_close($con);
 <!-- **********************End Modal************************** -->
 
     <!-- JavaScript -->
-    <script src="/js/jquery-1.10.2.js"></script>
-    <script src="/js/bootstrap.min.js"></script>
     <script src="/js/bootstrap-datepicker.js"></script>
-    <script src="/js/modern-business.js"></script>
     <script src="/js/events.js"> </script>
 
         <?php 

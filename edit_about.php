@@ -4,7 +4,6 @@ include('upload_file.php');
 
 
 session_start();
-$file_path = upload_file($_FILES["file"]);
 
 
 if ($_SERVER["REQUEST_METHOD"] == "POST")
@@ -13,6 +12,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST")
 	$headline = addslashes($headline);
 	$content = $_POST["content"];
 	$content = addslashes($content);
+
+	$file_path = upload_file($_FILES["file"], $_POST["old_image"]);
 
 $con=mysqli_connect("localhost", "giri_user", "47nufkXUQIVTnGlg", "giri");
 
