@@ -8,7 +8,7 @@ if (mysqli_connect_errno())
   echo "Failed to connect to MySQL: " . mysqli_connect_error();
   }
 
-$result = mysqli_query($con, "SELECT * FROM events WHERE startdate >= DATE_SUB(CURDATE(),INTERVAL 5 DAY) ORDER BY startdate LIMIT 4");
+$result = mysqli_query($con, "SELECT * FROM events WHERE startdate < DATE_SUB(CURDATE(),INTERVAL 5 DAY) ORDER BY startdate DESC LIMIT 4");
 
 $events = array();
 
@@ -62,8 +62,7 @@ mysqli_close($con);
         <div class="row">
 
             <div class="col-lg-12">
-                <h1 class="page-header">
-                  Upcoming Events
+                <h1 class="page-header">Past Events
                 <?php
                 check_for_error();
                 ?>
@@ -76,7 +75,7 @@ mysqli_close($con);
                 <?php
                 }
                 ?><div class="col-md-6" style="float:right; text-align:right">
-              <a href="/events/events_past_home.php" style="font-size:16px;">See Past Events</a>
+              <a href="/events/events_home.php" style="font-size:16px;">See Upcoming Events</a>
             </div>
                  </h1>
             </div>
@@ -121,9 +120,12 @@ mysqli_close($con);
     </div>
 
     <div class="loading" id="loading">Loading More</div>
-         <div style="height:205px">
+      <div style="height:205px">
         </div>
   </div>
+
+
+
 
     <?php
     include('../footer.php');
@@ -222,7 +224,7 @@ $('#loading').fadeOut();
 $(function(){
     $('#contents').scrollPagination(
         {
-        'contentPage': 'events_home_content.php', // the url you are fetching the results
+        'contentPage': 'events_past_home_content.php', // the url you are fetching the results
         'contentData': {'page': function() {return page}}, // these are the variables you can pass to the request, for example: children().size() to know which page you are
         'scrollTarget': $(window), // who gonna scroll? in this example, the full window
         'heightOffset': 10, // it gonna request when scroll is 10 pixels before the page ends
