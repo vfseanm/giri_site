@@ -43,8 +43,11 @@ padding-bottom:16px;
     border-color:#ebccd1;
     color:#a94442;
 }
+.page-header{
+  margin-top:21px;
+}
 body{
-  padding-top:70px;
+  padding-top:0px;
 }
 </style>
 

@@ -1,8 +1,8 @@
-<nav class="navbar navbar-default navbar-fixed-top" role="navigation">
+<nav class="navbar navbar-default" role="navigation" style="margin-bottom:0px">
         <div class="container">
-                <div class="col-lg-6 col-md-6" style="padding-left:0px">
+                <div class="col-lg-6 col-md-6" style="padding-left:0px; padding-right:0px">
             <div class="navbar-header">
-                <a class="navbar-brand hidden-xs" href="/index.php"><img src="/upload/combined_small.png" style="display:inline; padding-top:35px" class="img-responsive"></a>
+                <a class="navbar-brand hidden-xs" href="/index.php"><img src="/upload/combined_small.png" style="display:inline; padding-top:15px" class="img-responsive"></a>
                 <a class="navbar-brand visible-xs" href="/index.php"><img src="/upload/combined_smaller.png" style="display:inline; width:256px" class="img-responsive"></a>
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
                     <span class="sr-only">Toggle navigation</span>
@@ -16,7 +16,7 @@
         </div>
 
             <!-- Collect the nav links, forms, and other content for toggling -->
-                <div class="col-lg-6 col-md-6">
+                <div class="col-lg-6 col-md-6" style="padding-left:0px; padding-right:0px">
             <div class="collapse navbar-collapse navbar-ex1-collapse">
                 <div class="row">
                 <form action="/search.php" style="float:right; padding-top:16px; padding-bottom:1px" method="post">

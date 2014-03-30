@@ -67,7 +67,7 @@ mysqli_close($con);
     ?>
 
 
-    <div id="myCarousel" class="carousel slide">
+    <div id="myCarousel" class="carousel slide" style="height:40%">
         <!-- Indicators -->
         <ol class="carousel-indicators">
           <?php
