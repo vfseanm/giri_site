@@ -1,6 +1,6 @@
 <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
         <div class="container">
-                <div class="col-lg-6 col-md-6">
+                <div class="col-lg-6 col-md-6" style="padding-left:0px">
             <div class="navbar-header">
                 <a class="navbar-brand hidden-xs" href="/index.php"><img src="/upload/combined_small.png" style="display:inline; padding-top:35px" class="img-responsive"></a>
                 <a class="navbar-brand visible-xs" href="/index.php"><img src="/upload/combined_smaller.png" style="display:inline; width:256px" class="img-responsive"></a>
