@@ -86,19 +86,23 @@ include('../navbar.php');
                   <?php if (loggedin() && strcmp($image, "")!=0){ ?>
                     <a class="red" href="delete_event_image.php?ID=<?php echo $id ?>"><i class="fa fa-times"></i>Delete Image</a>
                   <?php } ?>
-
-                  <?php if (!empty($gallery)) { ?>
+            
                   <div class="col-lg-12" style = "margin-top:10px;margin-bottom:10px;padding-left:0px">
+                  <?php if (!empty($gallery)) { ?>
                     <a href = "/events/gallery/index.php?ID=<?php echo $id ?>" style = "font-size:150%; padding-right:30px"> <i class="fa fa-camera fa-3"></i>Image Gallery</a>
                   <?php } ?>
 
                     <?php if (loggedin()){ ?>
                     <form action="upload_gallery.php?ID=<?php echo $id ?>" method="POST" style="display:inline;" enctype="multipart/form-data">
                       <input type="file" name="file[]" style="display:inline;" multiple>
-                      <input type="submit" style="display:inline;" class="btn btn-primary btn-sm" value="Upload">
+                      <input type="submit" style="display:inline;" class="btn btn-primary btn-sm" value="Upload to Image Gallery">
                     </form>
                     <?php } ?>
+
                   </div>
+
+
+
                 <?php echo $description ?>
 
             </div>
