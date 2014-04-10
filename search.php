@@ -214,7 +214,12 @@ $searchResults = array_slice($searchResults, 0, 15);
             </div>
                 
             <div class="col-lg-8">
-                <h3 style="margin-top:0px"><a href="post.php?ID=<?php echo $post[3] ?>"><?php echo $post[0] ?></a>
+                <h3 style="margin-top:0px"><?php if(strcmp($post[5], "")==0){ //it is an article ?>
+                  <a href="post.php?ID=<?php echo $post[3] ?>"><?php echo $post[0] ?></a>
+                  <?php }
+                  else { // it is an event ?>
+                  <a href="/events/event.php?ID=<?php echo $post[3] ?>"><?php echo $post[0] ?></a>
+                  <?php } ?>
                 </h3>
                 <?php if(strcmp($post[5], "")!=0){ ?>
                 <p class = "startdate">From: <b><?php echo $post[5] ?></b> to <b><?php echo $post[6] ?></b> </p>
