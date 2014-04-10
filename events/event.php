@@ -84,7 +84,7 @@ include('../navbar.php');
                 <img src="<?php echo '/upload/' . $image ?>" class="img-responsive">
                 <?php } ?>
                   <?php if (loggedin() && strcmp($image, "")!=0){ ?>
-                    <a class="red" href="delete_event_image.php?ID=<?php echo $id ?>"><i class="fa fa-times"></i>Delete Image</a>
+                    <a class="red" href="delete_event_image.php?ID=<?php echo $id ?>&old_image=<?php echo $image ?>"><i class="fa fa-times"></i>Delete Image</a>
                   <?php } ?>
             
                   <div class="col-lg-12" style = "margin-top:10px;margin-bottom:10px;padding-left:0px">
@@ -184,6 +184,8 @@ include('../navbar.php');
                   <textarea id ="description" class="form-control" name="description" value = "" style="width:600px"><?php echo $description ?></textarea>
                 </div>
               </div>
+
+                 <input type="hidden" value='<?php echo $image ?>' name="old_image">
 
               <div id = "postValidation">
               </div>
