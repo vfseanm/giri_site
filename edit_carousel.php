@@ -22,7 +22,6 @@ for($i = 0; $i<6; $i++){
 	$image = $_FILES['carouselfile'.($i+1)];
 	$file_path = upload_file($image);
 	if ($file_path != 'invalid'){
-		echo 'new image';
 		$car[1] = $file_path;
 	}
 	else{
@@ -35,6 +34,13 @@ for($i = 0; $i<6; $i++){
 	echo $cap;
 	$cap = str_replace(array("\n", "\r"), '', $cap);
 	$car[2] = $cap;
+
+	if (strcmp($_POST['link'.($i+1)], "") != 0){
+		$car[3] = $_POST['link'.($i+1)];
+	}
+	else{
+		$car[3] = "";
+	}
 	$carousel[$i] = $car;
 
 }
