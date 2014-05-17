@@ -23,6 +23,7 @@ while($row = mysqli_fetch_array($result))
     $image = $row['image'];
     $id = $row['id'];
     $gallery = json_decode($row['gallery']);
+    $video_gallery = json_decode($row['video_gallery']);
 }
 mysqli_close($con);
 ?>
@@ -89,7 +90,10 @@ include('../navbar.php');
             
                   <div class="col-lg-12" style = "margin-top:10px;margin-bottom:10px;padding-left:0px">
                   <?php if (!empty($gallery)) { ?>
-                    <a href = "/events/gallery/index.php?ID=<?php echo $id ?>" style = "font-size:150%; padding-right:30px"> <i class="fa fa-camera fa-3"></i>Image Gallery</a>
+                    <a href = "/events/gallery/index.php?ID=<?php echo $id ?>" style = "font-size:150%; padding-right:30px"> <i class="fa fa-camera fa-3"></i> Image Gallery</a>
+                  <?php } 
+                      if (!empty($video_gallery) || loggedin()){ ?>
+                        <a href = "/events/gallery/video_gallery.php?ID=<?php echo $id ?>" style = "font-size:150%; padding-right:30px"><i class="fa fa-video-camera"></i> Video Gallery</a>
                   <?php } ?>
 
                     <?php if (loggedin()){ ?>
