@@ -4,9 +4,7 @@ $(function(){
         return n[v]
     }
     var sdate = $('startdate');
-    var edate = $('enddate');
     rearrangeDate(sdate);
-    rearrangeDate(edate);
     function rearrangeDate(date) {
         var old = date.text().replace(/ /g,'').split('-');
         var monthName = getMonthName(parseInt(old[1]))
@@ -18,7 +16,6 @@ $(function(){
     dp2.datepicker({ dateFormat: "yyyy-mm-dd" });
     if (dp2.val() == "0000-00-00") { 
         var sdate = $('#dp').val();
-        $('enddate').text("");
         dp2.eq(0).val(sdate); dp2.datepicker("setValue", sdate); dp2.datepicker('update');
     }
     $('#delete').click(function() {

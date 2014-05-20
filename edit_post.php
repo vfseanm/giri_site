@@ -12,12 +12,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST")
 	$title = addslashes($title);
 	$content = $_POST["content"];
 	$content = addslashes($content);
-  	$teaser = $_POST["teaser"];
-  	$teaser = addslashes($teaser);
-  	$video = $_POST["video"];
-  	$video = addslashes($video);
+  $teaser = $_POST["teaser"];
+  $teaser = addslashes($teaser);
+  $video = $_POST["video"];
+  $video = addslashes($video);
 
-    $file_path = upload_file($_FILES["file"], $_POST["old_image"]);
+  $file_path = upload_file($_FILES["file"], $_POST["old_image"]);
 
 $con=mysqli_connect("localhost", "giri_user", "47nufkXUQIVTnGlg", "giri");
 

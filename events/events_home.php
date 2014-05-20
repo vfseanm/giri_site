@@ -8,7 +8,7 @@ if (mysqli_connect_errno())
   echo "Failed to connect to MySQL: " . mysqli_connect_error();
   }
 
-$result = mysqli_query($con, "SELECT * FROM events WHERE startdate >= DATE_SUB(CURDATE(),INTERVAL 5 DAY) ORDER BY startdate LIMIT 4");
+$result = mysqli_query($con, "SELECT * FROM events ORDER BY startdate DESC LIMIT 4");
 
 $events = array();
 
@@ -20,7 +20,7 @@ while($row = mysqli_fetch_array($result))
     $event[2] = stripslashes($row['description']);
     $event[3] = $row['image'];
     $event[4] = $row['id'];
-    $event[5] = $row['enddate'];
+    // $event[5] = $row['enddate'];
     $event[6] = stripslashes($row['teaser']);
     $events[] = $event;
 }
@@ -76,7 +76,6 @@ mysqli_close($con);
                 <?php
                 }
                 ?><div class="col-md-6" style="float:right; text-align:right">
-              <a href="/events/events_past_home.php" style="font-size:16px;">See Past Events</a>
             </div>
                  </h1>
             </div>
@@ -106,7 +105,7 @@ mysqli_close($con);
                     <a href="event.php?ID=<?php echo $event[4] ?>" class = "eventname"><?php echo $event[0]?></a>
                 </h3>
                 <?php { ?>
-                <p class = "startdate"> Starts: <b><?php echo $event[1] ?></b> </p>
+                <p class = "startdate"> <b><?php echo $event[1] ?></b> </p>
                 <?php } ?>
                 </p>
                 <p><?php echo $event[6] ?></p>
@@ -161,10 +160,6 @@ mysqli_close($con);
               <label for="headline" class="col-sm-2 control-label">*Start Date</label>
               <div class="col-sm-3">
                 <input id = "startdate" type="text" class="span2" value="" name="startdate" data-date-format="yyyy-mm-dd">
-              </div>
-               <label for="headline" class="col-sm-2 control-label">End Date</label>
-              <div class="col-sm-3">
-                <input id = "enddate" type="text" class="span2" value="" name="enddate" data-date-format="yyyy-mm-dd">
               </div>
             </div>
 

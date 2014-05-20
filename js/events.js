@@ -12,9 +12,7 @@ $(function(){
     if(mm<10) { mm='0'+mm } 
     today = yyyy+'-'+mm+'-'+dd;
     $('#startdate').val(today);
-    $('#enddate').val(today);
     $('#startdate').datepicker({ dateFormat: "yyyy-mm-dd" });
-    $('#enddate').datepicker({ dateFormat: "yyyy-mm-dd" });
     function rearrangeDate() {
         var dates = $('.startdate b');
         dates.contents().each(function(i,v) {

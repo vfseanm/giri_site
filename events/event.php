@@ -16,7 +16,6 @@ while($row = mysqli_fetch_array($result))
   {
     $name = stripslashes($row['name']);
     $startdate = $row['startdate'];
-    $enddate = $row['enddate'];
     $image = $row['image'];
     $teaser = stripslashes($row["teaser"]);
     $description = stripslashes($row['description']);
@@ -77,7 +76,7 @@ include('../navbar.php');
             <div class="col-lg-8">
 
                 <p class=""><i class="fa fa-clock-o"></i>
-                    Start date: <startdate class = "date" style="margin-right:20px"> <?php echo $startdate?> </startdate> 
+                    <startdate class = "date" style="margin-right:20px"> <?php echo $startdate?> </startdate> 
                 </p>
                 <hr>
                 <?php if ($image != "") { ?>
@@ -168,10 +167,6 @@ include('../navbar.php');
               <div class="col-sm-3">
                 <input type="text" class="span2" value="<?php echo $startdate ?>" id="dp" name="startdate" data-date-format="yyyy-mm-dd">
               </div>
-              <label for="headline" class="col-sm-2 control-label">End Date</label>
-              <div class="col-sm-3">
-                <input id = "dp2" type="text" class="span2" value="<?php echo $enddate ?>" name="enddate" data-date-format="yyyy-mm-dd">
-              </div>
             </div>
 
               <div class="form-group">
@@ -188,7 +183,7 @@ include('../navbar.php');
                 </div>
               </div>
 
-                 <input type="hidden" value='<?php echo $image ?>' name="old_image">
+              <input type="hidden" value='<?php echo $image ?>' name="old_image">
 
               <div id = "postValidation">
               </div>

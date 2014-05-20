@@ -39,7 +39,7 @@ if ((($file["type"] == "image/gif")
     }
   }
   else {
-     unlink($_SERVER['DOCUMENT_ROOT'] . "/upload/" . $old_file);
+     //unlink($_SERVER['DOCUMENT_ROOT'] . "/upload/" . $old_file);
     return 'invalid';
   }
       unlink($_SERVER['DOCUMENT_ROOT'] . "/upload/" . $old_file);
