@@ -105,7 +105,7 @@ mysqli_close($con);
                                   <?php } ?>
                                 </a>
                                 <p style="margin-top:5px">
-                                <small> <date id="date_<?php echo $article[6]?>"><?php echo $article[1] ?></date> | <location id="location_<?php echo $article[6]?>"><?php echo $article[2] ?> </location> | <author id="authors_<?php echo $article[6]?>"><?php echo $article[3] ?> </author> </small>
+                                <small> <author id="authors_<?php echo $article[6]?>"><?php echo $article[3] ?> </author> | <date id="date_<?php echo $article[6]?>"><?php echo $article[1] ?></date> | <location id="location_<?php echo $article[6]?>"><?php echo $article[2] ?> </location></small>
                                 </p>
                             </h4>
                         </div>

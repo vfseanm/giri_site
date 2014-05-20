@@ -90,11 +90,17 @@ mysqli_close($con);
             if(strcmp($car[0],"1")==0){
             ?>
             <div class="item <?php if ($count==0) echo 'active' ?>">
+              <?php if (strcmp($car[3], "")!=0){ ?>
+              <a href = "<?php echo $car[3] ?>">
+                <?php } ?>
+
                 <div class="fill" style="background-image:url('upload/<?php echo $car[1]; ?>');"></div>
                 <div class="carousel-caption">
                     <?php echo $car[2]; ?>
                     
                 </div>
+                <?php if (strcmp($car[3], "")!=0){ ?>
+              </a> <?php } ?>
             </div>
             <?php 
             $count +=1;
@@ -254,6 +260,12 @@ mysqli_close($con);
     <label for=" <?php echo $count; ?>" class="col-sm-2 control-label">Caption</label>
     <div class="col-sm-10">
       <textarea id ="caption<?php echo $count; ?>" class="form-control" name="caption<?php echo $count; ?>" style="width:600px; height:50px"><?php echo $car[2] ?></textarea>
+    </div>
+  </div>
+    <div class="form-group">
+    <label for="link<?php echo $count; ?>" class="col-sm-2 control-label">Link for Image</label>
+    <div class="col-sm-10">
+      <input type="text" class="form-control" id="link<?php echo $count; ?>" name="link<?php echo $count; ?>" value="<?php echo $car[3] ?>">
     </div>
   </div>
   <input type="hidden" value='<?php echo $car[1] ?>' name="old_image<?php echo $count; ?>">

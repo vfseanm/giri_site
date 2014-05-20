@@ -13,8 +13,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST")
 	$enddate = $_POST["enddate"];
 	$teaser = addslashes($_POST["teaser"]);
 	$description = addslashes($_POST["description"]);
-	$image = $_FILES["file"];
-	$file_path = upload_file($image);
+
+	$file_path = upload_file($_FILES["file"], $_POST["old_image"]);
 
 $con=mysqli_connect("localhost", "giri_user", "47nufkXUQIVTnGlg", "giri");
 

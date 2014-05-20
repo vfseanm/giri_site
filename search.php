@@ -59,6 +59,27 @@ while($row = mysqli_fetch_array($result))
   mysqli_free_result($result);
 
 
+// find research by title
+$result = mysqli_query($con, "SELECT * FROM research WHERE upper(title) LIKE '$search' ");
+
+while($row = mysqli_fetch_array($result))
+  {
+    $item = array();
+    $item[0] =  stripslashes($row['title']);
+    $item[1] = stripslashes($row['summary']);
+    $item[2] = "";
+    $item[3] = $row['document'];
+    $item[4] = stripslashes($row['summary']);
+    $item[5] = "research";
+    $item[6] = $row['publishdate'];
+    $item[7] = stripslashes($row['location']);
+    $item[8] = stripslashes($row['authors']);
+    $searchResults[$row['id']] = $item;
+   
+  }
+  mysqli_free_result($result);
+
+
 // find posts by teaser
   $result = mysqli_query($con, "SELECT * FROM post WHERE upper(teaser) LIKE '$search'");
 
@@ -95,6 +116,26 @@ while($row = mysqli_fetch_array($result))
   }
   mysqli_free_result($result);
 
+  // find research by authors
+$result = mysqli_query($con, "SELECT * FROM research WHERE upper(authors) LIKE '$search' ");
+
+while($row = mysqli_fetch_array($result))
+  {
+    $item = array();
+    $item[0] =  stripslashes($row['title']);
+    $item[1] = stripslashes($row['summary']);
+    $item[2] = "";
+    $item[3] = $row['document'];
+    $item[4] = stripslashes($row['summary']);
+    $item[5] = "research";
+    $item[6] = $row['publishdate'];
+    $item[7] = stripslashes($row['location']);
+    $item[8] = stripslashes($row['authors']);
+    $searchResults[$row['id']] = $item;
+   
+  }
+  mysqli_free_result($result);
+
 
   // find posts by content
   $result = mysqli_query($con, "SELECT * FROM post WHERE upper(content) LIKE '$search'");
@@ -120,15 +161,36 @@ while($row = mysqli_fetch_array($result))
 
 while($row = mysqli_fetch_array($result))
   {
-  	$item = array();
-  	$item[0] =  stripslashes($row['name']);
-  	$item[1] = stripslashes($row['description']);
-  	$item[2] = $row['image'];
-  	$item[3] = $row['id'];
-  	$item[4] = stripslashes($row['teaser']);
-  	$item[5] = $row['startdate'];
-  	$item[6] = $row['enddate'];
-  	$searchResults[$row['id']] = $item;
+        $item = array();
+    $item[0] =  stripslashes($row['name']);
+    $item[1] = stripslashes($row['description']);
+    $item[2] = $row['image'];
+    $item[3] = $row['id'];
+    $item[4] = stripslashes($row['teaser']);
+    $item[5] = $row['startdate'];
+    $item[6] = $row['enddate'];
+    $searchResults[$row['id']] = $item;
+  }
+  mysqli_free_result($result);
+
+
+    // find research by abstract
+$result = mysqli_query($con, "SELECT * FROM research WHERE upper(summary) LIKE '$search' ");
+
+while($row = mysqli_fetch_array($result))
+  {
+    $item = array();
+    $item[0] =  stripslashes($row['title']);
+    $item[1] = stripslashes($row['summary']);
+    $item[2] = "";
+    $item[3] = $row['document'];
+    $item[4] = stripslashes($row['summary']);
+    $item[5] = "research";
+    $item[6] = $row['publishdate'];
+    $item[7] = stripslashes($row['location']);
+    $item[8] = stripslashes($row['authors']);
+    $searchResults[$row['id']] = $item;
+   
   }
   mysqli_free_result($result);
 
@@ -202,21 +264,40 @@ $searchResults = array_slice($searchResults, 0, 15);
                 		else { ?>
                     		<img src="/upload/<?php echo $post[2] ?>" class="img-responsive">
                     	<?php } echo '</a>'; }
-                    else{  // it is an event ?>
-                    	<a href="/events/event.php?ID=<?php echo $post[3] ?>">
-                    	<?php if ($post[2] == ""){  // no image ?>
-                        	<img src="/events/default_event.png" class="img-responsive main">
+                    elseif(strcmp($post[5], "research")==0){  // it is research ?>
+                    <a href="/uploads/<?php echo $post[3] ?>">
+                          <img src="/Flat_Icons_5.png" class="img-responsive main">
+                        
+            <?php  echo '</a>'; } 
+                
+           else{ // it is an event ?>
+          <a href="/events/event.php?ID=<?php echo $post[3] ?>">
+                      <?php if ($post[2] == ""){  // no image ?>
+                          <img src="/events/default_event.png" class="img-responsive main">
                         <?php }
                         else { ?>
                         <img src="/upload/<?php echo $post[2] ?>" class="img-responsive">
-						<?php } echo '</a>'; } ?>
+            <?php } echo '</a>'; } ?>
 
             </div>
                 
             <div class="col-lg-8">
-                <h3 style="margin-top:0px"><a href="post.php?ID=<?php echo $post[3] ?>"><?php echo $post[0] ?></a>
+                <h3 style="margin-top:0px"><?php if(strcmp($post[5], "")==0){ //it is an article ?>
+                  <a href="post.php?ID=<?php echo $post[3] ?>"><?php echo $post[0] ?></a>
+                  <?php }
+                  elseif(strcmp($post[5], "research")==0){  // it is research ?>
+                  <a href="/uploads/<?php echo $post[3] ?>"><?php echo $post[0] ?></a>
+                  <?php } 
+
+                  else { // it is an event ?>
+                  <a href="/events/event.php?ID=<?php echo $post[3] ?>"><?php echo $post[0] ?></a>
+                  <?php } ?>
                 </h3>
-                <?php if(strcmp($post[5], "")!=0){ ?>
+                <?php if(strcmp($post[5], "research")==0){ ?>
+                <p><small> 
+                  <date><author><?php echo $post[8] ?> </author> | <?php echo $post[6] ?></date> | <location><?php echo $post[7] ?> </location> </small>
+                </p>
+                <?php } elseif(strcmp($post[5], "")!=0){ ?>
                 <p class = "startdate">From: <b><?php echo $post[5] ?></b> to <b><?php echo $post[6] ?></b> </p>
                 <?php } ?>
                 <p><?php echo $post[4] ?>
@@ -225,7 +306,13 @@ $searchResults = array_slice($searchResults, 0, 15);
             </div>
             <div class="row">
                 <div class="col-lg-12"> 
-                <a class="btn btn-success" href="post.php?ID=<?php echo $post[3] ?>">Read More <i class="fa fa-angle-right"></i></a>
+                  <?php if(strcmp($post[5], "research")==0){ ?>
+                <a class="btn btn-success" href="/uploads/<?php echo $post[3] ?>">Full pdf</a>
+                <?php } elseif(strcmp($post[5], "")!=0){ ?>
+                <a class="btn btn-success" href="/events/event.php?ID=<?php echo $post[3] ?>">View Event</a>
+                <?php } else{ ?>
+                <a class="btn btn-success" href="post.php?ID=<?php echo $post[3] ?>">View Post</a>
+                <?php } ?>
                 </div>
             </div>
                 <hr>
