@@ -77,7 +77,6 @@ include('../navbar.php');
 
                 <p class=""><i class="fa fa-clock-o"></i>
                     Start date: <startdate class = "date" style="margin-right:20px"> <?php echo $startdate?> </startdate> 
-                    End date: <enddate class = "date"> <?php echo $enddate?> </enddate>  
                 </p>
                 <hr>
                 <?php if ($image != "") { ?>

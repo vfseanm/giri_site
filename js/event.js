@@ -1,12 +1,16 @@
 $(function(){    
+    getMonthName = function (v) {
+        var n = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+        return n[v]
+    }
     var sdate = $('startdate');
     var edate = $('enddate');
     rearrangeDate(sdate);
     rearrangeDate(edate);
     function rearrangeDate(date) {
         var old = date.text().replace(/ /g,'').split('-');
-        var newDate = old[1]+'-'+old[2]+'-'+old[0];
-        var newDate = old[1]+'-'+old[2]+'-'+old[0];
+        var monthName = getMonthName(parseInt(old[1]))
+        var newDate = monthName+' '+old[2]+', '+old[0];
         date.eq(0).html("<strong>" + newDate + "</strong>");
     }
     $('#dp').datepicker({ dateFormat: "yyyy-mm-dd" });

@@ -105,9 +105,7 @@ mysqli_close($con);
                 <h3>
                     <a href="event.php?ID=<?php echo $event[4] ?>" class = "eventname"><?php echo $event[0]?></a>
                 </h3>
-                <?php if ($event[5] != "0000-00-00") { ?>
-                <p class = "startdate">From: <b><?php echo $event[1] ?></b> to <b><?php echo $event[5] ?></b> </p>
-                <?php } else { ?>
+                <?php { ?>
                 <p class = "startdate"> Starts: <b><?php echo $event[1] ?></b> </p>
                 <?php } ?>
                 </p>
