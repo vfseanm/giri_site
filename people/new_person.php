@@ -7,6 +7,9 @@ session_start();
 if ($_SERVER["REQUEST_METHOD"] == "POST")
 {
 	$name = addslashes($_POST["name"]);
+	$name = trim($name);
+	$splitname = explode(" ", $name);
+	$lastname = $splitname[1];
 	$position = addslashes($_POST["position"]);
 	$description = addslashes($_POST["description"]);
 	$role = $_POST["role"];
@@ -27,10 +30,10 @@ if (mysqli_connect_errno())
   echo "Failed to connect to MySQL: " . mysqli_connect_error();
   }
 if ($file_path == 'invalid'){
-	$result = mysqli_query($con, "INSERT INTO people (name, position, description, role, link1, link2, link3, link1name, link2name, link3name) VALUES ('$name', '$position', '$description', '$role', '$link1', '$link2', '$link3', '$link1name', '$link2name', '$link3name')");
+	$result = mysqli_query($con, "INSERT INTO people (name, lastname, position, description, role, link1, link2, link3, link1name, link2name, link3name) VALUES ('$name', '$lastname', '$position', '$description', '$role', '$link1', '$link2', '$link3', '$link1name', '$link2name', '$link3name')");
 }
 else{
-	$result = mysqli_query($con, "INSERT INTO people (name, position, description, role, link1, link2, link3, link1name, link2name, link3name, picture) VALUES ('$name', '$position', '$description', '$role', '$link1', '$link2', '$link3', '$link1name', '$link2name', '$link3name', '$file_path')");
+	$result = mysqli_query($con, "INSERT INTO people (name, lastname, position, description, role, link1, link2, link3, link1name, link2name, link3name, picture) VALUES ('$name', '$lastname', '$position', '$description', '$role', '$link1', '$link2', '$link3', '$link1name', '$link2name', '$link3name', '$file_path')");
 }
 
 mysqli_close($con);

@@ -7,9 +7,9 @@ if (mysqli_connect_errno())
   echo "Failed to connect to MySQL: " . mysqli_connect_error();
   }
 
-$result_faculty = mysqli_query($con, "SELECT * FROM people WHERE role = 'Faculty' ORDER BY name");
-$result_staff = mysqli_query($con, "SELECT * FROM people WHERE role = 'Staff' ORDER BY name");
-$result_fellows = mysqli_query($con, "SELECT * FROM people WHERE role = 'Fellow' ORDER BY name");
+$result_faculty = mysqli_query($con, "SELECT * FROM people WHERE role = 'Faculty' ORDER BY lastname");
+$result_staff = mysqli_query($con, "SELECT * FROM people WHERE role = 'Staff' ORDER BY lastname");
+$result_fellows = mysqli_query($con, "SELECT * FROM people WHERE role = 'Fellow' ORDER BY lastname");
 
 $faculties = array();
 while($row = mysqli_fetch_array($result_faculty))
@@ -200,9 +200,9 @@ mysqli_close($con);
                       <div class="row">
                          <div class="col-md-3">
                           <?php if ($fellow[3] != "") { ?>
-                               <img class="img-responsive main" src="/upload/<?php echo $fellow[3]?>">
+                               <img class="img-responsive main" id="picture_<?php echo $fellow[11]?>" src="/upload/<?php echo $fellow[3]?>">
                           <?php } else { ?>
-                              <img class="img-responsive main" src="no-picture.png">
+                              <img class="img-responsive main" id="picture_<?php echo $fellow[11]?>" src="no-picture.png">
                           <?php } ?>
                           <?php if (loggedin() && strcmp($fellow[3], "")!=0){ ?>
                             <a class="red" href="delete_person_picture.php?ID=<?php echo $fellow[11] ?>"><i class="fa fa-times"></i>Delete Image</a>

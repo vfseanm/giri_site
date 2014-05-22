@@ -9,6 +9,9 @@ session_start();
 if ($_SERVER["REQUEST_METHOD"] == "POST")
 {
 	$name = addslashes($_POST["name"]);
+	$name = trim($name);
+	$splitname = explode(" ", $name);
+	$lastname = $splitname[1];
 	$position = addslashes($_POST["position"]);
 	$description = addslashes($_POST["description"]);
 	$role = $_POST["role"];
@@ -29,10 +32,10 @@ if (mysqli_connect_errno())
   echo "Failed to connect to MySQL: " . mysqli_connect_error();
   }
 if ($file_path == 'invalid'){
-$result = mysqli_query($con, "UPDATE people SET name='$name', position='$position', description='$description', role='$role', link1='$link1', link2='$link2', link3='$link3', link1name='$link1name', link2name='$link2name', link3name='$link3name' WHERE id=$postid");
+$result = mysqli_query($con, "UPDATE people SET name='$name', lastname='$lastname', position='$position', description='$description', role='$role', link1='$link1', link2='$link2', link3='$link3', link1name='$link1name', link2name='$link2name', link3name='$link3name' WHERE id=$postid");
 }
 else{
-$result = mysqli_query($con, "UPDATE people SET name='$name', position='$position', description='$description', role='$role', link1='$link1', link2='$link2', link3='$link3', link1name='$link1name', link2name='$link2name', link3name='$link3name', picture='$file_path' WHERE id=$postid");
+$result = mysqli_query($con, "UPDATE people SET name='$name', lastname='$lastname', position='$position', description='$description', role='$role', link1='$link1', link2='$link2', link3='$link3', link1name='$link1name', link2name='$link2name', link3name='$link3name', picture='$file_path' WHERE id=$postid");
 }
 
 mysqli_close($con);

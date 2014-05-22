@@ -1,5 +1,6 @@
 $(function(){
     $(".fa.fa-pencil.main").click(function(event) {
+        console.log("clicked");
         var id = event.target.id;
         var role = $(event.target).attr('name');
         $("#role").val(role);
@@ -9,6 +10,7 @@ $(function(){
         var picSelector = "#picture_"+id;
         var selected = $(picSelector);
         var pic = selected.eq(0).attr("src");
+        console.log(pic);
         if (pic != "no-picture.png") {
           pic = pic.split('/');
           pic = pic[2];
