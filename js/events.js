@@ -17,7 +17,7 @@ $(function(){
         var dates = $('.startdate b');
         dates.contents().each(function(i,v) {
             var date = v.textContent.split('-');
-            var monthName = getMonthName(parseInt(date[1]))
+            var monthName = getMonthName(parseInt(date[1])-1)
             var newDate = monthName+' '+date[2]+', '+date[0];
             dates.eq(i).text(newDate);
         });

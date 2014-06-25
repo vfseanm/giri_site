@@ -7,7 +7,7 @@ $(function(){
     rearrangeDate(sdate);
     function rearrangeDate(date) {
         var old = date.text().replace(/ /g,'').split('-');
-        var monthName = getMonthName(parseInt(old[1]))
+        var monthName = getMonthName(parseInt(old[1])-1)
         var newDate = monthName+' '+old[2]+', '+old[0];
         date.eq(0).html("<strong>" + newDate + "</strong>");
     }
